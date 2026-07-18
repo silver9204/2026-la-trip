@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+.codex-qa/
+.codex-trusted-read/
+tmp/
+bridge/
+*.log
