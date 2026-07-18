@@ -347,6 +347,51 @@ button { font: inherit; }
 .timeline-item p { margin: 0; font-size: 14px; font-weight: 750; line-height: 1.5; }
 .timeline-item small { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; line-height: 1.5; }
 
+.day-map-section {
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 7px 22px rgba(35, 52, 68, .055);
+}
+.day-map-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px 14px;
+}
+.day-map-head h2 { margin: 3px 0 0; color: #36383b; font-size: 22px; }
+.map-day-chip {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: #368cf5;
+  background: #edf5ff;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.day-map-frame {
+  width: 100%;
+  height: clamp(260px, 48vw, 390px);
+  border-top: 1px solid #edf0f3;
+  border-bottom: 1px solid #edf0f3;
+  background: #e8eef3;
+}
+.day-map-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+.day-map-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 18px 14px;
+}
+.day-map-footer p { margin: 0; color: #7d858d; font-size: 12px; line-height: 1.5; }
+.day-map-footer a { flex: 0 0 auto; color: #368cf5; font-size: 12px; font-weight: 850; }
+
 .place-grid { display: grid; gap: 13px; }
 .place-card {
   overflow: hidden;
@@ -944,6 +989,8 @@ body {
   .hero { min-height: 285px; margin: 0 -2px; }
   .day-cover { min-height: 330px; margin: 0 -2px; border-radius: 20px; }
   .day-cover-content { left: 18px; right: 18px; bottom: 21px; }
+  .day-map-frame { height: 310px; }
+  .day-map-footer { align-items: flex-start; }
   .day-photo-source { max-width: 54%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   .itinerary-section { padding: 17px 14px; }
   .numbered-timeline .timeline-item { grid-template-columns: 32px 49px minmax(0, 1fr); gap: 7px; }

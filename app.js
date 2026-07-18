@@ -11,10 +11,8 @@ const LINKS = {
   garlandVoucher: "https://drive.google.com/file/d/1Ns5me4KjwAJ79fyC4aAgY3r8aKyr2jSB/view",
   jwVoucher: "https://drive.google.com/file/d/1GWdQgHtiDaIwToTWPZFugliDR0kplaY2/view",
   terraneaVoucher: "https://drive.google.com/file/d/1PSAntwTzj-9QdCg-CYTRrxEvG_V7jq4Z/view",
-  koreanAirAndroid: "https://play.google.com/store/apps/details?id=com.koreanair.passenger",
-  koreanAirIOS: "https://apps.apple.com/kr/app/korean-air-my/id1512918989",
-  hotelsAndroid: "https://play.google.com/store/apps/details?id=com.hcom.android",
-  hotelsIOS: "https://apps.apple.com/kr/app/hotels-com-book-hotels-more/id284971959"
+  koreanAir: "https://www.koreanair.com/",
+  hotels: "https://www.hotels.com/"
 };
 
 const DAY_MAPS = {
@@ -628,11 +626,35 @@ function mapAddress(address) {
 }
 
 function koreanAirAppUrl() {
-  return /iPhone|iPad|iPod/i.test(navigator.userAgent) ? LINKS.koreanAirIOS : LINKS.koreanAirAndroid;
+  return appLaunchUrl(LINKS.koreanAir, "com.koreanair.passenger");
 }
 
 function hotelsAppUrl() {
-  return /iPhone|iPad|iPod/i.test(navigator.userAgent) ? LINKS.hotelsIOS : LINKS.hotelsAndroid;
+  return appLaunchUrl(LINKS.hotels, "com.hcom.android");
+}
+
+function appLaunchUrl(webUrl, packageName) {
+  if (!/Android/i.test(navigator.userAgent)) return webUrl;
+  const destination = webUrl.replace(/^https?:\/\//, "");
+  return `intent://${destination}#Intent;scheme=https;package=${packageName};S.browser_fallback_url=${encodeURIComponent(webUrl)};end`;
+}
+
+function dayMapEmbedUrl(dayNumber) {
+  const source = DAY_MAPS[dayNumber] || LINKS.map;
+  const mid = source.match(/[?&]mid=([^&]+)/)?.[1];
+  return mid ? `https://www.google.com/maps/d/embed?mid=${encodeURIComponent(mid)}&ehbc=2E312F&noprof=1` : source;
+}
+
+function renderDayMap(day) {
+  const source = DAY_MAPS[day.day] || LINKS.map;
+  return `<section class="section day-map-section">
+    <div class="day-map-head">
+      <div><span class="section-kicker">DAY ${day.day} · ${day.date}</span><h2>지도</h2></div>
+      <span class="map-day-chip">${day.timeline.length}개 일정</span>
+    </div>
+    <div class="day-map-frame"><iframe src="${dayMapEmbedUrl(day.day)}" title="Day ${day.day} 이동 지도" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="day-map-footer"><p>지도를 움직이거나 핀을 눌러 방문지와 메모를 확인하세요.</p><a href="${source}" target="_blank" rel="noopener">크게 보기 ↗</a></div>
+  </section>`;
 }
 
 function renderHighlightCard(item) {
@@ -761,7 +783,7 @@ function renderHome() {
             </div>
           </article>
         </div>
-        <a class="airline-app-link" href="${koreanAirAppUrl()}" target="_blank" rel="noopener"><span>✈️ 대한항공 My 앱</span><small>체크인 · 탑승권 열기 ↗</small></a>
+        <a class="airline-app-link" href="${koreanAirAppUrl()}"><span>✈️ 대한항공 My 앱</span><small>설치된 앱에서 열기 ↗</small></a>
       </section>
 
       <section class="section">
@@ -774,7 +796,7 @@ function renderHome() {
       <section class="section">
         <div class="section-heading"><h2>숙소</h2></div>
         <div class="hotel-scroll-shell"><div class="hotel-timeline">${hotels.map((h, index) => `<article class="hotel-stop"><div class="hotel-marker"><span>${index + 1}</span></div><div class="hotel-card"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div></div>
-        <a class="hotels-app-link" href="${hotelsAppUrl()}" target="_blank" rel="noopener"><span>🏨 Hotels.com 앱</span><small>예약 · 바우처 확인 ↗</small></a>
+        <a class="hotels-app-link" href="${hotelsAppUrl()}"><span>🏨 Hotels.com 앱</span><small>설치된 앱에서 열기 ↗</small></a>
       </section>
 
       <section class="section">
@@ -787,7 +809,7 @@ function renderHome() {
         <div class="section-heading"><h2>빠른 실행</h2></div>
         <div class="quick-actions">
           ${extLink("Day 1 시작", "#day-1", "primary").replace('target="_blank" rel="noopener"', '')}
-          ${extLink("My Maps", LINKS.map)}
+          ${extLink("Day 1 지도", "#day-1", "").replace('target="_blank" rel="noopener"', '')}
           ${extLink("원본 일정", LINKS.source)}
           ${extLink("Drive 폴더", LINKS.folder)}
         </div>
@@ -818,8 +840,10 @@ function renderDay(day) {
 
       <nav class="day-tabs" aria-label="날짜 바로가기">${days.map(d => `<a href="#day-${d.day}" class="${d.day === day.day ? "active" : ""}"><b>day${d.day}</b><small>${d.date.split(" ")[0]}</small></a>`).join("")}</nav>
 
+      ${renderDayMap(day)}
+
       <section class="section itinerary-section">
-        <div class="section-heading itinerary-heading"><div><span class="section-kicker">${day.date} · ${day.hotel}</span><h2>오늘 일정</h2></div>${extLink("지도", DAY_MAPS[day.day] || LINKS.map, "map-link")}</div>
+        <div class="section-heading itinerary-heading"><div><span class="section-kicker">${day.date} · ${day.hotel}</span><h2>오늘 일정</h2></div></div>
         <div class="timeline numbered-timeline">${day.timeline.map(([time, title, note], index) => `<article class="timeline-item"><span class="timeline-number">${index + 1}</span><time>${time}</time><div class="timeline-card"><p>${title}</p><small>${note}</small></div></article>`).join("")}</div>
       </section>
 
@@ -872,7 +896,7 @@ function renderInfo() {
         <div class="restaurant-grid">${restaurants.map(([day, name, address, menu, tip]) => `<article class="restaurant-card"><span class="chip">${day}</span><h3>${name}</h3><p class="menu">${menu}</p><p>${tip}</p><a class="address-link" href="${mapAddress(address)}" target="_blank" rel="noopener">${address} ↗</a></article>`).join("")}</div>
       </section>
 
-      <section class="section quick-actions">${extLink("원본 일정", LINKS.source)}${extLink("My Maps", LINKS.map)}${extLink("Drive 폴더", LINKS.folder)}</section>
+      <section class="section quick-actions">${extLink("원본 일정", LINKS.source)}${extLink("Day별 지도", "#days").replace('target="_blank" rel="noopener"', '')}${extLink("Drive 폴더", LINKS.folder)}</section>
       <p class="privacy-note section">개인정보가 포함된 ESTA·항공권 파일은 공개 사이트에 직접 노출하지 않습니다. 필요한 경우 Google Drive 앱에서 별도로 확인하세요.</p>
     </div>`;
 }
@@ -887,7 +911,7 @@ function renderChecklist() {
       <p class="page-lead">체크한 항목은 이 기기에 저장됩니다. 출국 전날과 공항 출발 직전에 한 번씩 확인하세요.</p>
       <div class="checklist-grid">${checklistItems.map((item, index) => `<label class="check-item"><input type="checkbox" data-check="${index}" ${saved[index] ? "checked" : ""}><span>${item}</span></label>`).join("")}</div>
       <p class="check-progress"><strong>${done} / ${checklistItems.length}</strong> 완료</p>
-      <section class="section quick-actions">${extLink("대한항공 My 앱", koreanAirAppUrl())}${extLink("Drive 폴더", LINKS.folder)}${extLink("여행 시작 · Day 1", "#day-1", "primary").replace('target="_blank" rel="noopener"', '')}</section>
+      <section class="section quick-actions"><a class="action-link" href="${koreanAirAppUrl()}">대한항공 My 앱 ↗</a>${extLink("Drive 폴더", LINKS.folder)}${extLink("여행 시작 · Day 1", "#day-1", "primary").replace('target="_blank" rel="noopener"', '')}</section>
     </div>`;
 }
 
