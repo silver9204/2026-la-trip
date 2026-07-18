@@ -190,21 +190,21 @@ button { font: inherit; }
   cursor: pointer;
 }
 .hotel-scroll-controls button:active { transform: scale(.94); }
-.hotel-timeline {
-  display: flex;
-  gap: 13px;
+.hotel-scroll-shell {
   margin: 0 -18px;
   padding: 4px 18px 12px;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: 18px;
   overscroll-behavior-inline: contain;
   scrollbar-width: none;
 }
-.hotel-timeline::-webkit-scrollbar { display: none; }
+.hotel-scroll-shell::-webkit-scrollbar { display: none; }
+.hotel-timeline { display: flex; gap: 13px; width: max-content; }
 .hotel-stop { position: relative; flex: 0 0 clamp(272px, 82vw, 315px); padding-top: 27px; scroll-snap-align: start; }
 .hotel-stop::before { content: ""; position: absolute; top: 14px; left: 24px; right: -20px; height: 2px; background: #c9ddd7; }
 .hotel-stop:last-child::before { right: calc(100% - 25px); }
@@ -349,8 +349,8 @@ button { font: inherit; }
 .slide-hint { margin: 12px 0 0; color: var(--muted); text-align: center; font-size: 11px; }
 
 .all-days { display: grid; gap: 10px; margin-top: 20px; }
-.day-row { display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 12px; padding: 14px; text-decoration: none; border: 1px solid var(--line); border-radius: 19px; background: var(--card); }
-.day-number { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 16px; color: #fff; background: var(--green); font-size: 12px; font-weight: 900; }
+.day-row { display: grid; grid-template-columns: 66px 1fr auto; align-items: center; gap: 12px; padding: 14px; text-decoration: none; border: 1px solid var(--line); border-radius: 19px; background: var(--card); }
+.day-number { display: grid; place-items: center; width: 64px; height: 50px; border-radius: 16px; color: #fff; background: var(--green); font-size: 12px; font-weight: 900; white-space: nowrap; }
 .day-row h3 { margin: 0; font-size: 15px; }
 .day-row p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
 .day-row > span:last-child { color: var(--orange); font-size: 20px; }

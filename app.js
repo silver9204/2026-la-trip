@@ -47,7 +47,7 @@ const days = [
     actions: [["Day 2 상세 메모", LINKS.source], ["이 날 지도", LINKS.map]]
   },
   {
-    day: 3, date: "7/26 일", title: "LA 서쪽 하루", theme: "그리피스 · 할리우드 · 비벌리힐스 · 산타모니카", hotel: "The Garland",
+    day: 3, date: "7/26 일", title: "Hollywood & Santa Monica", theme: "그리피스 · 할리우드 · 비벌리힐스 · 산타모니카", hotel: "The Garland",
     timeline: [
       ["08:45", "호텔 출발", "그리피스 09:15 도착 목표"],
       ["09:15", "Griffith Observatory", "전망 감상 후 10:00 내부 관람"],
@@ -211,7 +211,8 @@ const checklistItems = [
   "아이들 유니폼 영문 이름 · 등번호 · 사이즈 메모",
   "보조배터리 · 충전기 · 미국용 어댑터",
   "여행자보험 · 상비약 · 선크림",
-  "My Maps와 이 여행 가이드를 홈 화면에 추가"
+  "너츠베리 팜 티켓 예약 · 오프라인 저장",
+  "미국용 유심/eSIM 설치 · 개통 확인"
 ];
 
 const app = document.querySelector("#app");
@@ -273,7 +274,7 @@ function renderHome() {
         </article>
         <a class="airline-app-link" href="${koreanAirAppUrl()}" target="_blank" rel="noopener"><span>✈️ 대한항공 My 앱</span><small>체크인 · 탑승권 열기 ↗</small></a>
         <div class="hotel-section-heading"><h3>숙소</h3><div class="hotel-scroll-controls"><button type="button" data-hotel-scroll="-1" aria-label="이전 숙소">‹</button><button type="button" data-hotel-scroll="1" aria-label="다음 숙소">›</button></div></div>
-        <div class="hotel-timeline">${hotels.map((h, index) => `<article class="hotel-stop"><div class="hotel-marker"><span>${index + 1}</span></div><div class="hotel-card"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div>
+        <div class="hotel-scroll-shell"><div class="hotel-timeline">${hotels.map((h, index) => `<article class="hotel-stop"><div class="hotel-marker"><span>${index + 1}</span></div><div class="hotel-card"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div></div>
         <a class="hotels-app-link" href="${hotelsAppUrl()}" target="_blank" rel="noopener"><span>🏨 Hotels.com 앱</span><small>예약 · 바우처 확인 ↗</small></a>
       </section>
 
@@ -331,7 +332,7 @@ function renderDay(day) {
 }
 
 function renderDays() {
-  return `<div class="page"><p class="eyebrow">10 nights · 11 days</p><h1 class="page-title">전체 일정</h1><p class="page-lead">날짜를 누르면 그날의 타임라인과 주차·예약 정보를 바로 확인할 수 있습니다.</p><div class="all-days">${days.map(d => `<a class="day-row" href="#day-${d.day}"><span class="day-number">DAY<br>${d.day}</span><span><h3>${d.title}</h3><p>${d.date} · ${d.hotel}</p></span><span>›</span></a>`).join("")}</div></div>`;
+  return `<div class="page"><p class="eyebrow">10 nights · 11 days</p><h1 class="page-title">전체 일정</h1><p class="page-lead">날짜를 누르면 그날의 타임라인과 주차·예약 정보를 바로 확인할 수 있습니다.</p><div class="all-days">${days.map(d => `<a class="day-row" href="#day-${d.day}"><span class="day-number">DAY ${d.day}</span><span><h3>${d.title}</h3><p>${d.date} · ${d.hotel}</p></span><span>›</span></a>`).join("")}</div></div>`;
 }
 
 function renderInfo() {
@@ -415,7 +416,7 @@ app.addEventListener("change", event => {
 app.addEventListener("click", event => {
   const control = event.target.closest("[data-hotel-scroll]");
   if (!control) return;
-  const timeline = app.querySelector(".hotel-timeline");
+  const timeline = app.querySelector(".hotel-scroll-shell");
   if (!timeline) return;
   const direction = Number(control.dataset.hotelScroll);
   timeline.scrollBy({ left: direction * Math.min(timeline.clientWidth * 0.85, 320), behavior: "smooth" });
