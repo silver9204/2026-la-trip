@@ -27,7 +27,7 @@ const days = [
     ],
     move: ["LAX → Hertz → The Garland", "공항에서 호텔까지 약 45–70분", "호텔 셀프주차 $50+세금"],
     tips: ["렌터카 외관·연료·트렁크 적재 상태 확인", "국제면허증과 예약 확인서 준비", "피곤하면 저녁은 호텔 The Front Yard로 대체"],
-    actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["이 날 지도", LINKS.map]]
+    actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 2, date: "7/25 토", title: "Exposition Park + LAFC", theme: "과학관 · 자연사박물관 · 축구 직관", hotel: "The Garland",
@@ -44,7 +44,7 @@ const days = [
     ],
     move: ["Blue Structure · 3855 S Figueroa St", "주차장 재입차 불가", "경기 후 바로 출차"],
     tips: ["출발 전 종일 주차·추가결제 방식 전화 확인", "유니폼 영문 철자·등번호·사이즈를 두 번 확인", "당일 마킹 완료는 사전 확답 필요", "경기 전날 게이트·킥오프·주차 안내 재확인"],
-    actions: [["Day 2 상세 메모", LINKS.source], ["이 날 지도", LINKS.map]]
+    actions: [["Day 2 상세 메모", LINKS.source], ["지도", LINKS.map]]
   },
   {
     day: 3, date: "7/26 일", title: "Hollywood & Santa Monica", theme: "그리피스 · 할리우드 · 비벌리힐스 · 산타모니카", hotel: "The Garland",
@@ -59,7 +59,7 @@ const days = [
     ],
     move: ["동쪽에서 서쪽으로 한 방향 이동", "Santa Monica 주차는 Lot 1 North 우선 검토", "Ovation Hollywood 주차 이용"],
     tips: ["그리피스 상단 주차 단속 시작 시간 확인", "산타모니카는 석양 시간에 맞춰 여유 있게", "쇼핑 시간은 유지하되 정체 시 할리우드 체류 축소"],
-    actions: [["이 날 지도", LINKS.map]]
+    actions: [["지도", LINKS.map]]
   },
   {
     day: 4, date: "7/27 월", title: "Universal Studios", theme: "테마파크 전일", hotel: "The Garland",
@@ -72,7 +72,7 @@ const days = [
     ],
     move: ["호텔 출발 셔틀: 매시 정각 기준", "유니버설 귀환: 매시 :15 기준", "체크인 시 예약 필요 여부 재확인"],
     tips: ["모바일 티켓을 미리 열어 로그인 확인", "추가 무료 1일은 체력·날씨에 따라 선택", "귀환 셔틀 막차 시간을 현장에서 확인"],
-    actions: [["Universal 티켓", LINKS.universal, "ticket"], ["이 날 지도", LINKS.map]]
+    actions: [["Universal 티켓", LINKS.universal, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 5, date: "7/28 화", title: "Getty + 스트릿 쇼핑", theme: "미술 · 쇼핑 · 애너하임 이동", hotel: "JW Marriott Anaheim",
@@ -88,7 +88,7 @@ const days = [
     ],
     move: ["Getty 주차 $25", "Tar Pits 주차 약 $15", "정체가 심하면 Tar Pits를 생략"],
     tips: ["Getty 예약은 10:00", "차량에 캐리어를 두므로 외부에 보이지 않게 적재", "Anaheim 러시아워를 고려해 16:30 이전 출발 권장"],
-    actions: [["Getty 예약 티켓", LINKS.getty, "ticket"], ["JW Marriott 바우처", LINKS.jwVoucher, "ticket"], ["이 날 지도", LINKS.map]]
+    actions: [["Getty 예약 티켓", LINKS.getty, "ticket"], ["JW Marriott 바우처", LINKS.jwVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 6, date: "7/29 수", title: "Knott’s Berry Farm", theme: "테마파크 · 호텔 수영장", hotel: "JW Marriott Anaheim",
@@ -100,7 +100,7 @@ const days = [
     ],
     move: ["호텔에서 약 10km · 20분", "파크 공식 주차장 약 $35"],
     tips: ["당일 개장·폐장시간 재확인", "Mrs. Knott’s Chicken Dinner는 대기시간 고려", "다음 날 DCA를 위해 무리하지 않기"],
-    actions: [["이 날 지도", LINKS.map]]
+    actions: [["지도", LINKS.map]]
   },
   {
     day: 7, date: "7/30 목", title: "Disney California Adventure", theme: "DCA 전일 · World of Color", hotel: "JW Marriott Anaheim",
@@ -112,7 +112,7 @@ const days = [
     ],
     move: ["호텔 전용 셔틀 없음", "JW Marriott에서 도보 이동", "보안검색 후 게이트 대기"],
     tips: ["성인·어린이 바우처를 각각 미리 열어 확인", "공연 관람 구역 또는 가상 대기열 확인", "보조배터리와 얇은 겉옷 준비"],
-    actions: [["성인 바우처", LINKS.dcaAdult, "ticket"], ["어린이 바우처", LINKS.dcaChild, "ticket"], ["이 날 지도", LINKS.map]]
+    actions: [["성인 바우처", LINKS.dcaAdult, "ticket"], ["어린이 바우처", LINKS.dcaChild, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 8, date: "7/31 금", title: "OC 쇼핑 + UCI", theme: "South Coast Plaza · 캠퍼스 · Huntington Beach", hotel: "JW Marriott Anaheim",
@@ -126,7 +126,7 @@ const days = [
     ],
     move: ["UCI Student Center Parking Structure", "General 2시간권 $8 권장", "Student Center → The Hill → Aldrich Park → Ring Mall → Infinity Fountain"],
     tips: ["UCI는 90분 산책으로 압축", "South Coast Plaza는 Polo·Patagonia 우선", "해변 주차 약 $15 예상"],
-    actions: [["이 날 지도", LINKS.map]]
+    actions: [["지도", LINKS.map]]
   },
   {
     day: 9, date: "8/1 토", title: "Terranea 이동", theme: "Del Amo · 해안 드라이브 · 리조트 입성", hotel: "Terranea Resort",
@@ -140,7 +140,7 @@ const days = [
     ],
     move: ["Anaheim → Del Amo 약 60–90분", "Del Amo 주차 무료", "Terranea 숙박 발렛 약 $75/박"],
     tips: ["객실 전 짐 보관 가능", "Point Vicente 체류는 체크인 시간에 맞춰 조정", "mar’sel 예약시간 재확인"],
-    actions: [["Terranea 바우처", LINKS.terraneaVoucher, "ticket"], ["이 날 지도", LINKS.map]]
+    actions: [["Terranea 바우처", LINKS.terraneaVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 10, date: "8/2 일", title: "Terranea 휴양", theme: "해안 산책 · 수영장 · Kids Club", hotel: "Terranea Resort",
@@ -152,7 +152,7 @@ const days = [
     ],
     move: ["리조트 내 도보 이동", "차량 이동 없는 휴양일"],
     tips: ["Vista Pool은 만 13세 이상", "Kids Club 이용 중 부모는 리조트 안에 있어야 함", "Resort Pool 운영 08:00–20:00 기준"],
-    actions: [["이 날 지도", LINKS.map]]
+    actions: [["지도", LINKS.map]]
   },
   {
     day: 11, date: "8/3 월", title: "LAX · 귀국", theme: "주유 · 렌터카 반납 · 대한항공", hotel: "귀국",
@@ -166,9 +166,134 @@ const days = [
     ],
     move: ["Terranea → LAX 약 40–60분", "Hertz 반납 후 셔틀 이동", "국제선 출발 3시간 전 공항 도착 목표"],
     tips: ["주유 영수증 보관", "차량과 트렁크에 짐이 남지 않았는지 확인", "라운지 위치·운영 여부는 체크인 카운터에서 최종 확인"],
-    actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["이 날 지도", LINKS.map]]
+    actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["지도", LINKS.map]]
   }
 ];
+
+const dayHighlights = {
+  1: [
+    {
+      kicker: "공항 도착 체크",
+      title: "LAX · 렌터카 픽업",
+      image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/e4cb43fe-da81-4b2d-9b08-0cca02e5b6e6",
+      alt: "LAX 공항 이동 차량",
+      summary: "트리플의 LAX 이동 상품도 4–5인용 미니밴 적재 기준을 캐리어 4개까지로 안내합니다. 렌터카를 받을 때 네 개가 모두 들어가는지 직접 확인하는 것이 핵심입니다.",
+      points: ["차량 인수 전에 캐리어 4개를 실제로 적재", "뒷유리 시야와 외부 노출 여부까지 확인"],
+      source: "https://triple.guide/tna/products/f25c268a-d9f4-4c7c-a929-f2c4797120a3",
+      sourceLabel: "트리플 LAX 이동 정보 참고"
+    }
+  ],
+  2: [
+    {
+      kicker: "아이들과 볼 것",
+      title: "Natural History Museum",
+      image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/deaee31c-3a1d-44a2-b7ee-4ed62d92a67c",
+      alt: "LA 자연사박물관 공룡 전시",
+      summary: "공룡 홀을 먼저 보면 짧은 시간에도 만족도가 높습니다. 실제 화석 300여 점과 완성형 공룡 골격 20점, 성장 단계별 티라노사우루스 전시가 대표 볼거리입니다.",
+      points: ["공룡 홀 우선 관람", "시간이 남으면 보석·광물 홀과 자연정원"],
+      source: "https://triple.guide/tna/products/20e6dffe-3297-4d3d-b439-798c4ed3ae9f",
+      sourceLabel: "트리플에서 전시 정보 보기"
+    },
+    {
+      kicker: "경기 전 준비",
+      title: "BMO Stadium · LAFC HQ",
+      summary: "아침에 주차한 뒤 LAFC HQ에서 유니폼 사이즈, 영문 이름과 등번호를 확정하세요. 당일 마킹 완료 시각을 받아두고 경기 입장 전에 수령하는 흐름이 가장 안전합니다.",
+      points: ["주문서와 영수증을 사진으로 저장", "16:30 전후 수령 가능 여부를 주문할 때 확답" ]
+    }
+  ],
+  3: [
+    {
+      kicker: "LA 대표 동선",
+      title: "Hollywood → Beverly Hills → Santa Monica",
+      image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/604781a9-d550-4ccc-9033-7fa1141d2af3",
+      alt: "로스앤젤레스 서부 주요 명소",
+      summary: "트리플의 LA 서부 투어도 할리우드, 로데오 드라이브, 산타모니카를 한 축으로 묶습니다. 현재 일정처럼 동쪽에서 서쪽으로 이동하면 역주행을 줄일 수 있습니다.",
+      points: ["Hollywood에서는 Walk of Fame·Chinese Theatre 중심", "Santa Monica는 피어와 석양 시간을 넉넉하게"],
+      source: "https://triple.guide/tna/products/a85deaa3-21a8-4fbb-9049-b1447baad6ca",
+      sourceLabel: "트리플에서 명소·사진 보기"
+    }
+  ],
+  4: [
+    {
+      kicker: "두 번 방문 포인트",
+      title: "Universal Studios Hollywood",
+      image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/a7cf1489-481c-4f87-aaa9-7b65480873a4",
+      alt: "유니버설 스튜디오 할리우드",
+      summary: "마리오 카트, 해리포터 구역, 스튜디오 투어를 첫 방문의 우선순위로 두세요. 추가 무료 1일은 놓친 어트랙션과 재탑승 위주로 짧게 쓰면 체력 부담이 적습니다.",
+      points: ["티켓은 출력 없이 스마트폰 입장 가능", "첫날은 인기 시설, 추가 방문은 여유 관람"],
+      source: "https://triple.guide/tna/products/82c26b51-448d-4c82-af49-dc3c2c2ffbdf",
+      sourceLabel: "트리플에서 2일 이용권 정보 보기"
+    }
+  ],
+  5: [
+    {
+      kicker: "예약 완료",
+      title: "The Getty Center",
+      image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/874a5f5f-8229-41d6-b3a8-f3457e9733ad",
+      alt: "게티 센터 전시 공간",
+      summary: "상설 컬렉션에서 모네, 렘브란트, 반 고흐 등 익숙한 작가를 먼저 찾고 건축과 정원으로 이어가면 아이들도 흐름을 잡기 쉽습니다.",
+      points: ["10:00 예약에 맞춰 주차장 도착", "작품 찾기 게임처럼 2–3개 대표작을 정해 관람"],
+      source: "https://triple.guide/tna/products/4b4df88e-8bd5-4fda-83d5-badb8f5369fb",
+      sourceLabel: "트리플에서 관람 포인트 보기"
+    }
+  ],
+  6: [
+    {
+      kicker: "가족 테마파크",
+      title: "Knott’s Berry Farm",
+      summary: "오전에는 가족이 함께 탈 인기 어트랙션을 먼저 보고, 오후에는 아이들 선호에 따라 스릴 라이드와 Camp Snoopy를 나누어 움직이세요.",
+      points: ["입장 직후 당일 운영 중단 시설 확인", "19:00 복귀 목표를 지켜 다음 날 체력 확보"]
+    }
+  ],
+  7: [
+    {
+      kicker: "하루 핵심 구역",
+      title: "Disney California Adventure",
+      image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/d7688082-6ace-4c5e-b1e4-3457416998ec",
+      alt: "디즈니 캘리포니아 어드벤처",
+      summary: "Avengers Campus와 Pixar Pier를 큰 축으로 잡으면 동선이 단순해집니다. 가족이 꼭 탈 시설을 각자 하나씩 정하고 World of Color 시간을 기준으로 저녁을 배치하세요.",
+      points: ["입장 전 성인·어린이 바우처를 각각 열어두기", "공연·가상 대기열은 공식 앱에서 당일 확인"],
+      source: "https://triple.guide/tna/products/45fe1c19-21da-4106-99dc-6daef952a57e",
+      sourceLabel: "트리플에서 파크 구성 보기"
+    }
+  ],
+  8: [
+    {
+      kicker: "오렌지카운티 하루",
+      title: "South Coast Plaza · UCI · Huntington Beach",
+      summary: "쇼핑을 오전에 끝낸 뒤 UCI는 추억과 캠퍼스 분위기에 집중한 90분 산책으로 압축하세요. 해변은 관광지 추가보다 산책과 저녁에 무게를 두는 편이 좋습니다.",
+      points: ["UCI Student Center Parking Structure 이용", "The Hill → Aldrich Park → Ring Mall → Infinity Fountain"]
+    }
+  ],
+  9: [
+    {
+      kicker: "리조트 입성일",
+      title: "Point Vicente → Terranea Resort",
+      summary: "Point Vicente는 전망과 짧은 산책만 즐기고, Terranea 체크인 뒤 해안 트레일과 저녁에 시간을 남겨두세요. 이 날의 목적지는 관광지보다 리조트 자체입니다.",
+      points: ["체크인 전 도착하면 짐부터 맡기기", "mar’sel 예약시간을 기준으로 산책 종료"]
+    }
+  ],
+  10: [
+    {
+      kicker: "이동 없는 휴양일",
+      title: "Terranea에서 천천히",
+      summary: "오전 해안 산책, 한낮 수영장, 늦은 오후 선셋으로 세 구간만 잡아두면 리조트를 충분히 누리면서도 일정에 쫓기지 않습니다.",
+      points: ["아이들과 Resort Pool·워터슬라이드 운영시간 확인", "Vista Pool은 만 13세 이상이므로 가족 동선에서 제외"]
+    }
+  ],
+  11: [
+    {
+      kicker: "귀국 동선",
+      title: "Terranea → LAX",
+      image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/e4cb43fe-da81-4b2d-9b08-0cca02e5b6e6",
+      alt: "LAX 공항 이동 차량",
+      summary: "차량 반납, 셔틀, 대한항공 체크인을 한 묶음으로 보고 역산하세요. 캐리어 4개와 가족이 함께 움직이므로 08:30 출발 계획을 늦추지 않는 편이 안전합니다.",
+      points: ["주유 영수증과 렌터카 반납 완료 화면 저장", "대한항공 프레스티지 체크인 뒤 라운지 위치 확인"],
+      source: "https://triple.guide/tna/products/f25c268a-d9f4-4c7c-a929-f2c4797120a3",
+      sourceLabel: "트리플 LAX 이동 정보 참고"
+    }
+  ]
+};
 
 const hotels = [
   {
@@ -233,6 +358,13 @@ function koreanAirAppUrl() {
 
 function hotelsAppUrl() {
   return /iPhone|iPad|iPod/i.test(navigator.userAgent) ? LINKS.hotelsIOS : LINKS.hotelsAndroid;
+}
+
+function renderHighlightCard(item) {
+  const media = item.image
+    ? `<a class="place-media" href="${item.source}" target="_blank" rel="noopener"><img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async"><span>${item.kicker}</span></a>`
+    : `<div class="place-media placeholder"><span>${item.kicker}</span><strong>${item.title}</strong></div>`;
+  return `<article class="place-card">${media}<div class="place-body"><h3>${item.title}</h3><p>${item.summary}</p><ul>${item.points.map(point => `<li>${point}</li>`).join("")}</ul>${item.source ? `<a class="place-source" href="${item.source}" target="_blank" rel="noopener">사진·정보: ${item.sourceLabel} ↗</a>` : ""}</div></article>`;
 }
 
 function checklistState() {
@@ -318,6 +450,8 @@ function renderHome() {
 function renderDay(day) {
   const prev = day.day > 1 ? days[day.day - 2] : null;
   const next = day.day < days.length ? days[day.day] : null;
+  const highlights = dayHighlights[day.day] || [];
+  const detailActions = day.actions.filter(([, href]) => href !== LINKS.map);
   return `
     <article class="page day-page" data-day="${day.day}">
       <header class="day-hero">
@@ -326,9 +460,16 @@ function renderDay(day) {
         <p class="theme">${day.theme}</p>
       </header>
 
+      <div class="day-map-action">${extLink("지도", LINKS.map, "primary")}</div>
+
       <section class="section">
         <div class="section-heading"><h2>오늘의 흐름</h2></div>
         <div class="timeline">${day.timeline.map(([time, title, note]) => `<div class="timeline-item"><time>${time}</time><div><p>${title}</p><small>${note}</small></div></div>`).join("")}</div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>방문지 미리보기</h2></div>
+        <div class="place-grid">${highlights.map(renderHighlightCard).join("")}</div>
       </section>
 
       <section class="section card-stack">
@@ -336,10 +477,10 @@ function renderDay(day) {
         <article class="info-card warn"><h3>✓ 꼭 확인</h3><ul class="info-list">${day.tips.map(x => `<li>${x}</li>`).join("")}</ul></article>
       </section>
 
-      <section class="section">
+      ${detailActions.length ? `<section class="section">
         <div class="section-heading"><h2>이 날 필요한 링크</h2></div>
-        <div class="button-row">${day.actions.map(([label, href, kind]) => extLink(label, href, kind)).join("")}</div>
-      </section>
+        <div class="button-row">${detailActions.map(([label, href, kind]) => extLink(label, href, kind)).join("")}</div>
+      </section>` : ""}
 
       <nav class="slide-controls" aria-label="날짜 이동">
         ${prev ? `<a href="#day-${prev.day}">← Day ${prev.day}<br>${prev.title}</a>` : `<a href="#home">← 여행 홈</a>`}
