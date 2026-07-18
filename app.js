@@ -263,7 +263,7 @@ function renderHome() {
       </section>
 
       <section class="section flight-section">
-        <div class="home-section-heading"><h3>항공권</h3></div>
+        <div class="section-heading"><h2>항공권</h2></div>
         <div class="flight-timeline" aria-label="왕복 항공편">
           <article class="flight-leg">
             <span class="flight-marker">↗</span>
@@ -281,11 +281,17 @@ function renderHome() {
           </article>
         </div>
         <a class="airline-app-link" href="${koreanAirAppUrl()}" target="_blank" rel="noopener"><span>✈️ 대한항공 My 앱</span><small>체크인 · 탑승권 열기 ↗</small></a>
-        <div class="home-section-heading"><h3>출발 전 Checklist</h3><span class="check-progress">${done} / ${checklistItems.length} 완료</span></div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>출발 전 Checklist</h2><span class="check-progress">${done} / ${checklistItems.length} 완료</span></div>
         <article class="home-checklist">
           <div class="home-checklist-scroll">${checklistItems.map((item, index) => `<label class="check-item"><input type="checkbox" data-check="${index}" ${saved[index] ? "checked" : ""}><span>${item}</span></label>`).join("")}</div>
         </article>
-        <div class="home-section-heading"><h3>숙소</h3></div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>숙소</h2></div>
         <div class="hotel-scroll-shell"><div class="hotel-timeline">${hotels.map((h, index) => `<article class="hotel-stop"><div class="hotel-marker"><span>${index + 1}</span></div><div class="hotel-card"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div></div>
         <a class="hotels-app-link" href="${hotelsAppUrl()}" target="_blank" rel="noopener"><span>🏨 Hotels.com 앱</span><small>예약 · 바우처 확인 ↗</small></a>
       </section>
