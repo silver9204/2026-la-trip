@@ -252,7 +252,7 @@ const days = [
       ["18:00", "선셋", "Nelson’s 또는 리조트 식사"]
     ],
     move: ["리조트 내 도보 이동", "차량 이동 없는 휴양일"],
-    tips: ["Vista Pool은 만 13세 이상", "Kids Club 이용 중 부모는 리조트 안에 있어야 함", "Resort Pool 운영 08:00–20:00 기준"],
+    tips: ["Cielo Point Pool은 만 21세 이상으로 가족 동선에서 제외", "Kids Club 이용 중 부모는 리조트 안에 있어야 함", "Resort Pool 운영 08:00–20:00 기준"],
     actions: [["지도", LINKS.map]]
   },
   {
@@ -457,7 +457,7 @@ const dayHighlights = {
       image: "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/terranea-resort/terranea392412-1/site-images/offers/third-night-complimentary-of-terranea-resort-rancho-palos-verdes-california.jpg",
       alt: "태평양 절벽 위 Terranea Resort",
       summary: "오전 해안 산책, 한낮 수영장, 늦은 오후 선셋으로 세 구간만 잡아두면 리조트를 충분히 누리면서도 일정에 쫓기지 않습니다.",
-      points: ["아이들과 Resort Pool·워터슬라이드 운영시간 확인", "Vista Pool은 만 13세 이상이므로 가족 동선에서 제외"],
+      points: ["아이들과 Resort Pool·워터슬라이드 운영시간 확인", "Cielo Point Pool은 만 21세 이상이므로 가족 동선에서 제외"],
       source: "https://www.terranea.com/gallery",
       sourceLabel: "Terranea Resort 공식 갤러리"
     }
@@ -490,6 +490,7 @@ const attractionGuides = {
     title: "Universal 대표 어트랙션",
     note: "키 제한은 공식 최소 신장입니다. 보호자 동반 조건은 현장에서 다시 확인하고, Thrill은 우리 가족 기준 체감 1–5입니다.",
     source: "https://www.universalstudioshollywood.com/web/en/us/ride-height-requirements",
+    flow: "입장 직후 공식 앱에서 대기를 확인한 뒤 Super Nintendo World → Jurassic World → Mummy로 Lower Lot을 한 번에 봅니다. 점심 전후 Studio Tour, 오후 Harry Potter·Pets 순으로 올라오면 층간 이동을 줄일 수 있습니다.",
     items: [
       ["Mario Kart: Bowser’s Challenge", "102cm", "AR · 3D/4D 인터랙티브", 3],
       ["Jurassic World – The Ride", "107cm", "워터 라이드 · 급강하", 4],
@@ -505,6 +506,7 @@ const attractionGuides = {
     title: "Knott’s 인기 어트랙션",
     note: "키 제한은 공식 안내 기준이며, 보호자 동반 조건은 현장에서 다시 확인하세요. Thrill은 우리 가족 기준 체감 1–5입니다.",
     source: "https://www.sixflags.com/knotts/attractions",
+    flow: "개장 직후 GhostRider를 먼저 확인하고 Ghost Town의 가족 라이드를 묶어 봅니다. 점심 뒤에는 스릴 라이드 팀과 Camp Snoopy·Bear-y Tales 팀으로 잠시 나눴다가 17:00 식사 전에 다시 합류하세요.",
     items: [
       ["GhostRider", "122cm", "대형 우든 코스터", 5],
       ["HangTime", "122–196cm", "다이브 코스터 · 96° 낙하", 5],
@@ -516,8 +518,9 @@ const attractionGuides = {
   },
   7: {
     title: "DCA 인기 어트랙션",
-    note: "키 제한은 Disneyland 공식 최소 신장입니다. 7월 30일에는 새 버전 Soarin’ Across America가 운영될 예정이며, Thrill은 우리 가족 기준 체감 1–5입니다.",
+    note: "키 제한은 Disneyland 공식 최소 신장입니다. 여행일은 Soarin’ Across America의 2026년 7월 2일 개장 이후이며 당일 운영 여부는 공식 앱에서 확인하세요. Thrill은 우리 가족 기준 체감 1–5입니다.",
     source: "https://disneyland.disney.go.com/en-ca/attractions/disney-california-adventure/",
+    flow: "입장 직후 Radiator Springs Racers 또는 Guardians 중 대기가 짧은 한 곳을 먼저 봅니다. Avengers Campus → Pixar Pier → Grizzly Peak 순으로 이동하고, 저녁에는 식사와 World of Color 관람 위치 확보에 시간을 남기세요.",
     items: [
       ["Radiator Springs Racers", "102cm", "Cars 다크 라이드 · 야외 레이스", 4],
       ["Guardians of the Galaxy – Mission: BREAKOUT!", "102cm", "프리폴 드롭 타워 · 실내", 5],
@@ -578,9 +581,51 @@ const day5Route = [
   ["12:30", "Getty → Supreme", "차량 약 25분", "8801 Sunset Blvd 인근 유료주차 또는 발렛. 점심과 매장 방문을 한 번에"],
   ["13:50", "Supreme → Glossier", "차량 10–15분", "8407 Melrose Ave 인근 유료주차. 매장 사이는 걷지 말고 차로 분리"],
   ["14:30", "Glossier → Stüssy", "차량 5–10분", "112 S La Brea Ave 인근 미터 주차 또는 유료주차"],
-  ["15:20", "Stüssy → Tar Pits", "차량 5–10분", "5801 Wilshire Blvd · Curson Ave & 6th St 주차장. 카드만 가능"],
+  ["15:20", "Stüssy → Tar Pits", "차량 5–10분", "5801 Wilshire Blvd · Curson Ave & 6th St 주차장. 카드만 가능 · $20 flat rate 기준"],
   ["16:20", "Tar Pits → Anaheim", "차량 75–120분", "1775 S Clementine St 도착 후 호텔 발렛. 러시아워가 심하면 Tar Pits 생략"]
 ];
+
+const practicalGuides = {
+  1: {
+    title: "도착일 실행 순서",
+    lead: "장거리 비행 뒤에는 선택지를 늘리지 말고 입국, 차량, 호텔, 저녁 네 단계만 순서대로 끝냅니다.",
+    type: "route",
+    items: [
+      ["15:20–17:00", "입국 · 수하물", "LAX 도착 절차", "가족이 한 지점에서 다시 모인 뒤 렌터카 셔틀 승차장으로 이동"],
+      ["17:00", "Hertz 차량 인수", "셔틀 → 계약 확인", "운전자 등록·연료 방식·기존 손상·캐리어 4개 적재 상태를 확인하고 사진 촬영"],
+      ["19:00", "The Garland 체크인", "주차 → 프런트", "차량에 짐을 남기지 말고 보증금·주차 방식·Universal 셔틀 시간을 확인"],
+      ["19:30", "첫 저녁", "In-N-Out 또는 호텔", "피로가 크면 운전을 추가하지 않고 The Front Yard로 바로 대체"]
+    ]
+  },
+  10: {
+    title: "Terranea 하루 선택지",
+    lead: "모든 프로그램을 넣기보다 날씨와 가족 체력에 맞춰 산책, 수영장, Kids Club, 해양 체험 중 2–3가지만 고르세요.",
+    type: "activity",
+    items: [
+      ["Coastal Trail", "아침 60–90분 산책 · Point Vicente와 해안 절벽 전망을 보며 무리 없는 구간만 왕복"],
+      ["Resort Pool", "가족용 풀 08:00–20:00 · 140ft 워터슬라이드는 11:00–16:00 기준"],
+      ["Kids Club", "만 3–12세, 배변 훈련 완료 조건의 drop-off 프로그램 · 부모는 리조트 안에 있어야 하며 예약 권장"],
+      ["Tide Pool · Kayak", "바람과 파도에 따라 운영되는 유료 체험 · 전날 Experience Center에서 가능 시간 확인"],
+      ["선셋과 저녁", "Nelson’s에서 캐주얼하게 보거나 mar’sel 예약을 기준으로 오후 활동 종료"]
+    ],
+    source: "https://www.terranea.com/experiences",
+    sourceLabel: "Terranea 공식 Experiences"
+  },
+  11: {
+    title: "귀국일 역산 체크",
+    lead: "렌터카 반납부터 체크인, 라운지, 게이트 이동까지 한 단계씩 완료 화면을 남기면 가족이 흩어져도 진행 상황을 공유하기 쉽습니다.",
+    type: "route",
+    items: [
+      ["07:30", "조식 · 체크아웃", "Terranea", "객실·금고·충전기 확인 후 프런트 최종 정산"],
+      ["08:00", "LAX 방면 출발", "40–60분 + 정체 버퍼", "공항 직전 주유소 한 곳만 정하고 우회 동선은 만들지 않기"],
+      ["09:00", "Hertz 반납", "차량 촬영 → 영수증", "연료·외관·트렁크를 촬영하고 반납 완료 화면 확인 후 셔틀 탑승"],
+      ["09:30", "대한항공 체크인", "Prestige Class", "수하물 위탁 뒤 당일 이용 라운지 위치와 운영시간을 카운터에서 확인"],
+      ["탑승 전", "라운지 → 게이트", "Boarding time 기준", "라운지에서 게이트까지 걸리는 시간을 확인하고 탑승 시작 전에 이동"]
+    ],
+    source: "https://www.koreanair.com/contents/plan-your-travel/at-the-airport/lounge",
+    sourceLabel: "대한항공 공식 라운지 안내"
+  }
+};
 
 const hotels = [
   {
@@ -711,7 +756,22 @@ function renderAttractionGuide(dayNumber) {
     <div class="section-heading"><h2>${guide.title}</h2></div>
     <p class="guide-lead">${guide.note}</p>
     <div class="attraction-grid">${guide.items.map(([name, height, type, thrill]) => `<article class="attraction-card"><h3>${name}</h3><dl><div><dt>키 제한</dt><dd>${height}</dd></div><div><dt>형태</dt><dd>${type}</dd></div></dl>${thrillMeter(thrill)}</article>`).join("")}</div>
+    ${guide.flow ? `<div class="flow-note"><strong>추천 공략 흐름</strong><p>${guide.flow}</p></div>` : ""}
     <a class="guide-source" href="${guide.source}" target="_blank" rel="noopener">공식 어트랙션 안내 확인 ↗</a>
+  </section>`;
+}
+
+function renderPracticalGuide(dayNumber) {
+  const guide = practicalGuides[dayNumber];
+  if (!guide) return "";
+  const content = guide.type === "route"
+    ? `<div class="route-list">${guide.items.map(([time, title, mode, note]) => `<article><time>${time}</time><div><h3>${title}</h3><span>${mode}</span><p>${note}</p></div></article>`).join("")}</div>`
+    : `<div class="activity-grid">${guide.items.map(([title, note], index) => `<article><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${note}</p></div></article>`).join("")}</div>`;
+  const source = guide.source ? `<a class="guide-source" href="${guide.source}" target="_blank" rel="noopener">${guide.sourceLabel} ↗</a>` : "";
+  return `<section class="section feature-guide practical-guide">
+    <div class="section-heading"><h2>${guide.title}</h2></div>
+    <p class="guide-lead">${guide.lead}</p>
+    ${content}${source}
   </section>`;
 }
 
@@ -879,6 +939,7 @@ function renderDay(day) {
       ${day.day === 5 ? renderDay5Route() : ""}
       ${day.day === 8 ? renderDay8Guide() : ""}
       ${day.day === 9 ? renderDay9Guide() : ""}
+      ${practicalGuides[day.day] ? renderPracticalGuide(day.day) : ""}
 
       ${day.day !== 2 ? `<section class="section card-stack day-notes">
         <article class="info-card accent"><span class="note-icon">↗</span><div><h3>이동 · 주차</h3><ul class="info-list">${day.move.map(x => `<li>${x}</li>`).join("")}</ul></div></article>
@@ -919,7 +980,6 @@ function renderInfo() {
       </section>
 
       <section class="section quick-actions">${extLink("원본 일정", LINKS.source)}${extLink("Day별 지도", "#days").replace('target="_blank" rel="noopener"', '')}${extLink("Drive 폴더", LINKS.folder)}</section>
-      <p class="privacy-note section">개인정보가 포함된 ESTA·항공권 파일은 공개 사이트에 직접 노출하지 않습니다. 필요한 경우 Google Drive 앱에서 별도로 확인하세요.</p>
     </div>`;
 }
 
