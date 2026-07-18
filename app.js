@@ -646,31 +646,34 @@ const hotels = [
   {
     stay: "7/24–7/28 · 4박", name: "The Garland", address: "4222 Vineland Ave, North Hollywood, CA 91602",
     checkin: "15:00", checkout: "12:00", room: "Deluxe Room · Queen Bed 2개 · 금연", voucher: LINKS.garlandVoucher,
+    image: "assets/info/hotel-garland.jpg", imageAlt: "The Garland 호텔과 트롤리", photoSource: "https://www.thegarland.com/hotel/gallery",
     tips: ["Universal 셔틀: 호텔 매시 정각 · 귀환 매시 :15 기준", "수영장 06:00–22:00", "The Front Yard는 파티오 좌석 요청", "셀프주차 $50+세금 · 발렛 $55+세금"]
   },
   {
     stay: "7/28–8/1 · 4박", name: "JW Marriott Anaheim", address: "1775 S Clementine St, Anaheim, CA 92802",
     checkin: "16:00", checkout: "11:00", room: "Deluxe Room · Queen Bed 2개 · Pool View · 금연", voucher: LINKS.jwVoucher,
+    image: "assets/info/hotel-jw-anaheim.webp", imageAlt: "JW Marriott Anaheim 야외 수영장", photoSource: "https://www.marriott.com/en-us/hotels/snajw-jw-marriott-anaheim-resort/photos/",
     tips: ["DCA 전용 셔틀 없음 · 도보 이동", "Parkestry Rooftop에서 일부 불꽃놀이 조망 가능", "온수 야외 수영장과 JW Garden", "발렛 약 $68/일"]
   },
   {
     stay: "8/1–8/3 · 2박", name: "Terranea Resort", address: "100 Terranea Way, Rancho Palos Verdes, CA 90275",
     checkin: "16:00", checkout: "11:00", room: "Ocean Front Double · 금연", voucher: LINKS.terraneaVoucher,
+    image: "assets/info/hotel-terranea.webp", imageAlt: "태평양을 바라보는 Terranea Resort", photoSource: "https://www.terranea.com/gallery",
     tips: ["객실 체크인 16:00 · 도착 즉시 짐 보관 가능", "Resort Pool 08:00–20:00", "워터슬라이드 11:00–16:00", "발렛 약 $75/박 · 리조트 피 약 $75/박"]
   }
 ];
 
 const restaurants = [
-  ["Day 1", "The Front Yard", "4222 Vineland Ave, North Hollywood", "Breakfast Buffet · French Toast · Burger", "첫날 저녁 또는 조식, 파티오 권장"],
-  ["Day 2", "Holbox", "3655 S Grand Ave #C9, Los Angeles", "Fish Taco · Ceviche · Smoked Kanpachi Taco", "Mercado La Paloma 점심"],
-  ["Day 3", "Pampas Grill", "6333 W 3rd St, Los Angeles", "비프 스테이크 · 소시지 · 치킨", "The Grove에서 가족 식사"],
-  ["Day 4", "Toothsome", "100 Universal City Plaza", "Milkshake · Salmon · Steak", "CityWalk, 예약 권장"],
-  ["Day 5", "Anaheim Packing House", "440 S Anaheim Blvd, Anaheim", "Naanwich · Fish & Chips · Shawarma", "취향대로 고르기 쉬운 푸드홀"],
-  ["Day 6", "Mrs. Knott’s Chicken Dinner", "8039 Beach Blvd, Buena Park", "Fried Chicken · Boysenberry Pie", "대표 메뉴, 대기시간 확인"],
-  ["Day 7", "Lamplight Lounge", "1313 Disneyland Dr, Anaheim", "Lobster Nachos · Fish Tacos · Sliders", "Pixar Pier, 사전예약 권장"],
-  ["Day 8", "Din Tai Fung", "3333 Bristol St, Costa Mesa", "Xiao Long Bao · Spicy Wontons · Noodles", "South Coast Plaza, 예약 권장"],
-  ["Day 9–10", "Nelson’s", "100 Terranea Way", "Fish Tacos · Ahi Tuna Burger", "가족 캐주얼 · 선셋"],
-  ["Day 9–10", "mar’sel", "100 Terranea Way", "Filet Mignon · Lobster · 계절 메뉴", "특별 저녁, 사전예약 권장"]
+  { day: "Day 1", name: "The Front Yard", address: "4222 Vineland Ave, North Hollywood", menu: "Breakfast Buffet · French Toast · Burger", tip: "첫날 저녁 또는 조식, 파티오 권장", image: "assets/info/restaurant-front-yard.jpg", imageAlt: "The Front Yard 파티오 다이닝", photoSource: "https://www.thegarland.com/dine" },
+  { day: "Day 2", name: "Holbox", address: "3655 S Grand Ave #C9, Los Angeles", menu: "Fish Taco · Ceviche · Smoked Kanpachi Taco", tip: "Mercado La Paloma 점심", image: "assets/info/restaurant-holbox.jpg", imageAlt: "Holbox 세비체", photoSource: "https://www.holboxla.com/" },
+  { day: "Day 3", name: "Pampas Grill", address: "6333 W 3rd St, Los Angeles", menu: "비프 스테이크 · 소시지 · 치킨", tip: "The Grove에서 가족 식사", image: "assets/info/restaurant-pampas.avif", imageAlt: "Pampas Grill 브라질식 슈하스코", photoSource: "https://www.pampas-grill.com/locations/culver-city" },
+  { day: "Day 4", name: "Toothsome", address: "100 Universal City Plaza", menu: "Milkshake · Salmon · Steak", tip: "CityWalk, 예약 권장", image: "assets/info/restaurant-toothsome.jpg", imageAlt: "Toothsome 시그니처 밀크셰이크", photoSource: "https://media.universalparksusa.com/photos/toothsome-chocolate-emporium-at-ush-milkshakes/" },
+  { day: "Day 5", name: "Anaheim Packing House", address: "440 S Anaheim Blvd, Anaheim", menu: "Naanwich · Fish & Chips · Shawarma", tip: "취향대로 고르기 쉬운 푸드홀", image: "assets/info/restaurant-packing-house.jpg", imageAlt: "Anaheim Packing House 내부", photoSource: "https://www.anaheimpackingdistrict.com/visitors" },
+  { day: "Day 6", name: "Mrs. Knott’s Chicken Dinner", address: "8039 Beach Blvd, Buena Park", menu: "Fried Chicken · Boysenberry Pie", tip: "대표 메뉴, 대기시간 확인", image: "assets/info/restaurant-knotts.webp", imageAlt: "Mrs. Knott’s Chicken Dinner Restaurant 다이닝룸", photoSource: "https://www.sixflags.com/knotts/dining/mrs-knotts-chicken-dinner-restaurant" },
+  { day: "Day 7", name: "Lamplight Lounge", address: "1313 Disneyland Dr, Anaheim", menu: "Lobster Nachos · Fish Tacos · Sliders", tip: "Pixar Pier, 사전예약 권장", image: "assets/info/restaurant-lamplight.jpg", imageAlt: "Lamplight Lounge의 픽사 테마 좌석", photoSource: "https://disneyland.disney.go.com/en-ca/dining/disney-california-adventure/lamplight-lounge-boardwalk-dining/" },
+  { day: "Day 8", name: "Din Tai Fung", address: "3333 Bristol St, Costa Mesa", menu: "Xiao Long Bao · Spicy Wontons · Noodles", tip: "South Coast Plaza, 예약 권장", image: "assets/info/restaurant-dtf.webp", imageAlt: "Din Tai Fung 샤오롱바오", photoSource: "https://www.dintaifungusa.com/" },
+  { day: "Day 9–10", name: "Nelson’s", address: "100 Terranea Way", menu: "Fish Tacos · Ahi Tuna Burger", tip: "가족 캐주얼 · 선셋", image: "assets/info/restaurant-nelsons.webp", imageAlt: "Nelson’s의 태평양 전망 야외 좌석", photoSource: "https://www.terranea.com/dining/nelsons" },
+  { day: "Day 9–10", name: "mar’sel", address: "100 Terranea Way", menu: "Filet Mignon · Lobster · 계절 메뉴", tip: "특별 저녁, 사전예약 권장", image: "assets/info/restaurant-marsel.webp", imageAlt: "mar’sel의 오션뷰 브런치", photoSource: "https://www.terranea.com/dining/marsel" }
 ];
 
 const checklistItems = [
@@ -989,12 +992,12 @@ function renderInfo() {
 
       <section class="section">
         <div class="section-heading"><h2>호텔 이용 팁</h2></div>
-        <div class="card-stack">${hotels.map(h => `<article class="info-card hotel-block"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><ul class="info-list">${h.tips.map(x => `<li>${x}</li>`).join("")}</ul><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></article>`).join("")}</div>
+        <div class="hotel-info-grid">${hotels.map(h => `<article class="info-card hotel-block photo-card"><a class="photo-card-media" href="${h.photoSource}" target="_blank" rel="noopener"><img src="${h.image}" alt="${h.imageAlt}" loading="lazy"><span>공식 사진 ↗</span></a><div class="photo-card-body"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><ul class="info-list">${h.tips.map(x => `<li>${x}</li>`).join("")}</ul><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div>
       </section>
 
       <section class="section">
         <div class="section-heading"><h2>추천 레스토랑</h2></div>
-        <div class="restaurant-grid">${restaurants.map(([day, name, address, menu, tip]) => `<article class="restaurant-card"><span class="chip">${day}</span><h3>${name}</h3><p class="menu">${menu}</p><p>${tip}</p><a class="address-link" href="${mapAddress(address)}" target="_blank" rel="noopener">${address} ↗</a></article>`).join("")}</div>
+        <div class="restaurant-grid">${restaurants.map(r => `<article class="restaurant-card photo-card"><a class="photo-card-media" href="${r.photoSource}" target="_blank" rel="noopener"><img src="${r.image}" alt="${r.imageAlt}" loading="lazy"><span>${r.day} · 공식 사진 ↗</span></a><div class="photo-card-body"><h3>${r.name}</h3><p class="menu">${r.menu}</p><p>${r.tip}</p><a class="address-link" href="${mapAddress(r.address)}" target="_blank" rel="noopener">${r.address} ↗</a></div></article>`).join("")}</div>
       </section>
 
       <section class="section quick-actions">${extLink("원본 일정", LINKS.source)}${extLink("Day별 지도", "#days").replace('target="_blank" rel="noopener"', '')}${extLink("Drive 폴더", LINKS.folder)}</section>

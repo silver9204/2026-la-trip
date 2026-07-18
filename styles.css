@@ -534,10 +534,62 @@ button { font: inherit; }
 .day-row p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
 .day-row > span:last-child { color: var(--orange); font-size: 20px; }
 
-.hotel-block { margin-top: 16px; }
-.hotel-block .voucher-link { margin-top: 13px; }
+.hotel-info-grid { display: grid; gap: 14px; }
+.hotel-block { margin-top: 0; }
+.hotel-block .voucher-link { margin-top: auto; padding-top: 13px; }
 .restaurant-grid { display: grid; gap: 10px; }
 .restaurant-card .menu { color: var(--ink); font-weight: 700; }
+.photo-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.photo-card-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  text-decoration: none;
+  background: #e7ebef;
+}
+.photo-card-media::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 45%;
+  pointer-events: none;
+  background: linear-gradient(transparent, rgba(15, 24, 35, .68));
+}
+.photo-card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .28s ease;
+}
+.photo-card-media:hover img { transform: scale(1.025); }
+.photo-card-media span {
+  position: absolute;
+  z-index: 1;
+  left: 12px;
+  bottom: 10px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 850;
+  text-shadow: 0 1px 3px rgba(0,0,0,.35);
+}
+.photo-card-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 16px;
+}
+.photo-card-body > h3 { margin-top: 9px; }
+.restaurant-card .photo-card-body > h3 { margin-top: 0; font-size: 17px; }
+.restaurant-card .photo-card-body > p { line-height: 1.55; }
+.restaurant-card .address-link { margin-top: auto; padding-top: 10px; }
 .address-link { display: inline-flex; margin-top: 10px; color: var(--green); font-size: 12px; font-weight: 850; }
 .privacy-note { padding: 16px; border-radius: 19px; color: #4f5d59; background: #ece8df; font-size: 12px; line-height: 1.65; }
 
@@ -595,6 +647,7 @@ button { font: inherit; }
   #app { padding-top: 35px; }
   .quick-actions { grid-template-columns: repeat(4, 1fr); }
   .card-stack { grid-template-columns: 1fr 1fr; }
+  .hotel-info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
   .restaurant-grid { grid-template-columns: 1fr 1fr; }
   .all-days { grid-template-columns: 1fr 1fr; }
   .button-row { grid-template-columns: 1fr 1fr; }
