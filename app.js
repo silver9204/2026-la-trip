@@ -33,10 +33,10 @@ const DAY_MAPS = {
 
 const dayVisuals = {
   1: {
-    image: "https://www.flylax.com/sites/lax/files/page-body/mediacameraheader.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg/960px-Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg",
     alt: "로스앤젤레스 국제공항 LAX",
-    source: "https://www.flylax.com/mediacenter",
-    sourceLabel: "LAX 공식 미디어 센터"
+    source: "https://commons.wikimedia.org/wiki/File:Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg",
+    sourceLabel: "LAX Tom Bradley 터미널 사진"
   },
   2: {
     image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/deaee31c-3a1d-44a2-b7ee-4ed62d92a67c",
@@ -93,10 +93,10 @@ const dayVisuals = {
     sourceLabel: "Terranea Resort 공식 갤러리"
   },
   11: {
-    image: "https://www.flylax.com/sites/lax/files/page-body/mediacameraheader.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg/960px-Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg",
     alt: "LAX에서 귀국하는 날",
-    source: "https://www.flylax.com/mediacenter",
-    sourceLabel: "LAX 공식 미디어 센터"
+    source: "https://commons.wikimedia.org/wiki/File:Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg",
+    sourceLabel: "LAX Tom Bradley 터미널 사진"
   }
 };
 
@@ -212,7 +212,7 @@ const days = [
       ["18:30", "호텔 복귀", "체력 시 루프톱"]
     ],
     move: ["UCI Student Center Parking Structure", "General 2시간권 $8 권장", "Student Center → The Hill → Aldrich Park → Ring Mall → Infinity Fountain"],
-    tips: ["UCI는 90분 산책으로 압축", "South Coast Plaza는 2시간 30분 안에 쇼핑과 점심 완료", "Patagonia 아웃도어 의류 매장은 현재 디렉터리에 없음", "Huntington City Beach 주차는 시간당 $2 · 일일 최대 $15 기준"],
+    tips: ["UCI는 90분 산책으로 압축", "South Coast Plaza는 2시간 30분 안에 쇼핑과 점심 완료", "Huntington City Beach 주차는 시간당 $2 · 일일 최대 $15 기준"],
     actions: [["지도", LINKS.map]]
   },
   {
@@ -264,12 +264,12 @@ const dayHighlights = {
     {
       kicker: "렌터카 픽업",
       title: "Hertz LAX",
-      image: "https://www.flylax.com/sites/lax/files/page-body/mediacameraheader.jpg",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg/960px-Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg",
       alt: "LAX 도착 후 렌터카를 픽업하는 날",
       summary: "공항 셔틀로 Hertz 지점까지 이동해 예약 차량과 캐리어 4개 적재 상태를 직접 확인합니다.",
       points: ["주소: 5251 West 98th Street, Los Angeles, CA 90045", "24시간 운영 · 전화 (310) 568-5100", "픽업 7/24 17:00 · 외관·연료·트렁크 적재 상태 촬영"],
-      source: "https://www.flylax.com/mediacenter",
-      sourceLabel: "LAX 공식 미디어 센터"
+      source: "https://commons.wikimedia.org/wiki/File:Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg",
+      sourceLabel: "LAX Tom Bradley 터미널 사진"
     }
   ],
   2: [
@@ -284,28 +284,56 @@ const dayHighlights = {
       sourceLabel: "트리플에서 전시 정보 보기"
     },
     {
+      kicker: "오전 · 체험형 전시",
+      title: "California Science Center",
+      image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/California_Science_Center.jpg",
+      alt: "California Science Center 입구와 외관",
+      summary: "짧은 관람이면 Ecosystems의 Kelp Forest와 체험 전시를 먼저 보고, 아이들이 고른 상설 갤러리로 이어가세요.",
+      points: ["상설 전시 중심으로 90분 관람", "Kelp Forest와 체험형 전시를 우선"],
+      source: "https://commons.wikimedia.org/wiki/File:California_Science_Center.jpg",
+      sourceLabel: "California Science Center 사진"
+    },
+    {
       kicker: "경기 전 준비",
       title: "BMO Stadium · LAFC HQ",
+      image: "https://bmostadium.com/wp-content/uploads/2025/05/bmo-stadium-express-hero-scaled.jpg",
+      alt: "BMO Stadium 경기장과 축구 행사",
       summary: "아침에 주차한 뒤 LAFC HQ에서 유니폼 사이즈, 영문 이름과 등번호를 확정하세요. 당일 마킹 완료 시각을 받아두고 경기 입장 전에 수령하는 흐름이 가장 안전합니다.",
-      points: ["좌석: Section 134 · Row E · Seats 13–16", "주문서와 영수증을 사진으로 저장", "16:30 전후 수령 가능 여부를 주문할 때 확답"]
+      points: ["좌석: Section 134 · Row E · Seats 13–16", "주문서와 영수증을 사진으로 저장", "16:30 전후 수령 가능 여부를 주문할 때 확답"],
+      source: "https://bmostadium.com/bmo-stadium-express/",
+      sourceLabel: "BMO Stadium 공식"
     }
   ],
   3: [
     {
-      kicker: "LA 대표 동선",
-      title: "Hollywood → Beverly Hills → Santa Monica",
-      images: [
-        "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/604781a9-d550-4ccc-9033-7fa1141d2af3",
-        "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/6zUQ/48otiZ5buJ.jpg",
-        "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/BwBk/pHb6dN60wx.jpg"
-      ],
-      alt: "로스앤젤레스 서부 주요 명소",
-      summary: "트리플의 LA 서부 투어도 할리우드, 로데오 드라이브, 산타모니카를 한 축으로 묶습니다. 현재 일정처럼 동쪽에서 서쪽으로 이동하면 역주행을 줄일 수 있습니다.",
-      points: ["Hollywood에서는 Walk of Fame·Chinese Theatre 중심", "Santa Monica는 피어와 석양 시간을 넉넉하게"],
-      sources: [
-        ["트리플 명소 정보", "https://triple.guide/tna/products/a85deaa3-21a8-4fbb-9049-b1447baad6ca"],
-        ["마이리얼트립 LA 해안 사진", "https://experiences.myrealtrip.com/products/3859681"]
-      ]
+      kicker: "오전 · 영화의 거리",
+      title: "Hollywood",
+      image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/604781a9-d550-4ccc-9033-7fa1141d2af3",
+      alt: "Hollywood의 대표 명소",
+      summary: "Griffith Observatory에서 내려온 뒤 Walk of Fame과 TCL Chinese Theatre 중심으로 짧고 선명하게 둘러봅니다.",
+      points: ["Ovation Hollywood에 주차", "명예의 거리와 차이니즈 극장 중심으로 체류 압축"],
+      source: "https://triple.guide/tna/products/a85deaa3-21a8-4fbb-9049-b1447baad6ca",
+      sourceLabel: "Hollywood 명소 정보"
+    },
+    {
+      kicker: "오후 · 거리와 쇼핑",
+      title: "Beverly Hills · Rodeo Drive",
+      image: "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/6zUQ/48otiZ5buJ.jpg",
+      alt: "Beverly Hills와 Rodeo Drive",
+      summary: "The Grove 점심과 쇼핑 뒤 Rodeo Drive로 이동해 거리 분위기와 Polo Ralph Lauren을 확인합니다.",
+      points: ["차량으로 이동해 인근 주차장 이용", "쇼핑 시간은 유지하고 사진 포인트는 짧게"],
+      source: "https://experiences.myrealtrip.com/products/3859681",
+      sourceLabel: "LA 서부 투어 참고"
+    },
+    {
+      kicker: "저녁 · 해변과 석양",
+      title: "Santa Monica",
+      image: "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/BwBk/pHb6dN60wx.jpg",
+      alt: "Santa Monica 해변과 피어",
+      summary: "피어, 해변 산책과 석양을 한 구역에서 여유 있게 즐기는 Day 3의 마지막 일정입니다.",
+      points: ["Lot 1 North 우선 검토", "피어·Pacific Park·Palisades Park 중 체력에 맞춰 선택"],
+      source: "https://experiences.myrealtrip.com/products/3859681",
+      sourceLabel: "Santa Monica 사진"
     }
   ],
   4: [
@@ -330,6 +358,16 @@ const dayHighlights = {
       points: ["10:00 예약에 맞춰 주차장 도착", "작품 찾기 게임처럼 2–3개 대표작을 정해 관람"],
       source: "https://triple.guide/tna/products/4b4df88e-8bd5-4fda-83d5-badb8f5369fb",
       sourceLabel: "트리플에서 관람 포인트 보기"
+    },
+    {
+      kicker: "오후 · 스트릿 쇼핑",
+      title: "Sunset · Melrose · La Brea",
+      image: "https://www.discoverlosangeles.com/sites/default/files/styles/max_1920x1920_kraken/public/images/2022-02/Alfred%20at%20Glossier%20Alley.jpeg.webp?auto=webp&fit=bound&itok=SJ_YjMvj&quality=72&width=480",
+      alt: "Melrose Avenue의 Glossier Alley",
+      summary: "Getty 관람 뒤 Supreme, Glossier, Stüssy를 차로 나누어 방문하고 각 블록 안에서만 짧게 걷습니다.",
+      points: ["Supreme → Glossier → Stüssy 순서", "캐리어는 트렁크 안쪽에 가리고 매장별 유료주차 이용"],
+      source: "https://www.discoverlosangeles.com/things-to-do/the-guide-to-melrose-avenue-west",
+      sourceLabel: "Discover Los Angeles"
     }
   ],
   6: [
@@ -358,19 +396,34 @@ const dayHighlights = {
   ],
   8: [
     {
-      kicker: "오렌지카운티 하루",
-      title: "South Coast Plaza · UCI · Huntington Beach",
-      images: [
-        "https://admissions.uci.edu/assets/images/campus-highlights-aldrich-park.jpg",
-        "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_716,q_75,w_639/v1/clients/surfcityusa-redesign/Huntington_City_Beach_webpage_a97bfba5-8516-4cc6-babf-2a10fa76b1b7.jpg"
-      ],
-      alt: "UCI Aldrich Park와 Huntington City Beach",
-      summary: "쇼핑을 오전에 끝낸 뒤 UCI는 추억과 캠퍼스 분위기에 집중한 90분 산책으로 압축하세요. 해변은 관광지 추가보다 산책과 저녁에 무게를 두는 편이 좋습니다.",
-      points: ["UCI Student Center Parking Structure 이용", "The Hill → Aldrich Park → Ring Mall → Infinity Fountain"],
-      sources: [
-        ["UCI 공식 Campus Highlights", "https://admissions.uci.edu/celebrate-uci/campus-highlights.php"],
-        ["Huntington Beach 공식 안내", "https://www.surfcityusa.com/things-to-do/beaches/huntington-city-beach/"]
-      ]
+      kicker: "오전 · 쇼핑과 점심",
+      title: "South Coast Plaza",
+      image: "https://www.southcoastplaza.com/wp-content/uploads/2022/03/052209-Light-Canopy-on-Garden-Terrace-Imag-Large.jpeg",
+      alt: "South Coast Plaza Garden Terrace",
+      summary: "2시간 30분 안에 우선 매장과 점심을 끝내고 13:00에 UCI로 출발합니다.",
+      points: ["Ralph Lauren → UNIQLO·LEGO 우선", "점심은 Din Tai Fung 또는 Marugame Udon"],
+      source: "https://www.southcoastplaza.com/theedit/2022/03/about-south-coast-plaza/",
+      sourceLabel: "South Coast Plaza 공식"
+    },
+    {
+      kicker: "오후 · 캠퍼스 산책",
+      title: "UC Irvine",
+      image: "https://admissions.uci.edu/assets/images/campus-highlights-aldrich-park.jpg",
+      alt: "UC Irvine의 Aldrich Park",
+      summary: "아이들과 캠퍼스 분위기를 느끼고 가족의 추억을 돌아보는 90분 산책 코스입니다.",
+      points: ["Student Center Parking Structure 이용", "The Hill → Aldrich Park → Ring Mall → Infinity Fountain"],
+      source: "https://admissions.uci.edu/celebrate-uci/campus-highlights.php",
+      sourceLabel: "UCI 공식 Campus Highlights"
+    },
+    {
+      kicker: "늦은 오후 · 해변",
+      title: "Huntington Beach",
+      image: "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_716,q_75,w_639/v1/clients/surfcityusa-redesign/Huntington_City_Beach_webpage_a97bfba5-8516-4cc6-babf-2a10fa76b1b7.jpg",
+      alt: "Huntington City Beach와 피어",
+      summary: "피어를 중심으로 서핑 구경과 해변 산책을 즐기고 17:45 전후 호텔로 출발합니다.",
+      points: ["피어 왕복 후 해변 또는 자전거 중 하나 선택", "Promenade 또는 피어 남·북쪽 주차장"],
+      source: "https://www.surfcityusa.com/things-to-do/beaches/huntington-city-beach/",
+      sourceLabel: "Huntington Beach 공식 안내"
     }
   ],
   9: [
@@ -472,7 +525,7 @@ const southCoastStores = [
   ["LEGO", "Level 1 · Din Tai Fung Wing", "Build-A-Mini와 Pick & Build Wall · 아이들 우선"],
   ["Nike", "Level 3 · Macy’s Home Store Wing", "가족용 신발과 스포츠웨어"],
   ["Apple Store", "Level 1 · Macy’s Home Store Wing", "필요한 액세서리가 있을 때 짧게"],
-  ["The North Face", "Level 2 · Crate & Barrel Wing", "Patagonia 아웃도어 의류 매장의 현실적인 대안"]
+  ["The North Face", "Level 2 · Crate & Barrel Wing", "아웃도어 의류와 가족용 경량 재킷 확인"]
 ];
 
 const southCoastLunch = [
@@ -633,7 +686,6 @@ function renderDay8Guide() {
     <div class="section-heading"><h2>오전 · South Coast Plaza</h2></div>
     <p class="guide-lead">10:30–12:00 쇼핑, 12:00–13:00 점심으로 나눕니다. 넓은 몰이라 모든 매장을 돌기보다 가족별 우선 매장만 연결하세요.</p>
     <div class="shopping-grid">${southCoastStores.map(([name, location, note]) => `<article><h3>${name}</h3><span>${location}</span><p>${note}</p></article>`).join("")}</div>
-    <p class="route-alert"><strong>Patagonia 확인:</strong> 최신 디렉터리의 ‘Fueguia 1833 Patagonia’는 아웃도어 의류가 아니라 아르헨티나 향수 브랜드입니다. Patagonia 의류점으로 잡지 말고 The North Face를 대안으로 두세요.</p>
     <h3 class="subsection-title">점심 후보</h3>
     <div class="lunch-grid">${southCoastLunch.map(([name, location, menu, tip]) => `<article><div><h3>${name}</h3><span>${location}</span></div><p><b>${menu}</b><small>${tip}</small></p></article>`).join("")}</div>
     <div class="flow-note"><strong>추천 동선</strong><p>Ralph Lauren → UNIQLO·LEGO → 12:00 Din Tai Fung. Nike·Apple은 필요한 물건이 있을 때만 추가하고 13:00에는 출차.</p></div>
