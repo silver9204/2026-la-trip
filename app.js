@@ -3,6 +3,7 @@ const LINKS = {
   map: "https://www.google.com/maps/d/viewer?mid=1HDBAhbqSJALyHLK1yXfpzf2gUGklVGo",
   folder: "https://drive.google.com/drive/folders/10d8-uJmbaPHdm5j_aLDck_LpcMknNUJU",
   hertz: "https://drive.google.com/file/d/1n4RbqTsmLqsF6W36lnjnECPBhD9DXsqJ/view",
+  lafc: "https://www.ticketmaster.com/user/order/kjwQYLe8ZrogvC7z6K325EKcJjCspBMlTuJTitQIdTRiWWO5NAV-UrzqxKGALik%3D/0A006373F370941A/view",
   universal: "https://drive.google.com/file/d/1mu5aKltSfMGIJHqJNVyjdx9pPxzojKAv/view",
   getty: "https://drive.google.com/file/d/1zRCB5cFEWJu3z897usy7MG2uUhhb_kgb/view",
   dcaAdult: "https://drive.google.com/file/d/1Pd8tk-KyJ3P-w_2mV1KPJcnA822WSdL5/view",
@@ -21,7 +22,7 @@ const days = [
     day: 1, date: "7/24 금", title: "LA 도착", theme: "공항 · 렌터카 · 호텔 체크인", hotel: "The Garland",
     timeline: [
       ["15:20", "LAX 도착", "입국심사 · 수하물 · 세관"],
-      ["17:00", "Hertz 렌터카 픽업", "터미널에서 렌터카 셔틀 이동"],
+      ["17:00", "Hertz 렌터카 픽업", "5251 W 98th St · 터미널에서 렌터카 셔틀 이동"],
       ["19:00", "The Garland 체크인", "셀프주차 후 짐 정리"],
       ["19:30", "In-N-Out Burger", "3640 Cahuenga Blvd"]
     ],
@@ -33,18 +34,18 @@ const days = [
     day: 2, date: "7/25 토", title: "Exposition Park + LAFC", theme: "과학관 · 자연사박물관 · 축구 직관", hotel: "The Garland",
     timeline: [
       ["08:30", "Bea Bea’s 조식", "09:15 전후 출발"],
-      ["09:55", "Blue Structure 주차", "경기 종료까지 차량 이동 없음"],
-      ["10:10", "LAFC HQ", "아이들 유니폼 마킹 주문"],
+      ["09:55", "Blue Structure 주차", "3855 S Figueroa St · 재입차 없이 경기 종료까지 주차"],
+      ["10:10", "LAFC HQ", "사이즈·영문 이름·등번호 확인 · 당일 수령 가능 시각 확답"],
       ["10:50", "California Science Center", "상설전시 중심"],
-      ["12:30", "Mercado La Paloma", "Holbox 점심 후 도보 복귀"],
+      ["12:30", "Mercado La Paloma", "재입차 불가 · Holbox까지 도보 왕복"],
       ["14:00", "Natural History Museum", "16:30 전후 종료"],
-      ["16:30", "LAFC HQ 재방문", "당일 마킹 완료 확인 후 수령"],
-      ["17:30", "Family Picnic", "Christmas Tree Lane East"],
-      ["19:30", "LAFC 경기", "vs. Sporting Kansas City"]
+      ["16:30", "LAFC HQ 재방문", "오전에 완료 확답을 받은 경우 유니폼 수령"],
+      ["17:30", "Family Picnic", "Christmas Tree Lane East · 킥오프 2시간 전"],
+      ["19:30", "LAFC 경기", "vs. Sporting Kansas City · 종료 후 Blue Structure로 바로 이동"]
     ],
     move: ["Blue Structure · 3855 S Figueroa St", "주차장 재입차 불가", "경기 후 바로 출차"],
     tips: ["출발 전 종일 주차·추가결제 방식 전화 확인", "유니폼 영문 철자·등번호·사이즈를 두 번 확인", "당일 마킹 완료는 사전 확답 필요", "경기 전날 게이트·킥오프·주차 안내 재확인"],
-    actions: [["지도", LINKS.map]]
+    actions: [["LAFC 모바일 티켓", LINKS.lafc, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 3, date: "7/26 일", title: "Hollywood & Santa Monica", theme: "그리피스 · 할리우드 · 비벌리힐스 · 산타모니카", hotel: "The Garland",
@@ -77,16 +78,16 @@ const days = [
   {
     day: 5, date: "7/28 화", title: "Getty + 스트릿 쇼핑", theme: "미술 · 쇼핑 · 애너하임 이동", hotel: "JW Marriott Anaheim",
     timeline: [
-      ["09:00", "호텔 체크아웃", "Getty Center로 이동"],
-      ["10:00", "Getty Center", "12:30까지 관람 · 정원 산책"],
-      ["12:30", "점심과 이동", "Sunset Blvd 방향"],
-      ["13:30", "Supreme + Glossier", "8801 Sunset Blvd 일대"],
-      ["14:30", "Stüssy", "112 S La Brea Ave"],
-      ["15:30", "La Brea Tar Pits", "교통 상황에 따라 선택"],
+      ["09:00", "호텔 체크아웃", "Getty Center 주차장까지 차량 이동 · 짐은 트렁크 안쪽에"],
+      ["10:00", "Getty Center", "주차 후 트램 탑승 · 12:30까지 관람과 정원 산책"],
+      ["12:30", "점심과 이동", "Sunset Blvd 방향 · 매장별 차량 이동"],
+      ["13:30", "Supreme → Glossier", "8801 Sunset Blvd → 8407 Melrose Ave · 각각 인근 유료주차"],
+      ["14:30", "Stüssy", "112 S La Brea Ave · 미터 주차 또는 인근 유료주차"],
+      ["15:30", "La Brea Tar Pits", "Curson Ave & 6th St 주차 · 야외 Hancock Park만 관람"],
       ["16:30", "Anaheim 이동", "75–120분 예상"],
       ["19:00", "호텔 체크인", "체력 시 Downtown Disney"]
     ],
-    move: ["Getty 주차 $25", "Tar Pits 주차 약 $15", "정체가 심하면 Tar Pits를 생략"],
+    move: ["Getty는 주차 후 트램으로 정상 이동", "쇼핑 매장 사이는 차량으로 나누어 이동", "Tar Pits 주차장 입구는 Curson Ave & 6th St · 카드만 가능"],
     tips: ["Getty 예약은 10:00", "차량에 캐리어를 두므로 외부에 보이지 않게 적재", "Anaheim 러시아워를 고려해 16:30 이전 출발 권장"],
     actions: [["Getty 예약 티켓", LINKS.getty, "ticket"], ["JW Marriott 바우처", LINKS.jwVoucher, "ticket"], ["지도", LINKS.map]]
   },
@@ -170,53 +171,13 @@ const days = [
   }
 ];
 
-const day2Operations = {
-  schedule: [
-    ["08:30–09:15", "Bea Bea’s 조식", "식사 후 바로 Exposition Park로 출발"],
-    ["09:55–10:10", "Blue Structure 입차", "3855 S Figueroa St · 경기 종료까지 차량 고정"],
-    ["10:10–10:45", "LAFC HQ", "유니폼 사이즈 확인 · 이름과 등번호 마킹 주문"],
-    ["10:50–12:30", "California Science Center", "일반 상설전시 중심 관람"],
-    ["12:30–13:50", "Mercado La Paloma", "도보 이동 · Holbox 점심 후 복귀"],
-    ["14:00–16:30", "Natural History Museum", "공룡 홀 우선 관람"],
-    ["16:30–16:50", "LAFC HQ 재방문", "당일 완성을 확답받은 경우 유니폼 수령"],
-    ["17:30–18:15", "Family Picnic", "Christmas Tree Lane East · 킥오프 2시간 전"],
-    ["18:15–19:15", "입장 · 저녁", "경기 주간 안내에서 게이트 오픈 시각 재확인"],
-    ["19:30", "LAFC 경기", "vs. Sporting Kansas City"],
-    ["경기 종료 후", "Blue Structure 출차", "행사 종료 후 바로 차량으로 이동"]
-  ],
-  parking: [
-    "Blue Structure 한 곳에 주차하고 박물관과 BMO Stadium을 모두 도보로 이동",
-    "주차장 재입차는 불가하므로 점심도 Mercado La Paloma까지 걸어서 이동",
-    "일반 일일 주차는 $20, 17:00 이후·특별행사는 최소 $24이며 경기별 요금은 달라질 수 있음",
-    "오전 일일권을 경기 종료까지 유지할 때의 추가결제 기준은 공개 안내에 명확하지 않음",
-    "S. Coliseum Drive는 14:30부터 통제 예정이므로 오전 입차 유지 · NHM 전용 주차장은 사용하지 않음"
-  ],
-  uniforms: [
-    "LAFC HQ는 BMO Stadium 북서쪽 입구의 공식 팀 스토어 · 토요일 정규 운영 10:00–17:00",
-    "2026 아동용 Replica 커스텀 유니폼 온라인 기준 $114.99 · Yth S/M/L/XL · 이름 최대 10자",
-    "커스텀 상품은 이름·번호·사이즈 변경, 취소, 반품과 환불이 불가",
-    "공식 자료에는 현장 마킹 당일 완성 보장이 없으므로 여행 전에 재고와 16:30 수령 가능 여부 확인",
-    "당일 완성 확답이 없으면 재고가 있는 선수명 유니폼 또는 무마킹 유니폼을 대안으로 선택"
-  ],
-  checklist: [
-    "Parking Operations에 오전 입차·종일 주차·추가결제·사전권 사용 가능 여부 확인",
-    "LAFC HQ에 아이별 사이즈 재고와 당일 마킹 완료 시각 확인",
-    "아이별 영문 이름·등번호·사이즈를 휴대폰 메모에 저장",
-    "경기 전날 킥오프·게이트 오픈·주차 안내를 재확인하고 티켓을 오프라인 저장"
-  ]
-};
-
 const dayHighlights = {
   1: [
     {
-      kicker: "공항 도착 체크",
-      title: "LAX · 렌터카 픽업",
-      image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/e4cb43fe-da81-4b2d-9b08-0cca02e5b6e6",
-      alt: "LAX 공항 이동 차량",
-      summary: "트리플의 LAX 이동 상품도 4–5인용 미니밴 적재 기준을 캐리어 4개까지로 안내합니다. 렌터카를 받을 때 네 개가 모두 들어가는지 직접 확인하는 것이 핵심입니다.",
-      points: ["차량 인수 전에 캐리어 4개를 실제로 적재", "뒷유리 시야와 외부 노출 여부까지 확인"],
-      source: "https://triple.guide/tna/products/f25c268a-d9f4-4c7c-a929-f2c4797120a3",
-      sourceLabel: "트리플 LAX 이동 정보 참고"
+      kicker: "렌터카 픽업",
+      title: "Hertz LAX",
+      summary: "공항 셔틀로 Hertz 지점까지 이동해 예약 차량과 캐리어 4개 적재 상태를 직접 확인합니다.",
+      points: ["주소: 5251 West 98th Street, Los Angeles, CA 90045", "24시간 운영 · 전화 (310) 568-5100", "픽업 7/24 17:00 · 외관·연료·트렁크 적재 상태 촬영"]
     }
   ],
   2: [
@@ -234,19 +195,25 @@ const dayHighlights = {
       kicker: "경기 전 준비",
       title: "BMO Stadium · LAFC HQ",
       summary: "아침에 주차한 뒤 LAFC HQ에서 유니폼 사이즈, 영문 이름과 등번호를 확정하세요. 당일 마킹 완료 시각을 받아두고 경기 입장 전에 수령하는 흐름이 가장 안전합니다.",
-      points: ["주문서와 영수증을 사진으로 저장", "16:30 전후 수령 가능 여부를 주문할 때 확답" ]
+      points: ["좌석: Section 134 · Row E · Seats 13–16", "주문서와 영수증을 사진으로 저장", "16:30 전후 수령 가능 여부를 주문할 때 확답"]
     }
   ],
   3: [
     {
       kicker: "LA 대표 동선",
       title: "Hollywood → Beverly Hills → Santa Monica",
-      image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/604781a9-d550-4ccc-9033-7fa1141d2af3",
+      images: [
+        "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/604781a9-d550-4ccc-9033-7fa1141d2af3",
+        "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/6zUQ/48otiZ5buJ.jpg",
+        "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/BwBk/pHb6dN60wx.jpg"
+      ],
       alt: "로스앤젤레스 서부 주요 명소",
       summary: "트리플의 LA 서부 투어도 할리우드, 로데오 드라이브, 산타모니카를 한 축으로 묶습니다. 현재 일정처럼 동쪽에서 서쪽으로 이동하면 역주행을 줄일 수 있습니다.",
       points: ["Hollywood에서는 Walk of Fame·Chinese Theatre 중심", "Santa Monica는 피어와 석양 시간을 넉넉하게"],
-      source: "https://triple.guide/tna/products/a85deaa3-21a8-4fbb-9049-b1447baad6ca",
-      sourceLabel: "트리플에서 명소·사진 보기"
+      sources: [
+        ["트리플 명소 정보", "https://triple.guide/tna/products/a85deaa3-21a8-4fbb-9049-b1447baad6ca"],
+        ["마이리얼트립 LA 해안 사진", "https://experiences.myrealtrip.com/products/3859681"]
+      ]
     }
   ],
   4: [
@@ -331,6 +298,55 @@ const dayHighlights = {
   ]
 };
 
+const santaMonicaActivities = [
+  ["Route 66 표지", "피어 입구의 ‘End of the Trail’ 표지에서 가족사진"],
+  ["Pacific Park", "Pacific Wheel 한 번 또는 아이들이 고른 게임 1–2개"],
+  ["피어 아래 해변", "모래사장과 파도 구경 · 젖어도 되는 여벌 양말 준비"],
+  ["Heal the Bay Aquarium", "피어 아래 소규모 수족관 · 운영시간이 맞을 때 선택"],
+  ["Palisades Park", "피어 북쪽 절벽 공원에서 석양과 해안 전망"],
+  ["Third Street Promenade", "피어에서 동쪽 두 블록 · 시간이 남을 때만 짧게"]
+];
+
+const attractionGuides = {
+  4: {
+    title: "Universal 대표 어트랙션",
+    note: "키 제한은 공식 최소 신장입니다. 보호자 동반 조건은 현장에서 다시 확인하고, Thrill은 우리 가족 기준 체감 1–5입니다.",
+    source: "https://www.universalstudioshollywood.com/web/en/us/ride-height-requirements",
+    items: [
+      ["Mario Kart: Bowser’s Challenge", "102cm", "AR · 3D/4D 인터랙티브", 3],
+      ["Jurassic World – The Ride", "107cm", "워터 라이드 · 급강하", 4],
+      ["Harry Potter and the Forbidden Journey", "122cm", "모션 다크 라이드", 4],
+      ["Revenge of the Mummy", "122cm", "실내 런치 코스터", 5],
+      ["TRANSFORMERS: The Ride-3D", "102cm", "3D 모션 시뮬레이터", 4],
+      ["Flight of the Hippogriff", "99cm", "패밀리 코스터", 3],
+      ["The Secret Life of Pets", "86cm", "패밀리 다크 라이드", 1],
+      ["Studio Tour", "공식 최소키 목록 없음", "트램 · 백롯 투어", 1]
+    ]
+  },
+  6: {
+    title: "Knott’s 인기 어트랙션",
+    note: "키 제한은 공식 안내 기준이며, 보호자 동반 조건은 현장에서 다시 확인하세요. Thrill은 우리 가족 기준 체감 1–5입니다.",
+    source: "https://www.sixflags.com/knotts/attractions",
+    items: [
+      ["GhostRider", "122cm", "대형 우든 코스터", 5],
+      ["HangTime", "122–196cm", "다이브 코스터 · 96° 낙하", 5],
+      ["Xcelerator", "132cm", "고속 런치 코스터", 5],
+      ["Silver Bullet", "137cm", "인버티드 코스터", 5],
+      ["Calico Mine Ride", "보호자 동반 시 제한 없음", "클래식 광산 다크 라이드", 1],
+      ["Knott’s Bear-y Tales", "보호자 동반 시 제한 없음", "인터랙티브 다크 라이드", 1]
+    ]
+  }
+};
+
+const day5Route = [
+  ["09:00", "The Garland → Getty Center", "차량 25–35분", "1200 Getty Center Dr 주차장 → 트램 → 입구. 캐리어는 트렁크 안쪽에 가려 보관"],
+  ["12:30", "Getty → Supreme", "차량 약 25분", "8801 Sunset Blvd 인근 유료주차 또는 발렛. 점심과 매장 방문을 한 번에"],
+  ["13:50", "Supreme → Glossier", "차량 10–15분", "8407 Melrose Ave 인근 유료주차. 매장 사이는 걷지 말고 차로 분리"],
+  ["14:30", "Glossier → Stüssy", "차량 5–10분", "112 S La Brea Ave 인근 미터 주차 또는 유료주차"],
+  ["15:20", "Stüssy → Tar Pits", "차량 5–10분", "5801 Wilshire Blvd · Curson Ave & 6th St 주차장. 카드만 가능"],
+  ["16:20", "Tar Pits → Anaheim", "차량 75–120분", "1775 S Clementine St 도착 후 호텔 발렛. 러시아워가 심하면 Tar Pits 생략"]
+];
+
 const hotels = [
   {
     stay: "7/24–7/28 · 4박", name: "The Garland", address: "4222 Vineland Ave, North Hollywood, CA 91602",
@@ -397,37 +413,48 @@ function hotelsAppUrl() {
 }
 
 function renderHighlightCard(item) {
-  const media = item.image
-    ? `<a class="place-media" href="${item.source}" target="_blank" rel="noopener"><img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async"><span>${item.kicker}</span></a>`
+  const images = item.images || (item.image ? [item.image] : []);
+  const primarySource = item.source || item.sources?.[0]?.[1] || "#";
+  const media = images.length
+    ? `<a class="place-media ${images.length > 1 ? "place-gallery" : ""}" href="${primarySource}" target="_blank" rel="noopener">${images.map((src, index) => `<img src="${src}" alt="${index === 0 ? item.alt : `${item.title} 추가 사진 ${index + 1}`}" loading="lazy" decoding="async">`).join("")}<span>${item.kicker}</span></a>`
     : `<div class="place-media placeholder"><span>${item.kicker}</span><strong>${item.title}</strong></div>`;
-  return `<article class="place-card">${media}<div class="place-body"><h3>${item.title}</h3><p>${item.summary}</p><ul>${item.points.map(point => `<li>${point}</li>`).join("")}</ul>${item.source ? `<a class="place-source" href="${item.source}" target="_blank" rel="noopener">사진·정보: ${item.sourceLabel} ↗</a>` : ""}</div></article>`;
+  const sources = item.sources
+    ? `<div class="place-sources">${item.sources.map(([label, href]) => `<a class="place-source" href="${href}" target="_blank" rel="noopener">${label} ↗</a>`).join("")}</div>`
+    : item.source ? `<a class="place-source" href="${item.source}" target="_blank" rel="noopener">사진·정보: ${item.sourceLabel} ↗</a>` : "";
+  return `<article class="place-card">${media}<div class="place-body"><h3>${item.title}</h3><p>${item.summary}</p><ul>${item.points.map(point => `<li>${point}</li>`).join("")}</ul>${sources}</div></article>`;
 }
 
-function renderDay2Operations() {
-  return `<section class="section day2-operations">
-    <div class="section-heading"><h2>경기일 상세 운영안</h2></div>
-    <div class="day2-table-shell">
-      <table class="day2-table">
-        <thead><tr><th>시간</th><th>일정</th><th>핵심 메모</th></tr></thead>
-        <tbody>${day2Operations.schedule.map(([time, title, note]) => `<tr><td>${time}</td><td>${title}</td><td>${note}</td></tr>`).join("")}</tbody>
-      </table>
-    </div>
+function renderSantaMonicaGuide() {
+  return `<section class="section feature-guide santa-guide">
+    <div class="section-heading"><h2>Santa Monica에서 할 것</h2></div>
+    <p class="guide-lead">쇼핑 일정은 그대로 두고, 18:15 도착부터 석양까지 피어 안에서 이동이 짧은 활동을 골라 즐기세요.</p>
+    <div class="activity-grid">${santaMonicaActivities.map(([title, note], index) => `<article><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${note}</p></div></article>`).join("")}</div>
+    <div class="flow-note"><strong>추천 2시간 흐름</strong><p>Route 66 사진 → Pacific Wheel 또는 게임 → 해변 산책 → 피어 저녁 → Palisades Park 석양. Third Street는 시간이 남을 때만 추가.</p></div>
+    <a class="guide-source" href="https://www.santamonica.com/things-to-do/" target="_blank" rel="noopener">Santa Monica 공식 관광 정보 ↗</a>
+  </section>`;
+}
 
-    <div class="day2-detail-grid">
-      <article class="day2-detail-card parking-card">
-        <span class="detail-icon">P</span><div><h3>종일 주차 운영</h3><ul>${day2Operations.parking.map(item => `<li>${item}</li>`).join("")}</ul>
-        <a class="contact-link" href="tel:+12137410160">Parking Operations · 213-741-0160</a><small>매일 09:00–18:00 · “오전 박물관부터 야간 경기 종료까지 같은 차량을 둔다”고 설명</small></div>
-      </article>
+function thrillMeter(level) {
+  return `<span class="thrill-meter" aria-label="Thrill ${level} / 5"><i>${"●".repeat(level)}${"○".repeat(5 - level)}</i><b>Thrill ${level}/5</b></span>`;
+}
 
-      <article class="day2-detail-card uniform-card">
-        <span class="detail-icon">10</span><div><h3>아이들 유니폼 마킹</h3><ul>${day2Operations.uniforms.map(item => `<li>${item}</li>`).join("")}</ul>
-        <div class="contact-buttons"><a href="tel:+12134199466">매장 전화</a><a href="mailto:LAFCHQstore@fanatics.com">이메일</a></div></div>
-      </article>
+function renderAttractionGuide(dayNumber) {
+  const guide = attractionGuides[dayNumber];
+  return `<section class="section feature-guide attraction-guide">
+    <div class="section-heading"><h2>${guide.title}</h2></div>
+    <p class="guide-lead">${guide.note}</p>
+    <div class="attraction-grid">${guide.items.map(([name, height, type, thrill]) => `<article class="attraction-card"><h3>${name}</h3><dl><div><dt>키 제한</dt><dd>${height}</dd></div><div><dt>형태</dt><dd>${type}</dd></div></dl>${thrillMeter(thrill)}</article>`).join("")}</div>
+    <a class="guide-source" href="${guide.source}" target="_blank" rel="noopener">공식 어트랙션 안내 확인 ↗</a>
+  </section>`;
+}
 
-      <article class="day2-detail-card final-check-card">
-        <span class="detail-icon">✓</span><div><h3>출발 전 최종 확인</h3><ul>${day2Operations.checklist.map(item => `<li>${item}</li>`).join("")}</ul></div>
-      </article>
-    </div>
+function renderDay5Route() {
+  return `<section class="section feature-guide route-guide">
+    <div class="section-heading"><h2>차량 · 주차 · 도보 동선</h2></div>
+    <p class="guide-lead">캐리어가 실린 날이라 매장 사이는 차량으로 나누어 이동하고, 주차 후 각 블록 안에서만 짧게 걷습니다.</p>
+    <div class="route-list">${day5Route.map(([time, route, mode, note]) => `<article><time>${time}</time><div><h3>${route}</h3><span>${mode}</span><p>${note}</p></div></article>`).join("")}</div>
+    <p class="route-alert">La Brea Tar Pits 박물관은 현재 공사 휴관 안내가 있으므로 야외 Hancock Park와 타르 피트만 짧게 보고, 출발 전 공식 사이트에서 운영 상태를 다시 확인하세요.</p>
+    <a class="guide-source" href="https://tarpits.org/plan-your-visit/parking-and-directions" target="_blank" rel="noopener">Tar Pits 공식 주차·운영 안내 ↗</a>
   </section>`;
 }
 
@@ -531,17 +558,19 @@ function renderDay(day) {
         <div class="timeline">${day.timeline.map(([time, title, note]) => `<div class="timeline-item"><time>${time}</time><div><p>${title}</p><small>${note}</small></div></div>`).join("")}</div>
       </section>
 
-      ${day.day === 2 ? renderDay2Operations() : ""}
-
       <section class="section">
         <div class="section-heading"><h2>방문지 미리보기</h2></div>
         <div class="place-grid">${highlights.map(renderHighlightCard).join("")}</div>
       </section>
 
-      <section class="section card-stack">
+      ${day.day === 3 ? renderSantaMonicaGuide() : ""}
+      ${attractionGuides[day.day] ? renderAttractionGuide(day.day) : ""}
+      ${day.day === 5 ? renderDay5Route() : ""}
+
+      ${day.day !== 2 ? `<section class="section card-stack">
         <article class="info-card accent"><h3>🚗 이동 · 주차</h3><ul class="info-list">${day.move.map(x => `<li>${x}</li>`).join("")}</ul></article>
         <article class="info-card warn"><h3>✓ 꼭 확인</h3><ul class="info-list">${day.tips.map(x => `<li>${x}</li>`).join("")}</ul></article>
-      </section>
+      </section>` : ""}
 
       ${detailActions.length ? `<section class="section">
         <div class="section-heading"><h2>이 날 필요한 링크</h2></div>
@@ -552,7 +581,6 @@ function renderDay(day) {
         ${prev ? `<a href="#day-${prev.day}">← Day ${prev.day}<br>${prev.title}</a>` : `<a href="#home">← 여행 홈</a>`}
         ${next ? `<a href="#day-${next.day}">Day ${next.day} →<br>${next.title}</a>` : `<a href="#home">여행 홈 →</a>`}
       </nav>
-      <p class="slide-hint">화면을 좌우로 밀어서 이전·다음 Day로 이동할 수 있어요.</p>
     </article>`;
 }
 
