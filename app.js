@@ -119,14 +119,17 @@ const days = [
     day: 8, date: "7/31 금", title: "OC 쇼핑 + UCI", theme: "South Coast Plaza · 캠퍼스 · Huntington Beach", hotel: "JW Marriott Anaheim",
     timeline: [
       ["08:30", "호텔 휴식", "수영장 · 부대시설"],
-      ["10:30", "South Coast Plaza", "쇼핑과 점심"],
+      ["10:30", "South Coast Plaza · 쇼핑", "Ralph Lauren → UNIQLO·LEGO → Nike·Apple 중심"],
+      ["12:00", "South Coast Plaza · 점심", "Din Tai Fung 예약 우선 · 빠른 식사는 Marugame Udon"],
+      ["13:00", "South Coast Plaza 출발", "UCI Student Center Parking Structure로 이동"],
       ["13:30", "UC Irvine", "90분 캠퍼스 산책"],
       ["15:00", "UCI 출발", "Huntington Beach 이동"],
-      ["15:30", "Huntington Beach", "해변 산책"],
+      ["15:30", "Huntington Beach", "피어 산책 · 서핑 구경 · 해변 또는 자전거"],
+      ["17:45", "Huntington Beach 출발", "주차장 복귀 후 Anaheim 이동"],
       ["18:30", "호텔 복귀", "체력 시 루프톱"]
     ],
     move: ["UCI Student Center Parking Structure", "General 2시간권 $8 권장", "Student Center → The Hill → Aldrich Park → Ring Mall → Infinity Fountain"],
-    tips: ["UCI는 90분 산책으로 압축", "South Coast Plaza는 Polo·Patagonia 우선", "해변 주차 약 $15 예상"],
+    tips: ["UCI는 90분 산책으로 압축", "South Coast Plaza는 2시간 30분 안에 쇼핑과 점심 완료", "Patagonia 아웃도어 의류 매장은 현재 디렉터리에 없음", "Huntington City Beach 주차는 시간당 $2 · 일일 최대 $15 기준"],
     actions: [["지도", LINKS.map]]
   },
   {
@@ -335,8 +338,47 @@ const attractionGuides = {
       ["Calico Mine Ride", "보호자 동반 시 제한 없음", "클래식 광산 다크 라이드", 1],
       ["Knott’s Bear-y Tales", "보호자 동반 시 제한 없음", "인터랙티브 다크 라이드", 1]
     ]
+  },
+  7: {
+    title: "DCA 인기 어트랙션",
+    note: "키 제한은 Disneyland 공식 최소 신장입니다. 7월 30일에는 새 버전 Soarin’ Across America가 운영될 예정이며, Thrill은 우리 가족 기준 체감 1–5입니다.",
+    source: "https://disneyland.disney.go.com/en-ca/attractions/disney-california-adventure/",
+    items: [
+      ["Radiator Springs Racers", "102cm", "Cars 다크 라이드 · 야외 레이스", 4],
+      ["Guardians of the Galaxy – Mission: BREAKOUT!", "102cm", "프리폴 드롭 타워 · 실내", 5],
+      ["Incredicoaster", "122cm", "런치 · 루프 코스터", 5],
+      ["Soarin’ Across America", "102cm", "플라잉 시어터 · 80ft 돔", 2],
+      ["Grizzly River Run", "107cm", "8인승 급류 래프트 · 젖음", 4],
+      ["WEB SLINGERS: A Spider-Man Adventure", "제한 없음", "제스처 기반 인터랙티브 라이드", 2],
+      ["Toy Story Midway Mania!", "제한 없음", "4D 슈팅 · 회전 다크 라이드", 2],
+      ["The Little Mermaid", "제한 없음", "패밀리 다크 라이드", 1]
+    ]
   }
 };
+
+const southCoastStores = [
+  ["Ralph Lauren", "Level 1 · Jewel Court", "가족 의류와 클래식 폴로를 먼저 확인"],
+  ["UNIQLO", "Level 1 · Din Tai Fung Wing", "남녀·키즈·베이비 기본 아이템을 한 번에"],
+  ["LEGO", "Level 1 · Din Tai Fung Wing", "Build-A-Mini와 Pick & Build Wall · 아이들 우선"],
+  ["Nike", "Level 3 · Macy’s Home Store Wing", "가족용 신발과 스포츠웨어"],
+  ["Apple Store", "Level 1 · Macy’s Home Store Wing", "필요한 액세서리가 있을 때 짧게"],
+  ["The North Face", "Level 2 · Crate & Barrel Wing", "Patagonia 아웃도어 의류 매장의 현실적인 대안"]
+];
+
+const southCoastLunch = [
+  ["Din Tai Fung", "Level 2 · Din Tai Fung Wing", "샤오롱바오 · 매운 완탕 · 볶음밥", "예약 우선 · 가족 만족도 높음"],
+  ["Marugame Udon", "Level 1 · Din Tai Fung Wing", "우동 · 튀김", "시간 절약용 1순위"],
+  ["Ramen Nagi", "Level 1 · Crate & Barrel Wing", "돈코츠 라멘", "The North Face 동선과 연결"],
+  ["Water Grill", "South Coast Drive Entrance", "해산물 · 생선 요리", "점심을 여유 있게 먹을 때"]
+];
+
+const huntingtonActivities = [
+  ["Huntington Beach Pier", "1,850ft 피어를 왕복하며 서퍼와 해안 전망 보기"],
+  ["City Beach", "피어 남쪽 모래사장 · 파도와 해변 산책"],
+  ["Beach Bike Path", "피어 주변에서 자전거·탠덤·4인용 surrey를 45–60분 대여"],
+  ["Main Street · Pacific City", "간식이나 이른 저녁 · 바다 전망 휴식"],
+  ["선셋", "해변 또는 피어에서 일몰을 보고 17:45 전후 출발"]
+];
 
 const day5Route = [
   ["09:00", "The Garland → Getty Center", "차량 25–35분", "1200 Getty Center Dr 주차장 → 트램 → 입구. 캐리어는 트렁크 안쪽에 가려 보관"],
@@ -458,6 +500,28 @@ function renderDay5Route() {
   </section>`;
 }
 
+function renderDay8Guide() {
+  return `<section class="section feature-guide shopping-guide">
+    <div class="section-heading"><h2>오전 · South Coast Plaza</h2></div>
+    <p class="guide-lead">10:30–12:00 쇼핑, 12:00–13:00 점심으로 나눕니다. 넓은 몰이라 모든 매장을 돌기보다 가족별 우선 매장만 연결하세요.</p>
+    <div class="shopping-grid">${southCoastStores.map(([name, location, note]) => `<article><h3>${name}</h3><span>${location}</span><p>${note}</p></article>`).join("")}</div>
+    <p class="route-alert"><strong>Patagonia 확인:</strong> 최신 디렉터리의 ‘Fueguia 1833 Patagonia’는 아웃도어 의류가 아니라 아르헨티나 향수 브랜드입니다. Patagonia 의류점으로 잡지 말고 The North Face를 대안으로 두세요.</p>
+    <h3 class="subsection-title">점심 후보</h3>
+    <div class="lunch-grid">${southCoastLunch.map(([name, location, menu, tip]) => `<article><div><h3>${name}</h3><span>${location}</span></div><p><b>${menu}</b><small>${tip}</small></p></article>`).join("")}</div>
+    <div class="flow-note"><strong>추천 동선</strong><p>Ralph Lauren → UNIQLO·LEGO → 12:00 Din Tai Fung. Nike·Apple은 필요한 물건이 있을 때만 추가하고 13:00에는 출차.</p></div>
+    <a class="guide-source" href="https://www.southcoastplaza.com/directory/" target="_blank" rel="noopener">South Coast Plaza 공식 디렉터리 ↗</a>
+  </section>
+
+  <section class="section feature-guide huntington-guide">
+    <div class="section-heading"><h2>오후 · Huntington Beach</h2></div>
+    <p class="guide-lead">15:30 도착 후 약 2시간만 머뭅니다. 피어를 중심으로 해변 또는 자전거 중 하나를 골라야 UCI 일정과 호텔 복귀 시간이 모두 지켜집니다.</p>
+    <div class="activity-grid">${huntingtonActivities.map(([title, note], index) => `<article><span>${String(index + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${note}</p></div></article>`).join("")}</div>
+    <div class="flow-note"><strong>추천 2시간 흐름</strong><p>피어 왕복·서핑 구경 40분 → 해변 또는 자전거 50분 → Main Street·Pacific City 간식 20분 → 주차장 복귀.</p></div>
+    <p class="route-alert">Promenade 주차장 또는 피어 남·북쪽 주차장을 이용하세요. 공식 관광 안내 기준 시간당 $2, 일일 최대 $15이며 변동될 수 있습니다. 7월 오후의 무료 화덕은 선착순 경쟁이 치열해 이번 일정에는 bonfire를 권하지 않습니다.</p>
+    <a class="guide-source" href="https://www.surfcityusa.com/things-to-do/beaches/huntington-city-beach/" target="_blank" rel="noopener">Huntington City Beach 공식 안내 ↗</a>
+  </section>`;
+}
+
 function checklistState() {
   try { return JSON.parse(localStorage.getItem("la-trip-checklist") || "{}"); }
   catch { return {}; }
@@ -566,6 +630,7 @@ function renderDay(day) {
       ${day.day === 3 ? renderSantaMonicaGuide() : ""}
       ${attractionGuides[day.day] ? renderAttractionGuide(day.day) : ""}
       ${day.day === 5 ? renderDay5Route() : ""}
+      ${day.day === 8 ? renderDay8Guide() : ""}
 
       ${day.day !== 2 ? `<section class="section card-stack">
         <article class="info-card accent"><h3>🚗 이동 · 주차</h3><ul class="info-list">${day.move.map(x => `<li>${x}</li>`).join("")}</ul></article>
