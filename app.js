@@ -176,14 +176,16 @@ const days = [
       ["09:00", "호텔 체크아웃", "Getty Center 주차장까지 차량 이동 · 짐은 트렁크 안쪽에"],
       ["10:00", "Getty Center", "주차 후 트램 탑승 · 12:30까지 관람과 정원 산책"],
       ["12:30", "점심과 이동", "Sunset Blvd 방향 · 매장별 차량 이동"],
-      ["13:30", "Supreme → Glossier", "8801 Sunset Blvd → 8407 Melrose Ave · 각각 인근 유료주차"],
-      ["14:30", "Stüssy", "112 S La Brea Ave · 미터 주차 또는 인근 유료주차"],
-      ["15:30", "La Brea Tar Pits", "Curson Ave & 6th St 주차 · 야외 Hancock Park만 관람"],
-      ["16:30", "Anaheim 이동", "75–120분 예상"],
+      ["13:30", "Supreme", "8801 Sunset Blvd · 점심과 매장 방문"],
+      ["13:50", "Madhappy West Hollywood", "8906 Melrose Ave · 선물용 후디의 색상·사이즈부터 확인"],
+      ["14:20", "Glossier", "8407 Melrose Ave · 인근 유료주차"],
+      ["14:50", "Stüssy", "112 S La Brea Ave · 미터 주차 또는 인근 유료주차"],
+      ["15:20", "La Brea Tar Pits", "Curson Ave & 6th St 주차 · 야외 Hancock Park만 짧게 관람"],
+      ["16:20", "Anaheim 이동", "75–120분 예상"],
       ["19:00", "호텔 체크인", "체력 시 Downtown Disney"]
     ],
     move: ["Getty는 주차 후 트램으로 정상 이동", "쇼핑 매장 사이는 차량으로 나누어 이동", "Tar Pits 주차장 입구는 Curson Ave & 6th St · 카드만 가능"],
-    tips: ["Getty 예약은 10:00", "차량에 캐리어를 두므로 외부에 보이지 않게 적재", "Anaheim 러시아워를 고려해 16:30 이전 출발 권장"],
+    tips: ["Getty 예약은 10:00", "Madhappy California 후디는 $185+세금 기준 · relaxed unisex fit이라 실착 권장", "원하는 재고가 없으면 Day 8 South Coast Plaza 매장을 대체 후보로 확인", "차량에 캐리어를 두므로 외부에 보이지 않게 적재", "Anaheim 러시아워를 고려해 16:30 전후 출발"],
     actions: [["Getty 예약 티켓", LINKS.getty, "ticket"], ["JW Marriott 바우처", LINKS.jwVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
@@ -214,7 +216,7 @@ const days = [
     day: 8, date: "7/31 금", title: "OC 쇼핑 + UCI", theme: "South Coast Plaza · 캠퍼스 · Huntington Beach", hotel: "JW Marriott Anaheim",
     timeline: [
       ["08:30", "호텔 휴식", "수영장 · 부대시설"],
-      ["10:30", "South Coast Plaza · 쇼핑", "Ralph Lauren → UNIQLO·LEGO → Nike·Apple 중심"],
+      ["10:30", "South Coast Plaza · 쇼핑", "Ralph Lauren → UNIQLO·LEGO·Bath & Body Works 중심"],
       ["12:00", "South Coast Plaza · 점심", "Din Tai Fung 예약 우선 · 빠른 식사는 Marugame Udon"],
       ["13:00", "South Coast Plaza 출발", "UCI Student Center Parking Structure로 이동"],
       ["13:30", "UC Irvine", "90분 캠퍼스 산책"],
@@ -231,16 +233,17 @@ const days = [
     day: 9, date: "8/1 토", title: "Terranea 이동", theme: "Del Amo · 해안 드라이브 · 리조트 입성", hotel: "Terranea Resort",
     timeline: [
       ["09:00", "호텔 체크아웃", "Del Amo로 이동"],
-      ["10:30", "Del Amo Fashion Center", "Nordstrom 쪽 주차 · 핵심 매장부터 쇼핑"],
+      ["10:30", "Del Amo Fashion Center", "Nordstrom 쪽 주차 · 핵심 매장과 See’s Candies 쇼핑"],
       ["12:10", "Del Amo 점심", "North Italia 또는 FRIDA · 빠른 식사는 Bazille"],
-      ["13:20", "Del Amo 출발", "Point Vicente까지 약 30–40분"],
-      ["14:00", "Palos Verdes", "해안 드라이브 · Point Vicente"],
+      ["13:20", "Del Amo 출발", "Pacific Coast Hwy 방향"],
+      ["13:40", "Trader Joe’s", "Rolling Hills Plaza · 메이플 리프 쿠키와 귀국 선물 쇼핑"],
+      ["14:20", "Palos Verdes", "해안 드라이브 · Point Vicente"],
       ["15:30", "Terranea 도착", "짐 보관 후 시설 이용"],
       ["16:00", "객실 입실", "체크인 가능 시간"],
       ["18:30", "mar’sel 저녁", "사전예약 권장"]
     ],
     move: ["Anaheim → Del Amo 약 60–90분", "Del Amo 주차 무료", "Terranea 숙박 발렛 약 $75/박"],
-    tips: ["Del Amo는 Nordstrom 구역과 Zara·UNIQLO 구역 중 우선순위를 정해 이동", "객실 전 짐 보관 가능", "Point Vicente 체류는 체크인 시간에 맞춰 조정", "mar’sel 예약시간 재확인"],
+    tips: ["Del Amo는 Nordstrom 구역과 Zara·UNIQLO 구역 중 우선순위를 정해 이동", "See’s 초콜릿은 보냉백에 넣고 트렁크에 오래 두지 않기", "Trader Joe’s에서는 메이플 리프 쿠키 재고를 먼저 확인", "객실 전 짐 보관 가능", "Point Vicente 체류는 체크인 시간에 맞춰 조정", "mar’sel 예약시간 재확인"],
     actions: [["Terranea 바우처", LINKS.terraneaVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
@@ -376,8 +379,8 @@ const dayHighlights = {
       title: "Sunset · Melrose · La Brea",
       image: "https://www.discoverlosangeles.com/sites/default/files/styles/max_1920x1920_kraken/public/images/2022-02/Alfred%20at%20Glossier%20Alley.jpeg.webp?auto=webp&fit=bound&itok=SJ_YjMvj&quality=72&width=480",
       alt: "Melrose Avenue의 Glossier Alley",
-      summary: "Getty 관람 뒤 Supreme, Glossier, Stüssy를 차로 나누어 방문하고 각 블록 안에서만 짧게 걷습니다.",
-      points: ["Supreme → Glossier → Stüssy 순서", "캐리어는 트렁크 안쪽에 가리고 매장별 유료주차 이용"],
+      summary: "Getty 관람 뒤 Supreme, Madhappy, Glossier, Stüssy를 차로 나누어 방문하고 각 블록 안에서만 짧게 걷습니다.",
+      points: ["Supreme → Madhappy → Glossier → Stüssy 순서", "Madhappy에서는 선물용 후디의 색상·사이즈 재고를 먼저 확인", "캐리어는 트렁크 안쪽에 가리고 매장별 유료주차 이용"],
       source: "https://www.discoverlosangeles.com/things-to-do/the-guide-to-melrose-avenue-west",
       sourceLabel: "Discover Los Angeles"
     }
@@ -538,6 +541,7 @@ const southCoastStores = [
   ["Ralph Lauren", "Level 1 · Jewel Court", "가족 의류와 클래식 폴로를 먼저 확인"],
   ["UNIQLO", "Level 1 · Din Tai Fung Wing", "남녀·키즈·베이비 기본 아이템을 한 번에"],
   ["LEGO", "Level 1 · Din Tai Fung Wing", "Build-A-Mini와 Pick & Build Wall · 아이들 우선"],
+  ["Bath & Body Works", "Level 1 · Din Tai Fung Wing", "미스트·로션·손 세정제 선물 · 100ml 초과 제품은 위탁수하물"],
   ["Nike", "Level 3 · Macy’s Home Store Wing", "가족용 신발과 스포츠웨어"],
   ["Apple Store", "Level 1 · Macy’s Home Store Wing", "필요한 액세서리가 있을 때 짧게"],
   ["The North Face", "Level 2 · Crate & Barrel Wing", "아웃도어 의류와 가족용 경량 재킷 확인"]
@@ -576,11 +580,17 @@ const delAmoLunch = [
   ["Lucille’s Smokehouse BBQ", "Macy’s Women 외부 입구", "립 · 브리스킷 · 치킨", "미국식 BBQ를 원할 때"]
 ];
 
+const day9GiftStops = [
+  ["See’s Candies", "Del Amo · #310A", "초콜릿 선물은 쇼핑 마무리에 구매하고 보냉백에 보관"],
+  ["Trader Joe’s", "2545 Pacific Coast Hwy · Rolling Hills Plaza", "메이플 리프 쿠키·시즈닝·에코백을 귀국 이틀 전에 구매"]
+];
+
 const day5Route = [
   ["09:00", "The Garland → Getty Center", "차량 25–35분", "1200 Getty Center Dr 주차장 → 트램 → 입구. 캐리어는 트렁크 안쪽에 가려 보관"],
   ["12:30", "Getty → Supreme", "차량 약 25분", "8801 Sunset Blvd 인근 유료주차 또는 발렛. 점심과 매장 방문을 한 번에"],
-  ["13:50", "Supreme → Glossier", "차량 10–15분", "8407 Melrose Ave 인근 유료주차. 매장 사이는 걷지 말고 차로 분리"],
-  ["14:30", "Glossier → Stüssy", "차량 5–10분", "112 S La Brea Ave 인근 미터 주차 또는 유료주차"],
+  ["13:50", "Supreme → Madhappy", "차량 5–10분", "8906 Melrose Ave. California 후디 색상·사이즈를 우선 확인하고 25–30분 안에 쇼핑"],
+  ["14:20", "Madhappy → Glossier", "차량 5–10분", "8407 Melrose Ave 인근 유료주차. 매장 사이는 걷지 말고 차로 분리"],
+  ["14:50", "Glossier → Stüssy", "차량 5–10분", "112 S La Brea Ave 인근 미터 주차 또는 유료주차"],
   ["15:20", "Stüssy → Tar Pits", "차량 5–10분", "5801 Wilshire Blvd · Curson Ave & 6th St 주차장. 카드만 가능 · $20 flat rate 기준"],
   ["16:20", "Tar Pits → Anaheim", "차량 75–120분", "1775 S Clementine St 도착 후 호텔 발렛. 러시아워가 심하면 Tar Pits 생략"]
 ];
@@ -781,7 +791,7 @@ function renderDay5Route() {
     <p class="guide-lead">캐리어가 실린 날이라 매장 사이는 차량으로 나누어 이동하고, 주차 후 각 블록 안에서만 짧게 걷습니다.</p>
     <div class="route-list">${day5Route.map(([time, route, mode, note]) => `<article><time>${time}</time><div><h3>${route}</h3><span>${mode}</span><p>${note}</p></div></article>`).join("")}</div>
     <p class="route-alert">La Brea Tar Pits 박물관은 현재 공사 휴관 안내가 있으므로 야외 Hancock Park와 타르 피트만 짧게 보고, 출발 전 공식 사이트에서 운영 상태를 다시 확인하세요.</p>
-    <a class="guide-source" href="https://tarpits.org/plan-your-visit/parking-and-directions" target="_blank" rel="noopener">Tar Pits 공식 주차·운영 안내 ↗</a>
+    <div class="place-sources"><a class="guide-source" href="https://www.madhappy.com/pages/stores" target="_blank" rel="noopener">Madhappy 공식 매장·영업시간 ↗</a><a class="guide-source" href="https://tarpits.org/plan-your-visit/parking-and-directions" target="_blank" rel="noopener">Tar Pits 공식 주차·운영 안내 ↗</a></div>
   </section>`;
 }
 
@@ -792,7 +802,7 @@ function renderDay8Guide() {
     <div class="shopping-grid">${southCoastStores.map(([name, location, note]) => `<article><h3>${name}</h3><span>${location}</span><p>${note}</p></article>`).join("")}</div>
     <h3 class="subsection-title">점심 후보</h3>
     <div class="lunch-grid">${southCoastLunch.map(([name, location, menu, tip]) => `<article><div><h3>${name}</h3><span>${location}</span></div><p><b>${menu}</b><small>${tip}</small></p></article>`).join("")}</div>
-    <div class="flow-note"><strong>추천 동선</strong><p>Ralph Lauren → UNIQLO·LEGO → 12:00 Din Tai Fung. Nike·Apple은 필요한 물건이 있을 때만 추가하고 13:00에는 출차.</p></div>
+    <div class="flow-note"><strong>추천 동선</strong><p>Ralph Lauren → UNIQLO·LEGO → Bath & Body Works → 12:00 Din Tai Fung. Nike·Apple은 필요한 물건이 있을 때만 추가하고 13:00에는 출차.</p></div>
     <a class="guide-source" href="https://www.southcoastplaza.com/directory/" target="_blank" rel="noopener">South Coast Plaza 공식 디렉터리 ↗</a>
   </section>
 
@@ -814,8 +824,11 @@ function renderDay9Guide() {
     <div class="flow-note"><strong>추천 쇼핑 순서</strong><p>Nike → FIFA World Cup 2026 Official Store → Apple·Aritzia·Vuori → Nordstrom. Zara·UNIQLO 구역과 Shonen Jump·Mitsuwa는 가족 취향에 따라 하나만 추가.</p></div>
     <h3 class="subsection-title">점심 후보</h3>
     <div class="lunch-grid">${delAmoLunch.map(([name, location, menu, tip]) => `<article><div><h3>${name}</h3><span>${location}</span></div><p><b>${menu}</b><small>${tip}</small></p></article>`).join("")}</div>
+    <h3 class="subsection-title">귀국 선물</h3>
+    <div class="shopping-grid">${day9GiftStops.map(([name, location, note]) => `<article><h3>${name}</h3><span>${location}</span><p>${note}</p></article>`).join("")}</div>
+    <div class="flow-note"><strong>선물 쇼핑 흐름</strong><p>Del Amo 안에서 See’s Candies 구매 → 점심 → 13:20 출차 → Rolling Hills Plaza Trader Joe’s 25분 → Point Vicente. 메이플 리프 쿠키는 시즌·지점별 재고가 달라 보이면 먼저 담으세요.</p></div>
     <p class="route-alert">Din Tai Fung은 Del Amo에도 있지만 Day 8 South Coast Plaza에서 이용할 가능성이 높아 Day 9 추천에서는 우선순위를 낮췄습니다. North Italia는 몰 외곽 Hawthorne Blvd 쪽이라 식사 후 바로 출차하기 좋습니다.</p>
-    <div class="place-sources"><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/stores/print" target="_blank" rel="noopener">Del Amo 공식 매장 디렉터리 ↗</a><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/dining" target="_blank" rel="noopener">공식 레스토랑 안내 ↗</a></div>
+    <div class="place-sources"><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/stores/print" target="_blank" rel="noopener">Del Amo 공식 매장 디렉터리 ↗</a><a class="guide-source" href="https://chocolateshops.sees.com/ca/torrance/chocolate_shops_torrance_ca_1ca070.html" target="_blank" rel="noopener">See’s Candies 공식 매장 ↗</a><a class="guide-source" href="https://locations.traderjoes.com/ca/torrance/29/" target="_blank" rel="noopener">Trader Joe’s 공식 지점 ↗</a><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/dining" target="_blank" rel="noopener">공식 레스토랑 안내 ↗</a></div>
   </section>`;
 }
 
