@@ -17,6 +17,20 @@ const LINKS = {
   hotelsIOS: "https://apps.apple.com/kr/app/hotels-com-book-hotels-more/id284971959"
 };
 
+const DAY_MAPS = {
+  1: "https://www.google.com/maps/d/viewer?mid=13bYxlcPQjxujYQxPMSfVUOk-gndr9mA",
+  2: "https://www.google.com/maps/d/viewer?mid=1_mp5mIe_NSmk4IBkVPckswrr0mZqL1U",
+  3: "https://www.google.com/maps/d/viewer?mid=1CpCZ1vkCULDp4ACPqTx316Mta7GP1NU",
+  4: "https://www.google.com/maps/d/viewer?mid=1FglRvW1mh0k_Ir47_k3rAJIXM5p6j-A",
+  5: "https://www.google.com/maps/d/viewer?mid=1aps2OQhkfKPntQTkoIPCwkCkkx8K9_s",
+  6: "https://www.google.com/maps/d/viewer?mid=1hUvPmpjwNiRu7m_kVsC4H4k2CzY6u4E",
+  7: "https://www.google.com/maps/d/viewer?mid=1TaPlEgQIGAWGNvyb3i-ZRR28QzJS63E",
+  8: "https://www.google.com/maps/d/viewer?mid=13JynO4YaWdhwvLOmf1pNgVSrOrTbzu0",
+  9: "https://www.google.com/maps/d/viewer?mid=1P-pKrwFZ_Lml1ZdHkuT0zmivZhuuC5k",
+  10: "https://www.google.com/maps/d/viewer?mid=1A8SicTv-vRSyxu6eC3-_iK3ZdiK5hyY",
+  11: "https://www.google.com/maps/d/viewer?mid=1zUyLW1d1BGTBOPw8z-loMN1i7rvd47Y"
+};
+
 const days = [
   {
     day: 1, date: "7/24 금", title: "LA 도착", theme: "공항 · 렌터카 · 호텔 체크인", hotel: "The Garland",
@@ -648,7 +662,7 @@ function renderDay(day) {
         <p class="theme">${day.theme}</p>
       </header>
 
-      <div class="day-map-action">${extLink("지도", LINKS.map, "primary")}</div>
+      <div class="day-map-action">${extLink("지도", DAY_MAPS[day.day] || LINKS.map, "primary")}</div>
 
       <section class="section">
         <div class="section-heading"><h2>오늘의 흐름</h2></div>
