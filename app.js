@@ -29,6 +29,20 @@ const DAY_MAPS = {
   11: "https://www.google.com/maps/d/viewer?mid=1zUyLW1d1BGTBOPw8z-loMN1i7rvd47Y"
 };
 
+const DAY_MAP_VIEWS = {
+  1: { center: "34.0420,-118.3810", zoom: 10 },
+  2: { center: "34.0138,-118.2857", zoom: 15 },
+  3: { center: "34.0730,-118.3970", zoom: 11 },
+  4: { center: "34.1377,-118.3550", zoom: 15 },
+  5: { center: "33.9750,-118.1950", zoom: 9 },
+  6: { center: "33.8260,-117.9550", zoom: 12 },
+  7: { center: "33.8070,-117.9180", zoom: 15 },
+  8: { center: "33.7280,-117.9200", zoom: 10 },
+  9: { center: "33.7750,-118.1550", zoom: 9 },
+  10: { center: "33.7380,-118.3970", zoom: 15 },
+  11: { center: "33.8420,-118.4020", zoom: 10 }
+};
+
 const dayVisuals = {
   1: {
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg/960px-Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg",
@@ -642,11 +656,19 @@ function appLaunchUrl(webUrl, packageName) {
 function dayMapEmbedUrl(dayNumber) {
   const source = DAY_MAPS[dayNumber] || LINKS.map;
   const mid = source.match(/[?&]mid=([^&]+)/)?.[1];
-  return mid ? `https://www.google.com/maps/d/embed?mid=${encodeURIComponent(mid)}&ehbc=2E312F&noprof=1` : source;
+  const view = DAY_MAP_VIEWS[dayNumber];
+  const viewport = view ? `&ll=${encodeURIComponent(view.center)}&z=${view.zoom}` : "";
+  return mid ? `https://www.google.com/maps/d/embed?mid=${encodeURIComponent(mid)}&ehbc=2E312F&noprof=1${viewport}` : source;
+}
+
+function dayMapViewerUrl(dayNumber) {
+  const source = DAY_MAPS[dayNumber] || LINKS.map;
+  const view = DAY_MAP_VIEWS[dayNumber];
+  return view ? `${source}&ll=${encodeURIComponent(view.center)}&z=${view.zoom}` : source;
 }
 
 function renderDayMap(day) {
-  const source = DAY_MAPS[day.day] || LINKS.map;
+  const source = dayMapViewerUrl(day.day);
   return `<section class="section day-map-section">
     <div class="day-map-head">
       <div><span class="section-kicker">DAY ${day.day} · ${day.date}</span><h2>지도</h2></div>
