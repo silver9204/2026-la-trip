@@ -274,7 +274,6 @@ function renderHome() {
         </div>
       </section>
 
-      <p class="privacy-note section">🔒 티켓·예약서와 개인정보는 이 사이트에 저장하지 않습니다. 관련 버튼은 로그인 권한이 유지되는 Google Drive 원본을 새 창에서 엽니다.</p>
     </div>`;
 }
 
