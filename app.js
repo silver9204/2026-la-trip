@@ -7,8 +7,13 @@ const LINKS = {
   getty: "https://drive.google.com/file/d/1zRCB5cFEWJu3z897usy7MG2uUhhb_kgb/view",
   dcaAdult: "https://drive.google.com/file/d/1Pd8tk-KyJ3P-w_2mV1KPJcnA822WSdL5/view",
   dcaChild: "https://drive.google.com/file/d/1Bk9hOInXEMFvfmMSt-yhn9b5zPVTQukf/view",
+  garlandVoucher: "https://drive.google.com/file/d/1Ns5me4KjwAJ79fyC4aAgY3r8aKyr2jSB/view",
+  jwVoucher: "https://drive.google.com/file/d/1GWdQgHtiDaIwToTWPZFugliDR0kplaY2/view",
+  terraneaVoucher: "https://drive.google.com/file/d/1PSAntwTzj-9QdCg-CYTRrxEvG_V7jq4Z/view",
   koreanAirAndroid: "https://play.google.com/store/apps/details?id=com.koreanair.passenger",
-  koreanAirIOS: "https://apps.apple.com/kr/app/korean-air-my/id1512918989"
+  koreanAirIOS: "https://apps.apple.com/kr/app/korean-air-my/id1512918989",
+  hotelsAndroid: "https://play.google.com/store/apps/details?id=com.hcom.android",
+  hotelsIOS: "https://apps.apple.com/kr/app/hotels-com-book-hotels-more/id284971959"
 };
 
 const days = [
@@ -22,7 +27,7 @@ const days = [
     ],
     move: ["LAX → Hertz → The Garland", "공항에서 호텔까지 약 45–70분", "호텔 셀프주차 $50+세금"],
     tips: ["렌터카 외관·연료·트렁크 적재 상태 확인", "국제면허증과 예약 확인서 준비", "피곤하면 저녁은 호텔 The Front Yard로 대체"],
-    actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["이 날 지도", LINKS.map]]
+    actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["이 날 지도", LINKS.map]]
   },
   {
     day: 2, date: "7/25 토", title: "Exposition Park + LAFC", theme: "과학관 · 자연사박물관 · 축구 직관", hotel: "The Garland",
@@ -83,7 +88,7 @@ const days = [
     ],
     move: ["Getty 주차 $25", "Tar Pits 주차 약 $15", "정체가 심하면 Tar Pits를 생략"],
     tips: ["Getty 예약은 10:00", "차량에 캐리어를 두므로 외부에 보이지 않게 적재", "Anaheim 러시아워를 고려해 16:30 이전 출발 권장"],
-    actions: [["Getty 예약 티켓", LINKS.getty, "ticket"], ["이 날 지도", LINKS.map]]
+    actions: [["Getty 예약 티켓", LINKS.getty, "ticket"], ["JW Marriott 바우처", LINKS.jwVoucher, "ticket"], ["이 날 지도", LINKS.map]]
   },
   {
     day: 6, date: "7/29 수", title: "Knott’s Berry Farm", theme: "테마파크 · 호텔 수영장", hotel: "JW Marriott Anaheim",
@@ -135,7 +140,7 @@ const days = [
     ],
     move: ["Anaheim → Del Amo 약 60–90분", "Del Amo 주차 무료", "Terranea 숙박 발렛 약 $75/박"],
     tips: ["객실 전 짐 보관 가능", "Point Vicente 체류는 체크인 시간에 맞춰 조정", "mar’sel 예약시간 재확인"],
-    actions: [["이 날 지도", LINKS.map]]
+    actions: [["Terranea 바우처", LINKS.terraneaVoucher, "ticket"], ["이 날 지도", LINKS.map]]
   },
   {
     day: 10, date: "8/2 일", title: "Terranea 휴양", theme: "해안 산책 · 수영장 · Kids Club", hotel: "Terranea Resort",
@@ -168,14 +173,17 @@ const days = [
 const hotels = [
   {
     stay: "7/24–7/28 · 4박", name: "The Garland", address: "4222 Vineland Ave, North Hollywood, CA 91602",
+    checkin: "15:00", checkout: "12:00", room: "Deluxe Room · Queen Bed 2개 · 금연", cancel: "7/22 18:00까지 무료 취소", voucher: LINKS.garlandVoucher,
     tips: ["Universal 셔틀: 호텔 매시 정각 · 귀환 매시 :15 기준", "수영장 06:00–22:00", "The Front Yard는 파티오 좌석 요청", "셀프주차 $50+세금 · 발렛 $55+세금"]
   },
   {
     stay: "7/28–8/1 · 4박", name: "JW Marriott Anaheim", address: "1775 S Clementine St, Anaheim, CA 92802",
+    checkin: "16:00", checkout: "11:00", room: "Deluxe Room · Queen Bed 2개 · Pool View · 금연", cancel: "7/25 23:59까지 무료 취소", voucher: LINKS.jwVoucher,
     tips: ["DCA 전용 셔틀 없음 · 도보 이동", "Parkestry Rooftop에서 일부 불꽃놀이 조망 가능", "온수 야외 수영장과 JW Garden", "발렛 약 $68/일"]
   },
   {
     stay: "8/1–8/3 · 2박", name: "Terranea Resort", address: "100 Terranea Way, Rancho Palos Verdes, CA 90275",
+    checkin: "16:00", checkout: "11:00", room: "Ocean Front Double · 금연", cancel: "7/25 18:00까지 무료 취소", voucher: LINKS.terraneaVoucher,
     tips: ["객실 체크인 16:00 · 도착 즉시 짐 보관 가능", "Resort Pool 08:00–20:00", "워터슬라이드 11:00–16:00", "발렛 약 $75/박 · 리조트 피 약 $75/박"]
   }
 ];
@@ -222,6 +230,10 @@ function koreanAirAppUrl() {
   return /iPhone|iPad|iPod/i.test(navigator.userAgent) ? LINKS.koreanAirIOS : LINKS.koreanAirAndroid;
 }
 
+function hotelsAppUrl() {
+  return /iPhone|iPad|iPod/i.test(navigator.userAgent) ? LINKS.hotelsIOS : LINKS.hotelsAndroid;
+}
+
 function checklistState() {
   try { return JSON.parse(localStorage.getItem("la-trip-checklist") || "{}"); }
   catch { return {}; }
@@ -238,6 +250,8 @@ function countdownText() {
 }
 
 function renderHome() {
+  const saved = checklistState();
+  const done = checklistItems.filter((_, index) => saved[index]).length;
   return `
     <div class="page">
       <section class="hero">
@@ -252,14 +266,19 @@ function renderHome() {
         <div class="summary-grid flight-grid">
           <article class="summary-card"><span class="card-icon">↗</span><div><h3>갈 때</h3><p>7/24 금 · KE011<br>ICN T2 19:40<br>LAX 15:20</p></div></article>
           <article class="summary-card"><span class="card-icon">↙</span><div><h3>올 때</h3><p>8/3 월 · KE018<br>LAX 12:30<br>ICN 8/4 17:20</p></div></article>
-          <article class="summary-card hotel-summary"><span class="card-icon">🏨</span><div><h3>숙소</h3><p>The Garland 4박 · JW Marriott Anaheim 4박 · Terranea Resort 2박</p></div></article>
         </div>
+        <article class="home-checklist">
+          <div class="home-checklist-head"><h3>✓ 출발 전 Checklist</h3><span class="check-progress">${done} / ${checklistItems.length} 완료</span></div>
+          <div class="home-checklist-scroll">${checklistItems.map((item, index) => `<label class="check-item"><input type="checkbox" data-check="${index}" ${saved[index] ? "checked" : ""}><span>${item}</span></label>`).join("")}</div>
+        </article>
         <a class="airline-app-link" href="${koreanAirAppUrl()}" target="_blank" rel="noopener"><span>✈️ 대한항공 My 앱</span><small>체크인 · 탑승권 열기 ↗</small></a>
+        <div class="hotel-section-heading"><h3>숙소</h3><span>좌우로 넘겨 보기</span></div>
+        <div class="hotel-timeline">${hotels.map((h, index) => `<article class="hotel-stop"><div class="hotel-marker"><span>${index + 1}</span></div><div class="hotel-card"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><p class="hotel-cancel">무료 취소 · ${h.cancel.replace("까지 무료 취소", "까지")}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div>
+        <a class="hotels-app-link" href="${hotelsAppUrl()}" target="_blank" rel="noopener"><span>🏨 Hotels.com 앱</span><small>예약 · 바우처 확인 ↗</small></a>
       </section>
 
       <section class="section">
         <div class="section-heading"><h2>Day 바로가기</h2><a href="#days">전체 보기</a></div>
-        <a class="checklist-shortcut" href="#checklist"><span><strong>✓ 출발 전 Checklist</strong><small>여권 · 티켓 · 준비물 최종 확인</small></span><span>›</span></a>
         <div class="home-day-grid">${days.slice(0, 10).map(d => `<a class="home-day-card" href="#day-${d.day}" title="${d.title}"><b>DAY ${d.day}</b><strong>${d.title}</strong><time>${d.date}</time></a>`).join("")}</div>
         <a class="home-day-last" href="#day-11"><span><b>DAY 11</b><strong>귀국</strong></span><time>8/3 월</time><span>›</span></a>
       </section>
@@ -320,21 +339,16 @@ function renderInfo() {
     <div class="page">
       <p class="eyebrow">Stay · Eat · Prepare</p>
       <h1 class="page-title">여행정보</h1>
-      <p class="page-lead">호텔 이용 팁과 일정에 맞춘 식당, 출발 전 준비사항을 한곳에 모았습니다.</p>
+      <p class="page-lead">호텔 이용 팁과 일정에 맞춘 식당을 한곳에 모았습니다.</p>
 
       <section class="section">
         <div class="section-heading"><h2>호텔 이용 팁</h2></div>
-        <div class="card-stack">${hotels.map(h => `<article class="info-card hotel-block"><span class="tag">${h.stay}</span><h3>${h.name}</h3><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><ul class="info-list">${h.tips.map(x => `<li>${x}</li>`).join("")}</ul></article>`).join("")}</div>
+        <div class="card-stack">${hotels.map(h => `<article class="info-card hotel-block"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><p class="hotel-cancel">무료 취소 · ${h.cancel.replace("까지 무료 취소", "까지")}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><ul class="info-list">${h.tips.map(x => `<li>${x}</li>`).join("")}</ul><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></article>`).join("")}</div>
       </section>
 
       <section class="section">
         <div class="section-heading"><h2>추천 레스토랑</h2></div>
         <div class="restaurant-grid">${restaurants.map(([day, name, address, menu, tip]) => `<article class="restaurant-card"><span class="chip">${day}</span><h3>${name}</h3><p class="menu">${menu}</p><p>${tip}</p><a class="address-link" href="${mapAddress(address)}" target="_blank" rel="noopener">${address} ↗</a></article>`).join("")}</div>
-      </section>
-
-      <section class="section">
-        <div class="section-heading"><h2>출발 전 체크</h2></div>
-        <article class="info-card accent"><ul class="info-list"><li>여권 · ESTA · 국제면허증</li><li>신용카드 · 소액 현금 · 보조배터리</li><li>주요 티켓은 휴대폰에 오프라인 저장</li><li>경기·테마파크 운영시간을 전날 재확인</li><li>원본 일정과 My Maps를 홈 화면에 저장</li></ul></article>
       </section>
 
       <section class="section quick-actions">${extLink("원본 일정", LINKS.source)}${extLink("My Maps", LINKS.map)}${extLink("Drive 폴더", LINKS.folder)}</section>
@@ -394,7 +408,8 @@ app.addEventListener("change", event => {
   const saved = checklistState();
   saved[event.target.dataset.check] = event.target.checked;
   localStorage.setItem("la-trip-checklist", JSON.stringify(saved));
-  render();
+  const done = checklistItems.filter((_, index) => saved[index]).length;
+  document.querySelectorAll(".check-progress").forEach(progress => { progress.textContent = `${done} / ${checklistItems.length} 완료`; });
 });
 
 let touchStartX = 0;

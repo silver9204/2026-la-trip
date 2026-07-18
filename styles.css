@@ -123,7 +123,6 @@ button { font: inherit; }
 
 .summary-grid { display: grid; grid-template-columns: 1fr; gap: 11px; }
 .flight-grid { grid-template-columns: 1fr 1fr; }
-.hotel-summary { grid-column: 1 / -1; }
 .summary-card, .info-card, .route-card, .restaurant-card {
   padding: 18px;
   border: 1px solid var(--line);
@@ -152,22 +151,71 @@ button { font: inherit; }
 }
 .airline-app-link small { color: rgba(255,255,255,.72); font-weight: 650; }
 
-.checklist-shortcut {
+.home-checklist {
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid #ead9a3;
+  border-radius: 20px;
+  background: #fff8dd;
+}
+.home-checklist-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.home-checklist-head h3 { margin: 0; font-size: 15px; letter-spacing: -.025em; }
+.home-checklist-head .check-progress { margin: 0; color: #7b6435; font-size: 11px; white-space: nowrap; }
+.home-checklist-scroll {
+  display: grid;
+  gap: 7px;
+  max-height: 225px;
+  padding-right: 5px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: #d1ba72 transparent;
+}
+.home-checklist .check-item { min-height: 46px; padding: 9px 12px; border-color: #ebdfbd; border-radius: 14px; font-size: 12px; }
+
+.hotel-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 22px 2px 7px; }
+.hotel-section-heading h3 { margin: 0; font-size: 17px; letter-spacing: -.03em; }
+.hotel-section-heading span { color: var(--muted); font-size: 10px; font-weight: 750; }
+.hotel-timeline {
+  display: flex;
+  gap: 13px;
+  margin: 0 -18px;
+  padding: 4px 18px 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+.hotel-timeline::-webkit-scrollbar { display: none; }
+.hotel-stop { position: relative; flex: 0 0 min(78vw, 315px); padding-top: 27px; scroll-snap-align: start; }
+.hotel-stop::before { content: ""; position: absolute; top: 14px; left: 24px; right: -20px; height: 2px; background: #c9ddd7; }
+.hotel-stop:last-child::before { right: calc(100% - 25px); }
+.hotel-marker { position: absolute; z-index: 1; top: 2px; left: 10px; display: grid; place-items: center; width: 25px; height: 25px; border: 4px solid var(--bg); border-radius: 50%; background: var(--green); }
+.hotel-marker span { color: #fff; font-size: 10px; font-weight: 900; }
+.hotel-card { min-height: 292px; padding: 17px; border: 1px solid var(--line); border-radius: 20px; background: var(--card); box-shadow: 0 7px 22px rgba(27,52,47,.045); }
+.hotel-card .tag, .hotel-block .tag { display: inline-block; margin-bottom: 7px; color: var(--orange); font-size: 11px; font-weight: 900; }
+.hotel-card h3 { margin: 0; font-size: 17px; letter-spacing: -.03em; }
+.hotel-times { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 13px; }
+.hotel-times span { padding: 9px 10px; border-radius: 12px; color: var(--ink); background: var(--mint); font-size: 12px; font-weight: 850; }
+.hotel-times b { display: block; margin-bottom: 2px; color: var(--muted); font-size: 9px; }
+.hotel-room { margin: 12px 0 0; color: var(--ink); font-size: 12px; font-weight: 750; line-height: 1.5; }
+.hotel-cancel { margin: 6px 0 0; color: var(--green); font-size: 11px; font-weight: 800; }
+.hotel-card .address-link { display: block; min-height: 38px; margin-top: 11px; line-height: 1.45; }
+.voucher-link { display: inline-flex; margin-top: 11px; padding: 9px 11px; border-radius: 11px; color: #fff; background: var(--green); font-size: 11px; font-weight: 850; text-decoration: none; }
+.hotels-app-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 9px;
+  margin-top: 2px;
   padding: 14px 16px;
-  color: var(--ink);
+  color: #fff;
   border-radius: 18px;
-  background: var(--sun);
+  background: #c93434;
   text-decoration: none;
+  font-size: 13px;
+  font-weight: 850;
 }
-.checklist-shortcut strong, .checklist-shortcut small { display: block; }
-.checklist-shortcut strong { font-size: 14px; }
-.checklist-shortcut small { margin-top: 3px; color: #6d5730; font-size: 10px; }
-.checklist-shortcut > span:last-child { font-size: 21px; }
+.hotels-app-link small { color: rgba(255,255,255,.76); font-weight: 650; }
 
 .home-day-grid {
   display: grid;
@@ -287,7 +335,7 @@ button { font: inherit; }
 .day-row > span:last-child { color: var(--orange); font-size: 20px; }
 
 .hotel-block { margin-top: 16px; }
-.hotel-block .tag { display: inline-block; margin-bottom: 8px; color: var(--orange); font-size: 11px; font-weight: 900; }
+.hotel-block .voucher-link { margin-top: 13px; }
 .restaurant-grid { display: grid; gap: 10px; }
 .restaurant-card .menu { color: var(--ink); font-weight: 700; }
 .address-link { display: inline-flex; margin-top: 10px; color: var(--green); font-size: 12px; font-weight: 850; }
