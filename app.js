@@ -216,7 +216,8 @@ const days = [
     day: 8, date: "7/31 금", title: "OC 쇼핑 + UCI", theme: "South Coast Plaza · 캠퍼스 · Huntington Beach", hotel: "JW Marriott Anaheim",
     timeline: [
       ["08:30", "호텔 휴식", "수영장 · 부대시설"],
-      ["10:30", "South Coast Plaza · 쇼핑", "Ralph Lauren → UNIQLO·LEGO·Bath & Body Works 중심"],
+      ["10:30", "Victoria’s Secret", "Level 1 · Bloomingdale’s Wing · 첫 쇼핑 지점"],
+      ["10:55", "South Coast Plaza · 쇼핑", "Ralph Lauren → UNIQLO·LEGO·Bath & Body Works"],
       ["12:00", "South Coast Plaza · 점심", "Din Tai Fung 예약 우선 · 빠른 식사는 Marugame Udon"],
       ["13:00", "South Coast Plaza 출발", "UCI Student Center Parking Structure로 이동"],
       ["13:30", "UC Irvine", "90분 캠퍼스 산책"],
@@ -226,14 +227,16 @@ const days = [
       ["18:30", "호텔 복귀", "체력 시 루프톱"]
     ],
     move: ["UCI Student Center Parking Structure", "General 2시간권 $8 권장", "Student Center → The Hill → Aldrich Park → Ring Mall → Infinity Fountain"],
-    tips: ["UCI는 90분 산책으로 압축", "South Coast Plaza는 2시간 30분 안에 쇼핑과 점심 완료", "Huntington City Beach 주차는 시간당 $2 · 일일 최대 $15 기준"],
+    tips: ["Victoria’s Secret은 Bloomingdale’s Wing 매장부터 방문", "UCI는 90분 산책으로 압축", "South Coast Plaza는 2시간 30분 안에 쇼핑과 점심 완료", "Huntington City Beach 주차는 시간당 $2 · 일일 최대 $15 기준"],
     actions: [["지도", LINKS.map]]
   },
   {
     day: 9, date: "8/1 토", title: "Terranea 이동", theme: "Del Amo · 해안 드라이브 · 리조트 입성", hotel: "Terranea Resort",
     timeline: [
       ["09:00", "호텔 체크아웃", "Del Amo로 이동"],
-      ["10:30", "Del Amo Fashion Center", "Nordstrom 쪽 주차 · 핵심 매장과 See’s Candies 쇼핑"],
+      ["10:30", "Del Amo Fashion Center", "Nordstrom 쪽 주차 · 핵심 매장부터 쇼핑"],
+      ["11:30", "Victoria’s Secret", "Main Level · Lush와 Zara 사이 · 보완 쇼핑"],
+      ["11:50", "See’s Candies", "#310A · 초콜릿 선물 구매"],
       ["12:10", "Del Amo 점심", "North Italia 또는 FRIDA · 빠른 식사는 Bazille"],
       ["13:20", "Del Amo 출발", "Pacific Coast Hwy 방향"],
       ["13:40", "Trader Joe’s", "Rolling Hills Plaza · 메이플 리프 쿠키와 귀국 선물 쇼핑"],
@@ -243,7 +246,7 @@ const days = [
       ["18:30", "mar’sel 저녁", "사전예약 권장"]
     ],
     move: ["Anaheim → Del Amo 약 60–90분", "Del Amo 주차 무료", "Terranea 숙박 발렛 약 $75/박"],
-    tips: ["Del Amo는 Nordstrom 구역과 Zara·UNIQLO 구역 중 우선순위를 정해 이동", "See’s 초콜릿은 보냉백에 넣고 트렁크에 오래 두지 않기", "Trader Joe’s에서는 메이플 리프 쿠키 재고를 먼저 확인", "객실 전 짐 보관 가능", "Point Vicente 체류는 체크인 시간에 맞춰 조정", "mar’sel 예약시간 재확인"],
+    tips: ["Del Amo Victoria’s Secret은 Day 8에 못 산 품목·사이즈 보완용", "Del Amo는 Nordstrom 구역과 Zara·UNIQLO 구역 중 우선순위를 정해 이동", "See’s 초콜릿은 보냉백에 넣고 트렁크에 오래 두지 않기", "Trader Joe’s에서는 메이플 리프 쿠키 재고를 먼저 확인", "객실 전 짐 보관 가능", "Point Vicente 체류는 체크인 시간에 맞춰 조정", "mar’sel 예약시간 재확인"],
     actions: [["Terranea 바우처", LINKS.terraneaVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
@@ -538,6 +541,7 @@ const attractionGuides = {
 };
 
 const southCoastStores = [
+  ["Victoria’s Secret", "Level 1 · Bloomingdale’s Wing", "10:30 첫 방문 · 선물과 원하는 사이즈를 먼저 확인"],
   ["Ralph Lauren", "Level 1 · Jewel Court", "가족 의류와 클래식 폴로를 먼저 확인"],
   ["UNIQLO", "Level 1 · Din Tai Fung Wing", "남녀·키즈·베이비 기본 아이템을 한 번에"],
   ["LEGO", "Level 1 · Din Tai Fung Wing", "Build-A-Mini와 Pick & Build Wall · 아이들 우선"],
@@ -567,6 +571,7 @@ const delAmoStores = [
   ["FIFA World Cup 2026 Official Store", "Main Level · lululemon 근처", "축구 좋아하는 아이들과 공식 굿즈 확인"],
   ["Apple · Aritzia · Vuori", "Main Level · Nordstrom 구역", "서로 가까워 짧은 시간에 묶어 보기 좋은 매장군"],
   ["Nordstrom", "Main Level · Fashion Way", "가족 의류·신발·화장품을 한 번에 비교"],
+  ["Victoria’s Secret", "Main Level · Lush와 Zara 사이", "Day 8에서 못 산 품목·사이즈를 11:30에 보완"],
   ["UNIQLO · Zara · H&M", "Main Level · Grand Entrance 구역", "기본 의류 중심 · 시간이 남을 때 두 번째 구역으로"],
   ["Shonen Jump Shop", "Outdoor Village · Lower Level", "애니메이션 굿즈에 관심 있는 아이가 있으면 선택"],
   ["Mitsuwa Marketplace", "Carson St · 별도 출입구", "일본 간식·식재료·Santouka 라멘 · 출차 직전 선택"]
@@ -802,8 +807,8 @@ function renderDay8Guide() {
     <div class="shopping-grid">${southCoastStores.map(([name, location, note]) => `<article><h3>${name}</h3><span>${location}</span><p>${note}</p></article>`).join("")}</div>
     <h3 class="subsection-title">점심 후보</h3>
     <div class="lunch-grid">${southCoastLunch.map(([name, location, menu, tip]) => `<article><div><h3>${name}</h3><span>${location}</span></div><p><b>${menu}</b><small>${tip}</small></p></article>`).join("")}</div>
-    <div class="flow-note"><strong>추천 동선</strong><p>Ralph Lauren → UNIQLO·LEGO → Bath & Body Works → 12:00 Din Tai Fung. Nike·Apple은 필요한 물건이 있을 때만 추가하고 13:00에는 출차.</p></div>
-    <a class="guide-source" href="https://www.southcoastplaza.com/directory/" target="_blank" rel="noopener">South Coast Plaza 공식 디렉터리 ↗</a>
+    <div class="flow-note"><strong>추천 동선</strong><p>Victoria’s Secret → Ralph Lauren → UNIQLO·LEGO → Bath & Body Works → 12:00 Din Tai Fung. Nike·Apple은 필요한 물건이 있을 때만 추가하고 13:00에는 출차.</p></div>
+    <div class="place-sources"><a class="guide-source" href="https://www.southcoastplaza.com/directory/victorias-secret/" target="_blank" rel="noopener">Victoria’s Secret 공식 안내 ↗</a><a class="guide-source" href="https://www.southcoastplaza.com/directory/" target="_blank" rel="noopener">South Coast Plaza 공식 디렉터리 ↗</a></div>
   </section>
 
   <section class="section feature-guide huntington-guide">
@@ -821,14 +826,14 @@ function renderDay9Guide() {
     <div class="section-heading"><h2>Del Amo · 매장과 점심</h2></div>
     <p class="guide-lead">10:30–12:10 쇼핑, 12:10–13:10 점심으로 잡습니다. Nordstrom 입구 쪽에 주차하면 우선 매장과 식당이 모여 있어 Point Vicente로 이동하기도 편합니다.</p>
     <div class="shopping-grid">${delAmoStores.map(([name, location, note]) => `<article><h3>${name}</h3><span>${location}</span><p>${note}</p></article>`).join("")}</div>
-    <div class="flow-note"><strong>추천 쇼핑 순서</strong><p>Nike → FIFA World Cup 2026 Official Store → Apple·Aritzia·Vuori → Nordstrom. Zara·UNIQLO 구역과 Shonen Jump·Mitsuwa는 가족 취향에 따라 하나만 추가.</p></div>
+    <div class="flow-note"><strong>추천 쇼핑 순서</strong><p>Nike → FIFA World Cup 2026 Official Store → Nordstrom → Victoria’s Secret → See’s Candies. Apple·Aritzia·Vuori와 Zara·UNIQLO 구역은 필요한 품목이 있을 때만 추가.</p></div>
     <h3 class="subsection-title">점심 후보</h3>
     <div class="lunch-grid">${delAmoLunch.map(([name, location, menu, tip]) => `<article><div><h3>${name}</h3><span>${location}</span></div><p><b>${menu}</b><small>${tip}</small></p></article>`).join("")}</div>
     <h3 class="subsection-title">귀국 선물</h3>
     <div class="shopping-grid">${day9GiftStops.map(([name, location, note]) => `<article><h3>${name}</h3><span>${location}</span><p>${note}</p></article>`).join("")}</div>
     <div class="flow-note"><strong>선물 쇼핑 흐름</strong><p>Del Amo 안에서 See’s Candies 구매 → 점심 → 13:20 출차 → Rolling Hills Plaza Trader Joe’s 25분 → Point Vicente. 메이플 리프 쿠키는 시즌·지점별 재고가 달라 보이면 먼저 담으세요.</p></div>
     <p class="route-alert">Din Tai Fung은 Del Amo에도 있지만 Day 8 South Coast Plaza에서 이용할 가능성이 높아 Day 9 추천에서는 우선순위를 낮췄습니다. North Italia는 몰 외곽 Hawthorne Blvd 쪽이라 식사 후 바로 출차하기 좋습니다.</p>
-    <div class="place-sources"><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/stores/print" target="_blank" rel="noopener">Del Amo 공식 매장 디렉터리 ↗</a><a class="guide-source" href="https://chocolateshops.sees.com/ca/torrance/chocolate_shops_torrance_ca_1ca070.html" target="_blank" rel="noopener">See’s Candies 공식 매장 ↗</a><a class="guide-source" href="https://locations.traderjoes.com/ca/torrance/29/" target="_blank" rel="noopener">Trader Joe’s 공식 지점 ↗</a><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/dining" target="_blank" rel="noopener">공식 레스토랑 안내 ↗</a></div>
+    <div class="place-sources"><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/stores/victorias-secret/specialty-shops" target="_blank" rel="noopener">Victoria’s Secret 공식 안내 ↗</a><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/stores/print" target="_blank" rel="noopener">Del Amo 공식 매장 디렉터리 ↗</a><a class="guide-source" href="https://chocolateshops.sees.com/ca/torrance/chocolate_shops_torrance_ca_1ca070.html" target="_blank" rel="noopener">See’s Candies 공식 매장 ↗</a><a class="guide-source" href="https://locations.traderjoes.com/ca/torrance/29/" target="_blank" rel="noopener">Trader Joe’s 공식 지점 ↗</a><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/dining" target="_blank" rel="noopener">공식 레스토랑 안내 ↗</a></div>
   </section>`;
 }
 
