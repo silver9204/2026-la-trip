@@ -136,14 +136,16 @@ const days = [
     day: 9, date: "8/1 토", title: "Terranea 이동", theme: "Del Amo · 해안 드라이브 · 리조트 입성", hotel: "Terranea Resort",
     timeline: [
       ["09:00", "호텔 체크아웃", "Del Amo로 이동"],
-      ["10:30", "Del Amo Fashion Center", "마지막 쇼핑과 점심"],
-      ["13:30", "Palos Verdes", "해안 드라이브 · Point Vicente"],
+      ["10:30", "Del Amo Fashion Center", "Nordstrom 쪽 주차 · 핵심 매장부터 쇼핑"],
+      ["12:10", "Del Amo 점심", "North Italia 또는 FRIDA · 빠른 식사는 Bazille"],
+      ["13:20", "Del Amo 출발", "Point Vicente까지 약 30–40분"],
+      ["14:00", "Palos Verdes", "해안 드라이브 · Point Vicente"],
       ["15:30", "Terranea 도착", "짐 보관 후 시설 이용"],
       ["16:00", "객실 입실", "체크인 가능 시간"],
       ["18:30", "mar’sel 저녁", "사전예약 권장"]
     ],
     move: ["Anaheim → Del Amo 약 60–90분", "Del Amo 주차 무료", "Terranea 숙박 발렛 약 $75/박"],
-    tips: ["객실 전 짐 보관 가능", "Point Vicente 체류는 체크인 시간에 맞춰 조정", "mar’sel 예약시간 재확인"],
+    tips: ["Del Amo는 Nordstrom 구역과 Zara·UNIQLO 구역 중 우선순위를 정해 이동", "객실 전 짐 보관 가능", "Point Vicente 체류는 체크인 시간에 맞춰 조정", "mar’sel 예약시간 재확인"],
     actions: [["Terranea 바우처", LINKS.terraneaVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
@@ -380,6 +382,24 @@ const huntingtonActivities = [
   ["선셋", "해변 또는 피어에서 일몰을 보고 17:45 전후 출발"]
 ];
 
+const delAmoStores = [
+  ["Nike Del Amo", "Main Level · Nordstrom 옆", "가족용 운동화와 스포츠웨어 · 첫 방문 추천"],
+  ["FIFA World Cup 2026 Official Store", "Main Level · lululemon 근처", "축구 좋아하는 아이들과 공식 굿즈 확인"],
+  ["Apple · Aritzia · Vuori", "Main Level · Nordstrom 구역", "서로 가까워 짧은 시간에 묶어 보기 좋은 매장군"],
+  ["Nordstrom", "Main Level · Fashion Way", "가족 의류·신발·화장품을 한 번에 비교"],
+  ["UNIQLO · Zara · H&M", "Main Level · Grand Entrance 구역", "기본 의류 중심 · 시간이 남을 때 두 번째 구역으로"],
+  ["Shonen Jump Shop", "Outdoor Village · Lower Level", "애니메이션 굿즈에 관심 있는 아이가 있으면 선택"],
+  ["Mitsuwa Marketplace", "Carson St · 별도 출입구", "일본 간식·식재료·Santouka 라멘 · 출차 직전 선택"]
+];
+
+const delAmoLunch = [
+  ["North Italia", "Hawthorne Blvd · Barnes & Noble 근처", "피자 · 파스타 · 샐러드", "Terranea 방향 출차가 편한 1순위"],
+  ["FRIDA", "Main Level · Nordstrom–Macy’s Women 사이", "타코 · 파히타 · 멕시칸 요리", "쇼핑 동선 안에서 식사"],
+  ["Bazille at Nordstrom", "Nordstrom 내부", "샐러드 · 버거 · 비스트로 메뉴", "이동을 가장 줄이는 선택"],
+  ["Santouka · Mitsuwa", "Mitsuwa Marketplace 내부", "시오 라멘 · 일본 푸드코트", "빠르고 익숙한 가족 식사"],
+  ["Lucille’s Smokehouse BBQ", "Macy’s Women 외부 입구", "립 · 브리스킷 · 치킨", "미국식 BBQ를 원할 때"]
+];
+
 const day5Route = [
   ["09:00", "The Garland → Getty Center", "차량 25–35분", "1200 Getty Center Dr 주차장 → 트램 → 입구. 캐리어는 트렁크 안쪽에 가려 보관"],
   ["12:30", "Getty → Supreme", "차량 약 25분", "8801 Sunset Blvd 인근 유료주차 또는 발렛. 점심과 매장 방문을 한 번에"],
@@ -522,6 +542,19 @@ function renderDay8Guide() {
   </section>`;
 }
 
+function renderDay9Guide() {
+  return `<section class="section feature-guide shopping-guide del-amo-guide">
+    <div class="section-heading"><h2>Del Amo · 매장과 점심</h2></div>
+    <p class="guide-lead">10:30–12:10 쇼핑, 12:10–13:10 점심으로 잡습니다. Nordstrom 입구 쪽에 주차하면 우선 매장과 식당이 모여 있어 Point Vicente로 이동하기도 편합니다.</p>
+    <div class="shopping-grid">${delAmoStores.map(([name, location, note]) => `<article><h3>${name}</h3><span>${location}</span><p>${note}</p></article>`).join("")}</div>
+    <div class="flow-note"><strong>추천 쇼핑 순서</strong><p>Nike → FIFA World Cup 2026 Official Store → Apple·Aritzia·Vuori → Nordstrom. Zara·UNIQLO 구역과 Shonen Jump·Mitsuwa는 가족 취향에 따라 하나만 추가.</p></div>
+    <h3 class="subsection-title">점심 후보</h3>
+    <div class="lunch-grid">${delAmoLunch.map(([name, location, menu, tip]) => `<article><div><h3>${name}</h3><span>${location}</span></div><p><b>${menu}</b><small>${tip}</small></p></article>`).join("")}</div>
+    <p class="route-alert">Din Tai Fung은 Del Amo에도 있지만 Day 8 South Coast Plaza에서 이용할 가능성이 높아 Day 9 추천에서는 우선순위를 낮췄습니다. North Italia는 몰 외곽 Hawthorne Blvd 쪽이라 식사 후 바로 출차하기 좋습니다.</p>
+    <div class="place-sources"><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/stores/print" target="_blank" rel="noopener">Del Amo 공식 매장 디렉터리 ↗</a><a class="guide-source" href="https://www.simon.com/mall/del-amo-fashion-center/dining" target="_blank" rel="noopener">공식 레스토랑 안내 ↗</a></div>
+  </section>`;
+}
+
 function checklistState() {
   try { return JSON.parse(localStorage.getItem("la-trip-checklist") || "{}"); }
   catch { return {}; }
@@ -631,6 +664,7 @@ function renderDay(day) {
       ${attractionGuides[day.day] ? renderAttractionGuide(day.day) : ""}
       ${day.day === 5 ? renderDay5Route() : ""}
       ${day.day === 8 ? renderDay8Guide() : ""}
+      ${day.day === 9 ? renderDay9Guide() : ""}
 
       ${day.day !== 2 ? `<section class="section card-stack">
         <article class="info-card accent"><h3>🚗 이동 · 주차</h3><ul class="info-list">${day.move.map(x => `<li>${x}</li>`).join("")}</ul></article>
