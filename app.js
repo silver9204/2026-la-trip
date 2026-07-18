@@ -173,17 +173,17 @@ const days = [
 const hotels = [
   {
     stay: "7/24–7/28 · 4박", name: "The Garland", address: "4222 Vineland Ave, North Hollywood, CA 91602",
-    checkin: "15:00", checkout: "12:00", room: "Deluxe Room · Queen Bed 2개 · 금연", cancel: "7/22 18:00까지 무료 취소", voucher: LINKS.garlandVoucher,
+    checkin: "15:00", checkout: "12:00", room: "Deluxe Room · Queen Bed 2개 · 금연", voucher: LINKS.garlandVoucher,
     tips: ["Universal 셔틀: 호텔 매시 정각 · 귀환 매시 :15 기준", "수영장 06:00–22:00", "The Front Yard는 파티오 좌석 요청", "셀프주차 $50+세금 · 발렛 $55+세금"]
   },
   {
     stay: "7/28–8/1 · 4박", name: "JW Marriott Anaheim", address: "1775 S Clementine St, Anaheim, CA 92802",
-    checkin: "16:00", checkout: "11:00", room: "Deluxe Room · Queen Bed 2개 · Pool View · 금연", cancel: "7/25 23:59까지 무료 취소", voucher: LINKS.jwVoucher,
+    checkin: "16:00", checkout: "11:00", room: "Deluxe Room · Queen Bed 2개 · Pool View · 금연", voucher: LINKS.jwVoucher,
     tips: ["DCA 전용 셔틀 없음 · 도보 이동", "Parkestry Rooftop에서 일부 불꽃놀이 조망 가능", "온수 야외 수영장과 JW Garden", "발렛 약 $68/일"]
   },
   {
     stay: "8/1–8/3 · 2박", name: "Terranea Resort", address: "100 Terranea Way, Rancho Palos Verdes, CA 90275",
-    checkin: "16:00", checkout: "11:00", room: "Ocean Front Double · 금연", cancel: "7/25 18:00까지 무료 취소", voucher: LINKS.terraneaVoucher,
+    checkin: "16:00", checkout: "11:00", room: "Ocean Front Double · 금연", voucher: LINKS.terraneaVoucher,
     tips: ["객실 체크인 16:00 · 도착 즉시 짐 보관 가능", "Resort Pool 08:00–20:00", "워터슬라이드 11:00–16:00", "발렛 약 $75/박 · 리조트 피 약 $75/박"]
   }
 ];
@@ -272,15 +272,15 @@ function renderHome() {
           <div class="home-checklist-scroll">${checklistItems.map((item, index) => `<label class="check-item"><input type="checkbox" data-check="${index}" ${saved[index] ? "checked" : ""}><span>${item}</span></label>`).join("")}</div>
         </article>
         <a class="airline-app-link" href="${koreanAirAppUrl()}" target="_blank" rel="noopener"><span>✈️ 대한항공 My 앱</span><small>체크인 · 탑승권 열기 ↗</small></a>
-        <div class="hotel-section-heading"><h3>숙소</h3><span>좌우로 넘겨 보기</span></div>
-        <div class="hotel-timeline">${hotels.map((h, index) => `<article class="hotel-stop"><div class="hotel-marker"><span>${index + 1}</span></div><div class="hotel-card"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><p class="hotel-cancel">무료 취소 · ${h.cancel.replace("까지 무료 취소", "까지")}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div>
+        <div class="hotel-section-heading"><h3>숙소</h3><div class="hotel-scroll-controls"><button type="button" data-hotel-scroll="-1" aria-label="이전 숙소">‹</button><button type="button" data-hotel-scroll="1" aria-label="다음 숙소">›</button></div></div>
+        <div class="hotel-timeline">${hotels.map((h, index) => `<article class="hotel-stop"><div class="hotel-marker"><span>${index + 1}</span></div><div class="hotel-card"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div>
         <a class="hotels-app-link" href="${hotelsAppUrl()}" target="_blank" rel="noopener"><span>🏨 Hotels.com 앱</span><small>예약 · 바우처 확인 ↗</small></a>
       </section>
 
       <section class="section">
         <div class="section-heading"><h2>Day 바로가기</h2><a href="#days">전체 보기</a></div>
-        <div class="home-day-grid">${days.slice(0, 10).map(d => `<a class="home-day-card" href="#day-${d.day}" title="${d.title}"><b>DAY ${d.day}</b><strong>${d.title}</strong><time>${d.date}</time></a>`).join("")}</div>
-        <a class="home-day-last" href="#day-11"><span><b>DAY 11</b><strong>귀국</strong></span><time>8/3 월</time><span>›</span></a>
+        <div class="home-day-grid">${days.slice(0, 10).map(d => `<a class="home-day-card" href="#day-${d.day}" title="${d.title}"><b>DAY ${d.day}</b><time>${d.date}</time><strong>${d.title}</strong></a>`).join("")}</div>
+        <a class="home-day-last" href="#day-11"><span><b>DAY 11</b><time>8/3 월</time></span><strong>귀국</strong><span>›</span></a>
       </section>
 
       <section class="section">
@@ -343,7 +343,7 @@ function renderInfo() {
 
       <section class="section">
         <div class="section-heading"><h2>호텔 이용 팁</h2></div>
-        <div class="card-stack">${hotels.map(h => `<article class="info-card hotel-block"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><p class="hotel-cancel">무료 취소 · ${h.cancel.replace("까지 무료 취소", "까지")}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><ul class="info-list">${h.tips.map(x => `<li>${x}</li>`).join("")}</ul><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></article>`).join("")}</div>
+        <div class="card-stack">${hotels.map(h => `<article class="info-card hotel-block"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><ul class="info-list">${h.tips.map(x => `<li>${x}</li>`).join("")}</ul><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></article>`).join("")}</div>
       </section>
 
       <section class="section">
@@ -410,6 +410,15 @@ app.addEventListener("change", event => {
   localStorage.setItem("la-trip-checklist", JSON.stringify(saved));
   const done = checklistItems.filter((_, index) => saved[index]).length;
   document.querySelectorAll(".check-progress").forEach(progress => { progress.textContent = `${done} / ${checklistItems.length} 완료`; });
+});
+
+app.addEventListener("click", event => {
+  const control = event.target.closest("[data-hotel-scroll]");
+  if (!control) return;
+  const timeline = app.querySelector(".hotel-timeline");
+  if (!timeline) return;
+  const direction = Number(control.dataset.hotelScroll);
+  timeline.scrollBy({ left: direction * Math.min(timeline.clientWidth * 0.85, 320), behavior: "smooth" });
 });
 
 let touchStartX = 0;
