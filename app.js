@@ -44,7 +44,7 @@ const days = [
     ],
     move: ["Blue Structure · 3855 S Figueroa St", "주차장 재입차 불가", "경기 후 바로 출차"],
     tips: ["출발 전 종일 주차·추가결제 방식 전화 확인", "유니폼 영문 철자·등번호·사이즈를 두 번 확인", "당일 마킹 완료는 사전 확답 필요", "경기 전날 게이트·킥오프·주차 안내 재확인"],
-    actions: [["Day 2 상세 메모", LINKS.source], ["지도", LINKS.map]]
+    actions: [["지도", LINKS.map]]
   },
   {
     day: 3, date: "7/26 일", title: "Hollywood & Santa Monica", theme: "그리피스 · 할리우드 · 비벌리힐스 · 산타모니카", hotel: "The Garland",
@@ -169,6 +169,42 @@ const days = [
     actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["지도", LINKS.map]]
   }
 ];
+
+const day2Operations = {
+  schedule: [
+    ["08:30–09:15", "Bea Bea’s 조식", "식사 후 바로 Exposition Park로 출발"],
+    ["09:55–10:10", "Blue Structure 입차", "3855 S Figueroa St · 경기 종료까지 차량 고정"],
+    ["10:10–10:45", "LAFC HQ", "유니폼 사이즈 확인 · 이름과 등번호 마킹 주문"],
+    ["10:50–12:30", "California Science Center", "일반 상설전시 중심 관람"],
+    ["12:30–13:50", "Mercado La Paloma", "도보 이동 · Holbox 점심 후 복귀"],
+    ["14:00–16:30", "Natural History Museum", "공룡 홀 우선 관람"],
+    ["16:30–16:50", "LAFC HQ 재방문", "당일 완성을 확답받은 경우 유니폼 수령"],
+    ["17:30–18:15", "Family Picnic", "Christmas Tree Lane East · 킥오프 2시간 전"],
+    ["18:15–19:15", "입장 · 저녁", "경기 주간 안내에서 게이트 오픈 시각 재확인"],
+    ["19:30", "LAFC 경기", "vs. Sporting Kansas City"],
+    ["경기 종료 후", "Blue Structure 출차", "행사 종료 후 바로 차량으로 이동"]
+  ],
+  parking: [
+    "Blue Structure 한 곳에 주차하고 박물관과 BMO Stadium을 모두 도보로 이동",
+    "주차장 재입차는 불가하므로 점심도 Mercado La Paloma까지 걸어서 이동",
+    "일반 일일 주차는 $20, 17:00 이후·특별행사는 최소 $24이며 경기별 요금은 달라질 수 있음",
+    "오전 일일권을 경기 종료까지 유지할 때의 추가결제 기준은 공개 안내에 명확하지 않음",
+    "S. Coliseum Drive는 14:30부터 통제 예정이므로 오전 입차 유지 · NHM 전용 주차장은 사용하지 않음"
+  ],
+  uniforms: [
+    "LAFC HQ는 BMO Stadium 북서쪽 입구의 공식 팀 스토어 · 토요일 정규 운영 10:00–17:00",
+    "2026 아동용 Replica 커스텀 유니폼 온라인 기준 $114.99 · Yth S/M/L/XL · 이름 최대 10자",
+    "커스텀 상품은 이름·번호·사이즈 변경, 취소, 반품과 환불이 불가",
+    "공식 자료에는 현장 마킹 당일 완성 보장이 없으므로 여행 전에 재고와 16:30 수령 가능 여부 확인",
+    "당일 완성 확답이 없으면 재고가 있는 선수명 유니폼 또는 무마킹 유니폼을 대안으로 선택"
+  ],
+  checklist: [
+    "Parking Operations에 오전 입차·종일 주차·추가결제·사전권 사용 가능 여부 확인",
+    "LAFC HQ에 아이별 사이즈 재고와 당일 마킹 완료 시각 확인",
+    "아이별 영문 이름·등번호·사이즈를 휴대폰 메모에 저장",
+    "경기 전날 킥오프·게이트 오픈·주차 안내를 재확인하고 티켓을 오프라인 저장"
+  ]
+};
 
 const dayHighlights = {
   1: [
@@ -367,6 +403,34 @@ function renderHighlightCard(item) {
   return `<article class="place-card">${media}<div class="place-body"><h3>${item.title}</h3><p>${item.summary}</p><ul>${item.points.map(point => `<li>${point}</li>`).join("")}</ul>${item.source ? `<a class="place-source" href="${item.source}" target="_blank" rel="noopener">사진·정보: ${item.sourceLabel} ↗</a>` : ""}</div></article>`;
 }
 
+function renderDay2Operations() {
+  return `<section class="section day2-operations">
+    <div class="section-heading"><h2>경기일 상세 운영안</h2></div>
+    <div class="day2-table-shell">
+      <table class="day2-table">
+        <thead><tr><th>시간</th><th>일정</th><th>핵심 메모</th></tr></thead>
+        <tbody>${day2Operations.schedule.map(([time, title, note]) => `<tr><td>${time}</td><td>${title}</td><td>${note}</td></tr>`).join("")}</tbody>
+      </table>
+    </div>
+
+    <div class="day2-detail-grid">
+      <article class="day2-detail-card parking-card">
+        <span class="detail-icon">P</span><div><h3>종일 주차 운영</h3><ul>${day2Operations.parking.map(item => `<li>${item}</li>`).join("")}</ul>
+        <a class="contact-link" href="tel:+12137410160">Parking Operations · 213-741-0160</a><small>매일 09:00–18:00 · “오전 박물관부터 야간 경기 종료까지 같은 차량을 둔다”고 설명</small></div>
+      </article>
+
+      <article class="day2-detail-card uniform-card">
+        <span class="detail-icon">10</span><div><h3>아이들 유니폼 마킹</h3><ul>${day2Operations.uniforms.map(item => `<li>${item}</li>`).join("")}</ul>
+        <div class="contact-buttons"><a href="tel:+12134199466">매장 전화</a><a href="mailto:LAFCHQstore@fanatics.com">이메일</a></div></div>
+      </article>
+
+      <article class="day2-detail-card final-check-card">
+        <span class="detail-icon">✓</span><div><h3>출발 전 최종 확인</h3><ul>${day2Operations.checklist.map(item => `<li>${item}</li>`).join("")}</ul></div>
+      </article>
+    </div>
+  </section>`;
+}
+
 function checklistState() {
   try { return JSON.parse(localStorage.getItem("la-trip-checklist") || "{}"); }
   catch { return {}; }
@@ -466,6 +530,8 @@ function renderDay(day) {
         <div class="section-heading"><h2>오늘의 흐름</h2></div>
         <div class="timeline">${day.timeline.map(([time, title, note]) => `<div class="timeline-item"><time>${time}</time><div><p>${title}</p><small>${note}</small></div></div>`).join("")}</div>
       </section>
+
+      ${day.day === 2 ? renderDay2Operations() : ""}
 
       <section class="section">
         <div class="section-heading"><h2>방문지 미리보기</h2></div>
