@@ -31,6 +31,75 @@ const DAY_MAPS = {
   11: "https://www.google.com/maps/d/viewer?mid=1zUyLW1d1BGTBOPw8z-loMN1i7rvd47Y"
 };
 
+const dayVisuals = {
+  1: {
+    image: "https://www.flylax.com/sites/lax/files/page-body/mediacameraheader.jpg",
+    alt: "로스앤젤레스 국제공항 LAX",
+    source: "https://www.flylax.com/mediacenter",
+    sourceLabel: "LAX 공식 미디어 센터"
+  },
+  2: {
+    image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/deaee31c-3a1d-44a2-b7ee-4ed62d92a67c",
+    alt: "LA 자연사박물관 공룡 전시",
+    source: "https://triple.guide/tna/products/20e6dffe-3297-4d3d-b439-798c4ed3ae9f",
+    sourceLabel: "Natural History Museum"
+  },
+  3: {
+    image: "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/6zUQ/48otiZ5buJ.jpg",
+    alt: "산타모니카 해변과 로스앤젤레스 서부",
+    source: "https://experiences.myrealtrip.com/products/3859681",
+    sourceLabel: "Santa Monica"
+  },
+  4: {
+    image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/a7cf1489-481c-4f87-aaa9-7b65480873a4",
+    alt: "유니버설 스튜디오 할리우드",
+    source: "https://triple.guide/tna/products/82c26b51-448d-4c82-af49-dc3c2c2ffbdf",
+    sourceLabel: "Universal Studios Hollywood"
+  },
+  5: {
+    image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/874a5f5f-8229-41d6-b3a8-f3457e9733ad",
+    alt: "게티 센터 전시 공간",
+    source: "https://triple.guide/tna/products/4b4df88e-8bd5-4fda-83d5-badb8f5369fb",
+    sourceLabel: "The Getty Center"
+  },
+  6: {
+    image: "https://cdn.sanity.io/images/bsnrdz4t/production/10fe8e134319fba3039c2300d5bf8f63271dd11b-5448x3030.jpg?w=1920&h=1080&q=80&fit=clip&auto=format",
+    alt: "Knott’s Berry Farm 스카이라인과 어트랙션",
+    source: "https://www.sixflags.com/knotts/attractions",
+    sourceLabel: "Knott’s Berry Farm 공식"
+  },
+  7: {
+    image: "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/d7688082-6ace-4c5e-b1e4-3457416998ec",
+    alt: "디즈니 캘리포니아 어드벤처",
+    source: "https://triple.guide/tna/products/45fe1c19-21da-4106-99dc-6daef952a57e",
+    sourceLabel: "Disney California Adventure"
+  },
+  8: {
+    image: "https://admissions.uci.edu/assets/images/campus-highlights-aldrich-park.jpg",
+    alt: "UC Irvine의 Aldrich Park",
+    source: "https://admissions.uci.edu/celebrate-uci/campus-highlights.php",
+    sourceLabel: "UCI 공식 Campus Highlights"
+  },
+  9: {
+    image: "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/terranea-resort/terranea392412-1/site-images/accommodations/enjoy-breathtaking-views-at-terranea-resort-rancho-palos-verdes-california.jpg",
+    alt: "Terranea Resort와 태평양 전망",
+    source: "https://www.terranea.com/gallery",
+    sourceLabel: "Terranea Resort 공식 갤러리"
+  },
+  10: {
+    image: "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/terranea-resort/terranea392412-1/site-images/offers/third-night-complimentary-of-terranea-resort-rancho-palos-verdes-california.jpg",
+    alt: "태평양 절벽 위 Terranea Resort",
+    source: "https://www.terranea.com/gallery",
+    sourceLabel: "Terranea Resort 공식 갤러리"
+  },
+  11: {
+    image: "https://www.flylax.com/sites/lax/files/page-body/mediacameraheader.jpg",
+    alt: "LAX에서 귀국하는 날",
+    source: "https://www.flylax.com/mediacenter",
+    sourceLabel: "LAX 공식 미디어 센터"
+  }
+};
+
 const days = [
   {
     day: 1, date: "7/24 금", title: "LA 도착", theme: "공항 · 렌터카 · 호텔 체크인", hotel: "The Garland",
@@ -195,8 +264,12 @@ const dayHighlights = {
     {
       kicker: "렌터카 픽업",
       title: "Hertz LAX",
+      image: "https://www.flylax.com/sites/lax/files/page-body/mediacameraheader.jpg",
+      alt: "LAX 도착 후 렌터카를 픽업하는 날",
       summary: "공항 셔틀로 Hertz 지점까지 이동해 예약 차량과 캐리어 4개 적재 상태를 직접 확인합니다.",
-      points: ["주소: 5251 West 98th Street, Los Angeles, CA 90045", "24시간 운영 · 전화 (310) 568-5100", "픽업 7/24 17:00 · 외관·연료·트렁크 적재 상태 촬영"]
+      points: ["주소: 5251 West 98th Street, Los Angeles, CA 90045", "24시간 운영 · 전화 (310) 568-5100", "픽업 7/24 17:00 · 외관·연료·트렁크 적재 상태 촬영"],
+      source: "https://www.flylax.com/mediacenter",
+      sourceLabel: "LAX 공식 미디어 센터"
     }
   ],
   2: [
@@ -263,8 +336,12 @@ const dayHighlights = {
     {
       kicker: "가족 테마파크",
       title: "Knott’s Berry Farm",
+      image: "https://cdn.sanity.io/images/bsnrdz4t/production/10fe8e134319fba3039c2300d5bf8f63271dd11b-5448x3030.jpg?w=1920&h=1080&q=80&fit=clip&auto=format",
+      alt: "Knott’s Berry Farm 스카이라인",
       summary: "오전에는 가족이 함께 탈 인기 어트랙션을 먼저 보고, 오후에는 아이들 선호에 따라 스릴 라이드와 Camp Snoopy를 나누어 움직이세요.",
-      points: ["입장 직후 당일 운영 중단 시설 확인", "19:00 복귀 목표를 지켜 다음 날 체력 확보"]
+      points: ["입장 직후 당일 운영 중단 시설 확인", "19:00 복귀 목표를 지켜 다음 날 체력 확보"],
+      source: "https://www.sixflags.com/knotts/attractions",
+      sourceLabel: "Knott’s 공식 어트랙션 안내"
     }
   ],
   7: [
@@ -283,24 +360,41 @@ const dayHighlights = {
     {
       kicker: "오렌지카운티 하루",
       title: "South Coast Plaza · UCI · Huntington Beach",
+      images: [
+        "https://admissions.uci.edu/assets/images/campus-highlights-aldrich-park.jpg",
+        "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_716,q_75,w_639/v1/clients/surfcityusa-redesign/Huntington_City_Beach_webpage_a97bfba5-8516-4cc6-babf-2a10fa76b1b7.jpg"
+      ],
+      alt: "UCI Aldrich Park와 Huntington City Beach",
       summary: "쇼핑을 오전에 끝낸 뒤 UCI는 추억과 캠퍼스 분위기에 집중한 90분 산책으로 압축하세요. 해변은 관광지 추가보다 산책과 저녁에 무게를 두는 편이 좋습니다.",
-      points: ["UCI Student Center Parking Structure 이용", "The Hill → Aldrich Park → Ring Mall → Infinity Fountain"]
+      points: ["UCI Student Center Parking Structure 이용", "The Hill → Aldrich Park → Ring Mall → Infinity Fountain"],
+      sources: [
+        ["UCI 공식 Campus Highlights", "https://admissions.uci.edu/celebrate-uci/campus-highlights.php"],
+        ["Huntington Beach 공식 안내", "https://www.surfcityusa.com/things-to-do/beaches/huntington-city-beach/"]
+      ]
     }
   ],
   9: [
     {
       kicker: "리조트 입성일",
       title: "Point Vicente → Terranea Resort",
+      image: "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/terranea-resort/terranea392412-1/site-images/accommodations/enjoy-breathtaking-views-at-terranea-resort-rancho-palos-verdes-california.jpg",
+      alt: "Terranea Resort의 태평양 전망",
       summary: "Point Vicente는 전망과 짧은 산책만 즐기고, Terranea 체크인 뒤 해안 트레일과 저녁에 시간을 남겨두세요. 이 날의 목적지는 관광지보다 리조트 자체입니다.",
-      points: ["체크인 전 도착하면 짐부터 맡기기", "mar’sel 예약시간을 기준으로 산책 종료"]
+      points: ["체크인 전 도착하면 짐부터 맡기기", "mar’sel 예약시간을 기준으로 산책 종료"],
+      source: "https://www.terranea.com/gallery",
+      sourceLabel: "Terranea Resort 공식 갤러리"
     }
   ],
   10: [
     {
       kicker: "이동 없는 휴양일",
       title: "Terranea에서 천천히",
+      image: "https://assets.milestoneinternet.com/cdn-cgi/image/f=auto/terranea-resort/terranea392412-1/site-images/offers/third-night-complimentary-of-terranea-resort-rancho-palos-verdes-california.jpg",
+      alt: "태평양 절벽 위 Terranea Resort",
       summary: "오전 해안 산책, 한낮 수영장, 늦은 오후 선셋으로 세 구간만 잡아두면 리조트를 충분히 누리면서도 일정에 쫓기지 않습니다.",
-      points: ["아이들과 Resort Pool·워터슬라이드 운영시간 확인", "Vista Pool은 만 13세 이상이므로 가족 동선에서 제외"]
+      points: ["아이들과 Resort Pool·워터슬라이드 운영시간 확인", "Vista Pool은 만 13세 이상이므로 가족 동선에서 제외"],
+      source: "https://www.terranea.com/gallery",
+      sourceLabel: "Terranea Resort 공식 갤러리"
     }
   ],
   11: [
@@ -594,6 +688,7 @@ function renderHome() {
         <h1>우리 가족의 LA 여름</h1>
         <p>테마파크부터 축구, 쇼핑, 태평양 휴양까지. 이동 중 필요한 정보만 빠르게 꺼내보는 10박 11일 가이드.</p>
         <div class="countdown">${countdownText()}</div>
+        <a class="hero-credit" href="https://experiences.myrealtrip.com/products/3859681" target="_blank" rel="noopener">사진 · LA 서부 해안 ↗</a>
       </section>
 
       <section class="section flight-section">
@@ -654,23 +749,30 @@ function renderDay(day) {
   const next = day.day < days.length ? days[day.day] : null;
   const highlights = dayHighlights[day.day] || [];
   const detailActions = day.actions.filter(([, href]) => href !== LINKS.map);
+  const visual = dayVisuals[day.day];
   return `
     <article class="page day-page" data-day="${day.day}">
-      <header class="day-hero">
-        <div class="day-meta"><span class="chip">DAY ${day.day} · ${day.date}</span><span class="chip hotel">${day.hotel}</span></div>
-        <h1>${day.title}</h1>
-        <p class="theme">${day.theme}</p>
+      <header class="day-hero day-cover">
+        <img src="${visual.image}" alt="${visual.alt}" decoding="async">
+        <div class="day-cover-shade"></div>
+        <div class="day-cover-content">
+          <div class="day-meta"><span class="chip">DAY ${day.day}</span><span class="day-date">${day.date}</span></div>
+          <h1>${day.title}</h1>
+          <p class="theme">${day.theme}</p>
+          <span class="day-hotel">숙소 · ${day.hotel}</span>
+        </div>
+        <a class="day-photo-source" href="${visual.source}" target="_blank" rel="noopener">사진 · ${visual.sourceLabel} ↗</a>
       </header>
 
-      <div class="day-map-action">${extLink("지도", DAY_MAPS[day.day] || LINKS.map, "primary")}</div>
+      <nav class="day-tabs" aria-label="날짜 바로가기">${days.map(d => `<a href="#day-${d.day}" class="${d.day === day.day ? "active" : ""}"><b>day${d.day}</b><small>${d.date.split(" ")[0]}</small></a>`).join("")}</nav>
 
-      <section class="section">
-        <div class="section-heading"><h2>오늘의 흐름</h2></div>
-        <div class="timeline">${day.timeline.map(([time, title, note]) => `<div class="timeline-item"><time>${time}</time><div><p>${title}</p><small>${note}</small></div></div>`).join("")}</div>
+      <section class="section itinerary-section">
+        <div class="section-heading itinerary-heading"><div><span class="section-kicker">${day.date} · ${day.hotel}</span><h2>오늘 일정</h2></div>${extLink("지도", DAY_MAPS[day.day] || LINKS.map, "map-link")}</div>
+        <div class="timeline numbered-timeline">${day.timeline.map(([time, title, note], index) => `<article class="timeline-item"><span class="timeline-number">${index + 1}</span><time>${time}</time><div class="timeline-card"><p>${title}</p><small>${note}</small></div></article>`).join("")}</div>
       </section>
 
       <section class="section">
-        <div class="section-heading"><h2>방문지 미리보기</h2></div>
+        <div class="section-heading"><div><span class="section-kicker">Photo guide</span><h2>장소 미리보기</h2></div></div>
         <div class="place-grid">${highlights.map(renderHighlightCard).join("")}</div>
       </section>
 
@@ -680,9 +782,9 @@ function renderDay(day) {
       ${day.day === 8 ? renderDay8Guide() : ""}
       ${day.day === 9 ? renderDay9Guide() : ""}
 
-      ${day.day !== 2 ? `<section class="section card-stack">
-        <article class="info-card accent"><h3>🚗 이동 · 주차</h3><ul class="info-list">${day.move.map(x => `<li>${x}</li>`).join("")}</ul></article>
-        <article class="info-card warn"><h3>✓ 꼭 확인</h3><ul class="info-list">${day.tips.map(x => `<li>${x}</li>`).join("")}</ul></article>
+      ${day.day !== 2 ? `<section class="section card-stack day-notes">
+        <article class="info-card accent"><span class="note-icon">↗</span><div><h3>이동 · 주차</h3><ul class="info-list">${day.move.map(x => `<li>${x}</li>`).join("")}</ul></div></article>
+        <article class="info-card warn"><span class="note-icon">!</span><div><h3>꼭 확인</h3><ul class="info-list">${day.tips.map(x => `<li>${x}</li>`).join("")}</ul></div></article>
       </section>` : ""}
 
       ${detailActions.length ? `<section class="section">
@@ -698,7 +800,7 @@ function renderDay(day) {
 }
 
 function renderDays() {
-  return `<div class="page"><p class="eyebrow">10 nights · 11 days</p><h1 class="page-title">전체 일정</h1><p class="page-lead">날짜를 누르면 그날의 타임라인과 주차·예약 정보를 바로 확인할 수 있습니다.</p><div class="all-days">${days.map(d => `<a class="day-row" href="#day-${d.day}"><span class="day-number">DAY ${d.day}</span><span><h3>${d.title}</h3><p>${d.date} · ${d.hotel}</p></span><span>›</span></a>`).join("")}</div></div>`;
+  return `<div class="page"><p class="eyebrow">10 nights · 11 days</p><h1 class="page-title">전체 일정</h1><p class="page-lead">날짜를 누르면 그날의 타임라인과 주차·예약 정보를 바로 확인할 수 있습니다.</p><div class="all-days">${days.map(d => `<a class="day-row" href="#day-${d.day}"><img src="${dayVisuals[d.day].image}" alt="" loading="lazy" decoding="async"><span class="day-number">${d.day}</span><span><small>DAY ${d.day} · ${d.date}</small><h3>${d.title}</h3><p>${d.theme}</p></span><span>›</span></a>`).join("")}</div></div>`;
 }
 
 function renderInfo() {
