@@ -6,7 +6,9 @@ const LINKS = {
   universal: "https://drive.google.com/file/d/1mu5aKltSfMGIJHqJNVyjdx9pPxzojKAv/view",
   getty: "https://drive.google.com/file/d/1zRCB5cFEWJu3z897usy7MG2uUhhb_kgb/view",
   dcaAdult: "https://drive.google.com/file/d/1Pd8tk-KyJ3P-w_2mV1KPJcnA822WSdL5/view",
-  dcaChild: "https://drive.google.com/file/d/1Bk9hOInXEMFvfmMSt-yhn9b5zPVTQukf/view"
+  dcaChild: "https://drive.google.com/file/d/1Bk9hOInXEMFvfmMSt-yhn9b5zPVTQukf/view",
+  koreanAirAndroid: "https://play.google.com/store/apps/details?id=com.koreanair.passenger",
+  koreanAirIOS: "https://apps.apple.com/kr/app/korean-air-my/id1512918989"
 };
 
 const days = [
@@ -191,6 +193,19 @@ const restaurants = [
   ["Day 9–10", "mar’sel", "100 Terranea Way", "Filet Mignon · Lobster · 계절 메뉴", "특별 저녁, 사전예약 권장"]
 ];
 
+const checklistItems = [
+  "여권 4개와 ESTA 승인 확인",
+  "국제운전면허증 · 국내면허증",
+  "신용카드 · 소액 현금",
+  "항공권 · 호텔 · 렌터카 오프라인 저장",
+  "Universal · Getty · DCA 티켓 저장",
+  "LAFC 모바일 티켓과 주차 확인",
+  "아이들 유니폼 영문 이름 · 등번호 · 사이즈 메모",
+  "보조배터리 · 충전기 · 미국용 어댑터",
+  "여행자보험 · 상비약 · 선크림",
+  "My Maps와 이 여행 가이드를 홈 화면에 추가"
+];
+
 const app = document.querySelector("#app");
 const dayDialog = document.querySelector("#dayDialog");
 const dialogDays = document.querySelector("#dialogDays");
@@ -201,6 +216,15 @@ function extLink(label, href, kind = "") {
 
 function mapAddress(address) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+}
+
+function koreanAirAppUrl() {
+  return /iPhone|iPad|iPod/i.test(navigator.userAgent) ? LINKS.koreanAirIOS : LINKS.koreanAirAndroid;
+}
+
+function checklistState() {
+  try { return JSON.parse(localStorage.getItem("la-trip-checklist") || "{}"); }
+  catch { return {}; }
 }
 
 function countdownText() {
@@ -225,16 +249,19 @@ function renderHome() {
 
       <section class="section">
         <div class="section-heading"><h2>여행 한눈에</h2></div>
-        <div class="summary-grid">
-          <article class="summary-card"><span class="card-icon">✈️</span><div><h3>항공</h3><p>7/24 KE011 · ICN 19:40 → LAX 15:20<br>8/3 KE018 · LAX 12:30 출발</p></div></article>
-          <article class="summary-card"><span class="card-icon">🏨</span><div><h3>숙소</h3><p>The Garland 4박<br>JW Marriott 4박<br>Terranea 2박</p></div></article>
-          <article class="summary-card"><span class="card-icon">🚗</span><div><h3>이동</h3><p>LAX Hertz 픽업<br>LA → Anaheim → Palos Verdes</p></div></article>
+        <div class="summary-grid flight-grid">
+          <article class="summary-card"><span class="card-icon">↗</span><div><h3>갈 때</h3><p>7/24 금 · KE011<br>ICN T2 19:40<br>LAX 15:20</p></div></article>
+          <article class="summary-card"><span class="card-icon">↙</span><div><h3>올 때</h3><p>8/3 월 · KE018<br>LAX 12:30<br>ICN 8/4 17:20</p></div></article>
+          <article class="summary-card hotel-summary"><span class="card-icon">🏨</span><div><h3>숙소</h3><p>The Garland 4박 · JW Marriott Anaheim 4박 · Terranea Resort 2박</p></div></article>
         </div>
+        <a class="airline-app-link" href="${koreanAirAppUrl()}" target="_blank" rel="noopener"><span>✈️ 대한항공 My 앱</span><small>체크인 · 탑승권 열기 ↗</small></a>
       </section>
 
       <section class="section">
         <div class="section-heading"><h2>Day 바로가기</h2><a href="#days">전체 보기</a></div>
-        <div class="day-strip">${days.map(d => `<a class="day-pill" href="#day-${d.day}"><strong>DAY ${d.day}</strong><span>${d.title}</span><small>${d.date}</small></a>`).join("")}</div>
+        <a class="checklist-shortcut" href="#checklist"><span><strong>✓ 출발 전 Checklist</strong><small>여권 · 티켓 · 준비물 최종 확인</small></span><span>›</span></a>
+        <div class="home-day-grid">${days.slice(0, 10).map(d => `<a class="home-day-card" href="#day-${d.day}" title="${d.title}"><b>DAY ${d.day}</b><strong>${d.title}</strong><time>${d.date}</time></a>`).join("")}</div>
+        <a class="home-day-last" href="#day-11"><span><b>DAY 11</b><strong>귀국</strong></span><time>8/3 월</time><span>›</span></a>
       </section>
 
       <section class="section">
@@ -316,6 +343,20 @@ function renderInfo() {
     </div>`;
 }
 
+function renderChecklist() {
+  const saved = checklistState();
+  const done = checklistItems.filter((_, index) => saved[index]).length;
+  return `
+    <div class="page">
+      <p class="eyebrow">Before departure</p>
+      <h1 class="page-title">출발 전 Checklist</h1>
+      <p class="page-lead">체크한 항목은 이 기기에 저장됩니다. 출국 전날과 공항 출발 직전에 한 번씩 확인하세요.</p>
+      <div class="checklist-grid">${checklistItems.map((item, index) => `<label class="check-item"><input type="checkbox" data-check="${index}" ${saved[index] ? "checked" : ""}><span>${item}</span></label>`).join("")}</div>
+      <p class="check-progress"><strong>${done} / ${checklistItems.length}</strong> 완료</p>
+      <section class="section quick-actions">${extLink("대한항공 My 앱", koreanAirAppUrl())}${extLink("Drive 폴더", LINKS.folder)}${extLink("여행 시작 · Day 1", "#day-1", "primary").replace('target="_blank" rel="noopener"', '')}</section>
+    </div>`;
+}
+
 function currentRoute() {
   return (location.hash || "#home").slice(1);
 }
@@ -330,6 +371,8 @@ function render() {
     app.innerHTML = renderDays();
   } else if (route === "info") {
     app.innerHTML = renderInfo();
+  } else if (route === "checklist") {
+    app.innerHTML = renderChecklist();
   } else {
     app.innerHTML = renderHome();
   }
@@ -347,6 +390,13 @@ document.querySelector("#closeDayDialog").addEventListener("click", () => dayDia
 dayDialog.addEventListener("click", event => { if (event.target === dayDialog) dayDialog.close(); });
 dialogDays.addEventListener("click", () => dayDialog.close());
 window.addEventListener("hashchange", render);
+app.addEventListener("change", event => {
+  if (!event.target.matches("[data-check]")) return;
+  const saved = checklistState();
+  saved[event.target.dataset.check] = event.target.checked;
+  localStorage.setItem("la-trip-checklist", JSON.stringify(saved));
+  render();
+});
 
 let touchStartX = 0;
 let touchStartY = 0;
