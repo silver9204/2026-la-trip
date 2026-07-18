@@ -1,4 +1,4 @@
-const CACHE_NAME = "la-trip-v5";
+const CACHE_NAME = "la-trip-v6";
 const APP_SHELL = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest"];
 
 self.addEventListener("install", event => {

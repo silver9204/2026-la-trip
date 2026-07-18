@@ -262,17 +262,28 @@ function renderHome() {
         <div class="countdown">${countdownText()}</div>
       </section>
 
-      <section class="section">
-        <div class="section-heading"><h2>여행 한눈에</h2></div>
-        <div class="summary-grid flight-grid">
-          <article class="summary-card"><span class="card-icon">↗</span><div><h3>갈 때</h3><p>7/24 금 · KE011<br>ICN T2 19:40<br>LAX 15:20</p></div></article>
-          <article class="summary-card"><span class="card-icon">↙</span><div><h3>올 때</h3><p>8/3 월 · KE018<br>LAX 12:30<br>ICN 8/4 17:20</p></div></article>
+      <section class="section flight-section">
+        <div class="flight-timeline" aria-label="왕복 항공편">
+          <article class="flight-leg">
+            <span class="flight-marker">↗</span>
+            <div class="flight-card">
+              <div class="flight-card-head"><span>갈 때</span><strong>7/24 금 · KE011</strong></div>
+              <div class="flight-route"><span><small>출발</small><b>ICN T2</b><time>19:40</time></span><i>→</i><span><small>도착</small><b>LAX</b><time>15:20</time></span></div>
+            </div>
+          </article>
+          <article class="flight-leg">
+            <span class="flight-marker">↙</span>
+            <div class="flight-card">
+              <div class="flight-card-head"><span>올 때</span><strong>8/3 월 · KE018</strong></div>
+              <div class="flight-route"><span><small>출발</small><b>LAX</b><time>12:30</time></span><i>→</i><span><small>도착 · 8/4</small><b>ICN</b><time>17:20</time></span></div>
+            </div>
+          </article>
         </div>
+        <a class="airline-app-link" href="${koreanAirAppUrl()}" target="_blank" rel="noopener"><span>✈️ 대한항공 My 앱</span><small>체크인 · 탑승권 열기 ↗</small></a>
         <article class="home-checklist">
           <div class="home-checklist-head"><h3>✓ 출발 전 Checklist</h3><span class="check-progress">${done} / ${checklistItems.length} 완료</span></div>
           <div class="home-checklist-scroll">${checklistItems.map((item, index) => `<label class="check-item"><input type="checkbox" data-check="${index}" ${saved[index] ? "checked" : ""}><span>${item}</span></label>`).join("")}</div>
         </article>
-        <a class="airline-app-link" href="${koreanAirAppUrl()}" target="_blank" rel="noopener"><span>✈️ 대한항공 My 앱</span><small>체크인 · 탑승권 열기 ↗</small></a>
         <div class="hotel-section-heading"><h3>숙소</h3><div class="hotel-scroll-controls"><button type="button" data-hotel-scroll="-1" aria-label="이전 숙소">‹</button><button type="button" data-hotel-scroll="1" aria-label="다음 숙소">›</button></div></div>
         <div class="hotel-scroll-shell"><div class="hotel-timeline">${hotels.map((h, index) => `<article class="hotel-stop"><div class="hotel-marker"><span>${index + 1}</span></div><div class="hotel-card"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div></div>
         <a class="hotels-app-link" href="${hotelsAppUrl()}" target="_blank" rel="noopener"><span>🏨 Hotels.com 앱</span><small>예약 · 바우처 확인 ↗</small></a>
