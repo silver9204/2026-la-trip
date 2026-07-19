@@ -12,6 +12,7 @@ const LINKS = {
   garlandVoucher: "https://drive.google.com/file/d/1Ns5me4KjwAJ79fyC4aAgY3r8aKyr2jSB/view",
   jwVoucher: "https://drive.google.com/file/d/1GWdQgHtiDaIwToTWPZFugliDR0kplaY2/view",
   terraneaVoucher: "https://drive.google.com/file/d/1PSAntwTzj-9QdCg-CYTRrxEvG_V7jq4Z/view",
+  callvan: "https://orders.pay.naver.com/order/status/2026071971501271",
   koreanAir: "https://www.koreanair.com/",
   hotels: "https://www.hotels.com/"
 };
@@ -127,7 +128,7 @@ const days = [
     ],
     move: ["동탄 자택 → ICN T2: 콜밴 약 90–150분 예상", "LAX → Hertz → The Garland", "공항에서 호텔까지 약 45–70분", "호텔 셀프주차 $50+세금"],
     tips: ["13:50까지 차량 도착 확인 · 14:15 실제 출발 마지노선", "콜밴 기사 연락처와 귀국편 픽업 위치·대기 방식 재확인", "렌터카 외관·연료·트렁크 적재 상태 확인", "국제면허증과 예약 확인서 준비", "피곤하면 저녁은 호텔 The Front Yard로 대체"],
-    actions: [["Hertz 영문 예약 확인서", LINKS.hertz, "ticket"], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["지도", LINKS.map]]
+    actions: [["콜밴 예약 확인", LINKS.callvan, "ticket"], ["Hertz 영문 예약 확인서", LINKS.hertz, "ticket"], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 2, date: "7/25 토", title: "Exposition Park + LAFC", theme: "과학관 · 자연사박물관 · 축구 직관", hotel: "The Garland",
@@ -279,7 +280,7 @@ const days = [
     ],
     move: ["Terranea → LAX 약 40–60분", "Hertz 반납 후 셔틀 이동", "국제선 출발 3시간 전 공항 도착 목표", "ICN T2 → 동탄 자택: 왕복 콜밴 귀국편"],
     tips: ["주유 영수증 보관", "차량과 트렁크에 짐이 남지 않았는지 확인", "라운지 위치·운영 여부는 체크인 카운터에서 최종 확인", "출국 전 귀국편 픽업 위치·기사 연락 방식 저장"],
-    actions: [["Hertz 영문 예약 확인서", LINKS.hertz, "ticket"], ["지도", LINKS.map]]
+    actions: [["콜밴 예약 확인", LINKS.callvan, "ticket"], ["Hertz 영문 예약 확인서", LINKS.hertz, "ticket"], ["지도", LINKS.map]]
   }
 ];
 
@@ -726,7 +727,9 @@ function mapPlace(placeName) {
 }
 
 function koreanAirAppUrl() {
-  return appLaunchUrl(LINKS.koreanAir, "com.koreanair.passenger");
+  const playStoreUrl = "https://play.google.com/store/apps/details?id=com.koreanair.passenger";
+  if (!/Android/i.test(navigator.userAgent)) return playStoreUrl;
+  return `intent://#Intent;package=com.koreanair.passenger;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
 }
 
 function hotelsAppUrl() {
@@ -909,7 +912,7 @@ function renderHome() {
             </div>
           </article>
         </div>
-        <a class="airline-app-link" href="${koreanAirAppUrl()}"><span>✈️ 대한항공 My 앱</span><small>설치된 앱에서 열기 ↗</small></a>
+        <a class="airline-app-link" href="${koreanAirAppUrl()}"><span>✈️ 대한항공 My 앱 열기</span><small>설치된 앱에서 바로 실행 ↗</small></a>
       </section>
 
       <section class="section">
@@ -1011,14 +1014,14 @@ function reservationCard({ title, status = "예약 완료", pending = false, met
     <div class="booking-card-head"><h3>${title}</h3><span class="booking-status ${pending ? "pending" : ""}">${status}</span></div>
     <p class="booking-meta">${meta}</p>
     ${details.length ? `<ul class="info-list">${details.map(item => `<li>${item}</li>`).join("")}</ul>` : ""}
-    ${links.length ? `<div class="booking-links">${links.map(([label, href, kind]) => extLink(label, href, kind)).join("")}</div>` : ""}
+    ${links.length ? `<div class="booking-links">${links.map(([label, href, kind, sameTab]) => sameTab ? `<a class="action-link ${kind || ""}" href="${href}">${label} ↗</a>` : extLink(label, href, kind)).join("")}</div>` : ""}
   </article>`;
 }
 
 function renderReservations() {
   const transport = [
-    { title: "대한항공 왕복", meta: "KE011 · 7/24 19:40 ICN T2 출발 / KE018 · 8/3 12:30 LAX 출발", details: ["귀국 8/4 17:20 ICN T2 도착", "프레스티지 클래스"], links: [["대한항공 My 앱", koreanAirAppUrl(), "primary"]] },
-    { title: "인천공항 왕복 콜밴", meta: "동탄 자택 ↔ 인천공항 T2", details: ["출국 7/24 14:00 출발", "귀국 KE018 도착 후 픽업", "왕복 220,000원"] },
+    { title: "대한항공 왕복", meta: "KE011 · 7/24 19:40 ICN T2 출발 / KE018 · 8/3 12:30 LAX 출발", details: ["귀국 8/4 17:20 ICN T2 도착", "프레스티지 클래스"], links: [["대한항공 My 앱 열기", koreanAirAppUrl(), "primary", true]] },
+    { title: "인천공항 왕복 콜밴", meta: "동탄 자택 ↔ 인천공항 T2", details: ["출국 7/24 14:00 출발", "귀국 KE018 도착 후 픽업", "왕복 220,000원"], links: [["네이버페이 주문내역", LINKS.callvan, "ticket"]] },
     { title: "Hertz 렌터카", meta: "7/24 LAX 픽업 · 8/3 LAX 반납", details: ["예약 번호 L61140197D4", "현지 지불 예상 $822.62"], links: [["영문 예약 확인서", LINKS.hertz, "ticket"]] }
   ];
   const tickets = [
@@ -1070,7 +1073,7 @@ function renderChecklist() {
       <p class="page-lead">체크한 항목은 이 기기에 저장됩니다. 출국 전날과 공항 출발 직전에 한 번씩 확인하세요.</p>
       <div class="checklist-grid">${checklistItems.map((item, index) => `<label class="check-item"><input type="checkbox" data-check="${index}" ${saved[index] ? "checked" : ""}><span>${item}</span></label>`).join("")}</div>
       <p class="check-progress"><strong>${done} / ${checklistItems.length}</strong> 완료</p>
-      <section class="section quick-actions"><a class="action-link" href="${koreanAirAppUrl()}">대한항공 My 앱 ↗</a>${extLink("Drive 폴더", LINKS.folder)}${extLink("여행 시작 · Day 1", "#day-1", "primary").replace('target="_blank" rel="noopener"', '')}</section>
+      <section class="section quick-actions"><a class="action-link" href="${koreanAirAppUrl()}">대한항공 My 앱 열기 ↗</a>${extLink("Drive 폴더", LINKS.folder)}${extLink("여행 시작 · Day 1", "#day-1", "primary").replace('target="_blank" rel="noopener"', '')}</section>
     </div>`;
 }
 
