@@ -680,6 +680,14 @@ const hotels = [
   }
 ];
 
+const destinationRestaurants = [
+  { day: "Beverly Hills", name: "Spago Beverly Hills", mapQuery: "Spago Beverly Hills 176 N Canon Dr", rating: "4.5", reviews: "1,869", address: "176 N Canon Dr, Beverly Hills", menu: "Smoked Salmon Pizza · Spicy Tuna Cones · California Tasting Menu", tip: "LA 캘리포니아 퀴진의 상징 · Day 3 Beverly Hills 저녁으로 대체 가능 · 가격대가 매우 높고 예약 필수", image: "assets/info/restaurant-spago.jpg", imageAlt: "Spago Beverly Hills의 다이닝 공간", photoSource: "https://wolfgangpuck.com/restaurants/spago-beverly-hills/" },
+  { day: "Arts District", name: "Bestia", mapQuery: "Bestia 2121 E 7th Pl Los Angeles", rating: "4.5", reviews: "3,979", address: "2121 E 7th Pl, Los Angeles", menu: "Housemade Buttermilk Ricotta · Wood-fired Pizza · Grilled Whole Fish", tip: "창고형 공간과 오픈 키친까지 포함한 목적지형 이탈리안 · 매우 활기차고 소음이 큰 편 · 저녁 예약 필수", image: "assets/info/restaurant-bestia.jpg", imageAlt: "Bestia의 이탈리안 요리", photoSource: "https://bestiala.com/" },
+  { day: "Koreatown", name: "Guelaguetza", mapQuery: "Guelaguetza 3014 W Olympic Blvd Los Angeles", rating: "4.3", reviews: "6,414", address: "3014 W Olympic Blvd, Los Angeles", menu: "Mole Negro · Tlayuda · Enchiladas", tip: "LA의 오악사카 음식 문화를 대표하는 가족 식당 · 여러 종류의 몰레와 틀라유다를 나눠 먹기 좋음 · 월요일 휴무", image: "assets/info/restaurant-guelaguetza.jpg", imageAlt: "Guelaguetza의 오악사카 음식", photoSource: "https://ilovemole.com/" },
+  { day: "Chinatown", name: "Philippe The Original", mapQuery: "Philippe The Original 1001 N Alameda St Los Angeles", rating: "4.6", reviews: "11,972", address: "1001 N Alameda St, Los Angeles", menu: "Beef Dip Sandwich · Potato Salad · Pie", tip: "1908년 시작한 LA식 프렌치딥 샌드위치의 역사적 명소 · 가족이 편하게 들르기 좋고 Union Station·차이나타운과 묶기 쉬움", image: "assets/info/restaurant-philippe.jpg", imageAlt: "Philippe The Original의 프렌치딥 샌드위치", photoSource: "https://philippes.com/" },
+  { day: "Malibu", name: "Nobu Malibu", mapQuery: "Nobu Malibu 22706 Pacific Coast Hwy", rating: "4.3", reviews: "3,645", address: "22706 Pacific Coast Hwy, Malibu", menu: "Black Cod with Miso · Yellowtail Jalapeño · Rock Shrimp Tempura", tip: "음식과 태평양 전망을 함께 보는 특별식 · 현재 동선에서는 가장 멀고 가격대가 매우 높음 · 점심 또는 이른 저녁 예약 필수", image: "assets/info/restaurant-nobu-malibu.webp", imageAlt: "Nobu Malibu의 태평양 전망", photoSource: "https://www.noburestaurants.com/malibu/nobu-malibu-japanese-restaurant-bar-and-lounge" }
+];
+
 const restaurants = [
   { day: "Day 1", name: "The Front Yard", mapQuery: "The Front Yard North Hollywood", rating: "4.4", reviews: "2,570", address: "4222 Vineland Ave, North Hollywood", menu: "Breakfast Buffet · French Toast · Burger", tip: "첫날 저녁 또는 조식, 파티오 권장", image: "assets/info/restaurant-front-yard.jpg", imageAlt: "The Front Yard 파티오 다이닝", photoSource: "https://www.thegarland.com/dine" },
   { day: "Day 1·4", name: "Porto’s Bakery and Cafe", mapQuery: "Porto's Bakery and Cafe Burbank", rating: "4.8", reviews: "26,096", address: "3614 W Magnolia Blvd, Burbank", menu: "Cheese Roll · Potato Ball · Guava Cheese Strudel", tip: "The Garland에서 차로 약 10–15분 · 아침 또는 간식 픽업", image: "assets/info/restaurant-portos.jpg", imageAlt: "Porto’s Bakery의 베이커리와 카페", photoSource: "https://www.portosbakery.com/" },
@@ -1056,12 +1064,16 @@ function renderReservations() {
   </div>`;
 }
 
+function restaurantCard(r) {
+  return `<article class="restaurant-card photo-card"><a class="photo-card-media" href="${r.photoSource}" target="_blank" rel="noopener"><img src="${r.image}" alt="${r.imageAlt}" loading="lazy"><span>${r.day} · 공식 사진 ↗</span></a><div class="photo-card-body"><div class="restaurant-title-row"><h3><a class="restaurant-name-link" href="${mapPlace(r.mapQuery || r.name)}" target="_blank" rel="noopener">${r.name} ↗</a></h3><span class="restaurant-rating" aria-label="Google Maps 평점 ${r.rating}, 리뷰 ${r.reviews}개">Google ★ ${r.rating} <small>(${r.reviews})</small></span></div><p class="menu">${r.menu}</p><p>${r.tip}</p><a class="address-link" href="${mapAddress(r.address)}" target="_blank" rel="noopener">${r.address} ↗</a></div></article>`;
+}
+
 function renderInfo() {
   return `
     <div class="page">
       <p class="eyebrow">Stay · Eat · Prepare</p>
       <h1 class="page-title">여행정보</h1>
-      <p class="page-lead">호텔 이용 팁과 일정에 맞춘 식당을 한곳에 모았습니다.</p>
+      <p class="page-lead">호텔 이용 팁, 일정에 맞춘 식당과 동선을 벗어나도 가볼 만한 LA 대표 식당을 한곳에 모았습니다.</p>
 
       <section class="section">
         <div class="section-heading"><h2>호텔 이용 팁</h2></div>
@@ -1069,9 +1081,15 @@ function renderInfo() {
       </section>
 
       <section class="section">
+        <div class="section-heading"><h2>LA까지 갔다면 · 목적지형 5곳</h2></div>
+        <p class="rating-note">현재 일정에서 일부러 이동할 가치가 있는 식당을 음식·역사·공간 경험이 겹치지 않게 골랐습니다. Google Maps 평점·리뷰 수는 2026. 7. 19 확인 기준이며 변동될 수 있습니다.</p>
+        <div class="restaurant-grid">${destinationRestaurants.map(restaurantCard).join("")}</div>
+      </section>
+
+      <section class="section">
         <div class="section-heading"><h2>추천 레스토랑</h2></div>
         <p class="rating-note">Google Maps 평점·리뷰 수는 2026. 7. 18–19 확인 기준이며 변동될 수 있습니다. 식당명을 누르면 지도에서 장소를 바로 확인할 수 있습니다.</p>
-        <div class="restaurant-grid">${restaurants.map(r => `<article class="restaurant-card photo-card"><a class="photo-card-media" href="${r.photoSource}" target="_blank" rel="noopener"><img src="${r.image}" alt="${r.imageAlt}" loading="lazy"><span>${r.day} · 공식 사진 ↗</span></a><div class="photo-card-body"><div class="restaurant-title-row"><h3><a class="restaurant-name-link" href="${mapPlace(r.mapQuery || r.name)}" target="_blank" rel="noopener">${r.name} ↗</a></h3><span class="restaurant-rating" aria-label="Google Maps 평점 ${r.rating}, 리뷰 ${r.reviews}개">Google ★ ${r.rating} <small>(${r.reviews})</small></span></div><p class="menu">${r.menu}</p><p>${r.tip}</p><a class="address-link" href="${mapAddress(r.address)}" target="_blank" rel="noopener">${r.address} ↗</a></div></article>`).join("")}</div>
+        <div class="restaurant-grid">${restaurants.map(restaurantCard).join("")}</div>
       </section>
 
       <section class="section quick-actions">${extLink("원본 일정", LINKS.source)}${extLink("Day별 지도", "#days").replace('target="_blank" rel="noopener"', '')}${extLink("Drive 폴더", LINKS.folder)}</section>
