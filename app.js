@@ -1006,6 +1006,38 @@ function renderDays() {
   return `<div class="page"><p class="eyebrow">10 nights · 11 days</p><h1 class="page-title">전체 일정</h1><p class="page-lead">날짜를 누르면 그날의 타임라인과 주차·예약 정보를 바로 확인할 수 있습니다.</p><div class="all-days">${days.map(d => `<a class="day-row" href="#day-${d.day}"><img src="${dayVisuals[d.day].image}" alt="" loading="lazy" decoding="async"><span class="day-number">${d.day}</span><span><small>DAY ${d.day} · ${d.date}</small><h3>${d.title}</h3><p>${d.theme}</p></span><span>›</span></a>`).join("")}</div></div>`;
 }
 
+function reservationCard({ title, status = "예약 완료", pending = false, meta, details = [], links = [] }) {
+  return `<article class="booking-card">
+    <div class="booking-card-head"><h3>${title}</h3><span class="booking-status ${pending ? "pending" : ""}">${status}</span></div>
+    <p class="booking-meta">${meta}</p>
+    ${details.length ? `<ul class="info-list">${details.map(item => `<li>${item}</li>`).join("")}</ul>` : ""}
+    ${links.length ? `<div class="booking-links">${links.map(([label, href, kind]) => extLink(label, href, kind)).join("")}</div>` : ""}
+  </article>`;
+}
+
+function renderReservations() {
+  const transport = [
+    { title: "대한항공 왕복", meta: "KE011 · 7/24 19:40 ICN T2 출발 / KE018 · 8/3 12:30 LAX 출발", details: ["귀국 8/4 17:20 ICN T2 도착", "프레스티지 클래스"], links: [["대한항공 My 앱", koreanAirAppUrl(), "primary"]] },
+    { title: "인천공항 왕복 콜밴", meta: "동탄 자택 ↔ 인천공항 T2", details: ["출국 7/24 14:00 출발", "귀국 KE018 도착 후 픽업", "왕복 220,000원"] },
+    { title: "Hertz 렌터카", meta: "7/24 LAX 픽업 · 8/3 LAX 반납", details: ["예약 번호 L61140197D4", "현지 지불 예상 $822.62"], links: [["예약 확인서", LINKS.hertz, "ticket"]] }
+  ];
+  const tickets = [
+    { title: "LAFC vs. Sporting Kansas City", meta: "Day 2 · 7/25 19:30 · BMO Stadium", details: ["결제 완료 · $837.72", "모바일 티켓"], links: [["LAFC 모바일 티켓", LINKS.lafc, "ticket"]] },
+    { title: "Universal Studios Hollywood", meta: "Day 4 · 7/27", details: ["결제 완료 · 783,600원", "1-Day + 추가 1일 무료 티켓"], links: [["Universal 티켓", LINKS.universal, "ticket"]] },
+    { title: "Getty Center", meta: "Day 5 · 7/28 10:00 · 4명", details: ["Center Admission 예약 완료", "예약 번호 3361550"], links: [["Getty 예약 티켓", LINKS.getty, "ticket"]] },
+    { title: "Knott’s Berry Farm", status: "QR 저장 필요", pending: true, meta: "Day 6 · 7/29", details: ["결제 완료 · $276", "이메일 티켓 수신 완료", "QR은 아직 Drive 미저장"], links: [["티켓 저장 폴더", LINKS.knottsTicketDrive, "ticket"]] },
+    { title: "Disney California Adventure", meta: "Day 7 · 7/30", details: ["결제 완료 · 1,083,700원", "성인 3명 · 어린이 1명"], links: [["성인 바우처", LINKS.dcaAdult, "ticket"], ["어린이 바우처", LINKS.dcaChild, "ticket"]] }
+  ];
+  return `<div class="page reservations-page">
+    <p class="eyebrow">Tickets · Transport</p>
+    <h1 class="page-title">예약 내역</h1>
+    <p class="page-lead">항공·이동·입장권을 한곳에서 확인하고 필요한 티켓을 바로 엽니다.</p>
+    <section class="section"><div class="section-heading"><h2>이동</h2></div><div class="reservation-grid">${transport.map(reservationCard).join("")}</div></section>
+    <section class="section"><div class="section-heading"><h2>티켓 · 입장권</h2></div><div class="reservation-grid">${tickets.map(reservationCard).join("")}</div></section>
+    <section class="section quick-actions">${extLink("전체 Drive 폴더", LINKS.folder)}${extLink("원본 일정", LINKS.source)}</section>
+  </div>`;
+}
+
 function renderInfo() {
   return `
     <div class="page">
@@ -1054,6 +1086,8 @@ function render() {
     app.innerHTML = day ? renderDay(day) : renderDays();
   } else if (route === "days") {
     app.innerHTML = renderDays();
+  } else if (route === "reservations") {
+    app.innerHTML = renderReservations();
   } else if (route === "info") {
     app.innerHTML = renderInfo();
   } else if (route === "checklist") {

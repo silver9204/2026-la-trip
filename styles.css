@@ -141,6 +141,17 @@ button { font: inherit; }
 .info-card h3, .route-card h3, .restaurant-card h3 { margin: 0; font-size: 16px; letter-spacing: -.025em; }
 .info-card p, .route-card p, .restaurant-card p { margin: 7px 0 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
 
+.reservation-grid { display: grid; gap: 12px; }
+.booking-card { padding: 17px; border: 1px solid var(--line); border-radius: 20px; background: var(--card); box-shadow: 0 7px 22px rgba(27, 52, 47, .045); }
+.booking-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.booking-card h3 { margin: 0; font-size: 16px; line-height: 1.4; letter-spacing: -.025em; }
+.booking-status { flex: 0 0 auto; padding: 5px 8px; border-radius: 999px; color: #26715f; background: var(--mint); font-size: 10px; font-weight: 900; }
+.booking-status.pending { color: #9a5b00; background: #fff0c7; }
+.booking-meta { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.booking-card .info-list { margin-bottom: 0; }
+.booking-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 13px; }
+.booking-links .action-link:only-child { grid-column: 1 / -1; }
+
 .flight-section { margin-top: 20px; }
 .flight-timeline { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .flight-timeline::before { content: ""; position: absolute; z-index: 0; top: 18px; left: 25%; right: 25%; height: 2px; background: #bcd7cf; }
@@ -655,6 +666,7 @@ button { font: inherit; }
   .card-stack { grid-template-columns: 1fr 1fr; }
   .hotel-info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
   .restaurant-grid { grid-template-columns: 1fr 1fr; }
+  .reservation-grid { grid-template-columns: 1fr 1fr; }
   .all-days { grid-template-columns: 1fr 1fr; }
   .button-row { grid-template-columns: 1fr 1fr; }
   .place-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
