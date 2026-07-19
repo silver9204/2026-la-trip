@@ -647,13 +647,14 @@ const hotels = [
     stay: "7/24–7/28 · 4박", name: "The Garland", address: "4222 Vineland Ave, North Hollywood, CA 91602",
     checkin: "15:00", checkout: "12:00", room: "Deluxe Room · Queen Bed 2개 · 금연", voucher: LINKS.garlandVoucher,
     image: "assets/info/hotel-garland.jpg", imageAlt: "The Garland 호텔과 트롤리", photoSource: "https://www.thegarland.com/hotel/gallery",
-    tips: ["Universal 셔틀: 호텔 매시 정각 · 귀환 매시 :15 기준", "수영장 06:00–22:00", "The Front Yard는 파티오 좌석 요청", "셀프주차 $50+세금 · 발렛 $55+세금"]
+    tips: ["Universal 셔틀: 호텔 매시 정각 · 귀환 매시 :15 기준", "수영장 06:00–22:00", "The Front Yard는 파티오 좌석 요청", "셀프주차 $50+세금 · 발렛 $55+세금", "셀프 세탁실 24시간 · 환전기 있음 · 기기 요금은 프런트 확인"]
   },
   {
     stay: "7/28–8/1 · 4박", name: "JW Marriott Anaheim", address: "1775 S Clementine St, Anaheim, CA 92802",
     checkin: "16:00", checkout: "11:00", room: "Deluxe Room · Queen Bed 2개 · Pool View · 금연", voucher: LINKS.jwVoucher,
     image: "assets/info/hotel-jw-anaheim.webp", imageAlt: "JW Marriott Anaheim 야외 수영장", photoSource: "https://www.marriott.com/en-us/hotels/snajw-jw-marriott-anaheim-resort/photos/",
-    tips: ["DCA 전용 셔틀 없음 · 도보 이동", "Parkestry Rooftop에서 일부 불꽃놀이 조망 가능", "온수 야외 수영장과 JW Garden", "발렛 약 $68/일"]
+    tips: ["DCA 전용 셔틀 없음 · 도보 이동", "Parkestry Rooftop에서 일부 불꽃놀이 조망 가능", "온수 야외 수영장과 JW Garden", "발렛 약 $68/일", "Valet Dry Cleaning 제공 · 품목별 가격은 객실 세탁표/프런트 확인", "제휴 일반세탁 $2.69/lb · 최소 $55 · 월–토 · 09:00 전 신청 시 익일", "가까운 셀프 세탁: Spin Spot Laundry · 차량 약 8분/2.2mi · 05:00–22:00(마지막 세탁 21:00)"],
+    nearbyLaundry: { name: "Spin Spot Laundry", query: "Spin Spot Laundry 558 S Anaheim Blvd #101, Anaheim, CA 92805" }
   },
   {
     stay: "8/1–8/3 · 2박", name: "Terranea Resort", address: "100 Terranea Way, Rancho Palos Verdes, CA 90275",
@@ -1007,7 +1008,7 @@ function renderInfo() {
 
       <section class="section">
         <div class="section-heading"><h2>호텔 이용 팁</h2></div>
-        <div class="hotel-info-grid">${hotels.map(h => `<article class="info-card hotel-block photo-card"><a class="photo-card-media" href="${h.photoSource}" target="_blank" rel="noopener"><img src="${h.image}" alt="${h.imageAlt}" loading="lazy"><span>공식 사진 ↗</span></a><div class="photo-card-body"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><ul class="info-list">${h.tips.map(x => `<li>${x}</li>`).join("")}</ul><a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div>
+        <div class="hotel-info-grid">${hotels.map(h => `<article class="info-card hotel-block photo-card"><a class="photo-card-media" href="${h.photoSource}" target="_blank" rel="noopener"><img src="${h.image}" alt="${h.imageAlt}" loading="lazy"><span>공식 사진 ↗</span></a><div class="photo-card-body"><span class="tag">${h.stay}</span><h3>${h.name}</h3><div class="hotel-times"><span><b>체크인</b>${h.checkin}</span><span><b>체크아웃</b>${h.checkout}</span></div><p class="hotel-room">${h.room}</p><a class="address-link" href="${mapAddress(h.address)}" target="_blank" rel="noopener">${h.address} ↗</a><ul class="info-list">${h.tips.map(x => `<li>${x}</li>`).join("")}</ul>${h.nearbyLaundry ? `<a class="address-link" href="${mapPlace(h.nearbyLaundry.query)}" target="_blank" rel="noopener">${h.nearbyLaundry.name} 지도 ↗</a>` : ""}<a class="voucher-link" href="${h.voucher}" target="_blank" rel="noopener">호텔 바우처 열기 ↗</a></div></article>`).join("")}</div>
       </section>
 
       <section class="section">
