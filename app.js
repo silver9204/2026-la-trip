@@ -120,9 +120,9 @@ const days = [
     day: 1, date: "7/24 금", title: "LA 도착", theme: "공항 · 렌터카 · 호텔 체크인", hotel: "The Garland",
     timeline: [
       ["14:00 KST", "동탄 자택 출발 · 예약 콜밴", "인천공항 T2 이동 · 왕복 220,000원"],
-      ["16:00 KST", "인천공항 T2 도착 목표", "우리은행 환전소로 이동"],
-      ["16:10 KST", "우리은행 환전 수령", "예약 환전금액 US$500 · 신분증과 환전 신청내역 준비"],
-      ["16:20 KST", "대한항공 프레스티지 체크인", "수하물 위탁 · 출국심사"],
+      ["16:00 KST", "인천공항 T2 도착 목표", "출발층 3층 우리은행 환전소로 이동"],
+      ["16:10 KST", "우리은행 환전 수령", "A 체크인카운터 또는 Gate 8–9 사이 · US$500 · 신분증과 환전 신청내역 준비"],
+      ["16:20 KST", "대한항공 체크인", "수하물 위탁 · 출국심사"],
       ["19:40 KST", "KE011 출발", "LAX 직항"],
       ["15:20 PDT", "LAX 도착", "입국심사 · 수하물 · 세관"],
       ["17:00", "Hertz 렌터카 픽업", "5251 W 98th St · 터미널에서 렌터카 셔틀 이동"],
@@ -1025,7 +1025,7 @@ function reservationCard({ title, status = "예약 완료", pending = false, met
 
 function renderReservations() {
   const transport = [
-    { title: "대한항공 왕복", meta: "KE011 · 7/24 19:40 ICN T2 출발 / KE018 · 8/3 12:30 LAX 출발", details: ["귀국 8/4 17:20 ICN T2 도착", "프레스티지 클래스"], links: [["대한항공 My 앱 열기", koreanAirAppUrl(), "primary", true]] },
+    { title: "대한항공 왕복", meta: "KE011 · 7/24 19:40 ICN T2 출발 / KE018 · 8/3 12:30 LAX 출발", details: ["귀국 8/4 17:20 ICN T2 도착", "귀국편 KE018 프레스티지 클래스"], links: [["대한항공 My 앱 열기", koreanAirAppUrl(), "primary", true]] },
     { title: "인천공항 왕복 콜밴", meta: "동탄 자택 ↔ 인천공항 T2", details: ["출국 7/24 14:00 출발", "귀국 KE018 도착 후 픽업", "왕복 220,000원", "콜밴 예약 확정 후 인천공항 주차대행 취소"], links: [["네이버페이 주문내역", LINKS.callvan, "ticket"], ["주차대행 예약 취소", LINKS.airportValetCancel, "ticket"]] },
     { title: "Hertz 렌터카", meta: "7/24 LAX 픽업 · 8/3 LAX 반납", details: ["예약 번호 L61140197D4", "현지 지불 예상 $822.62"], links: [["영문 예약 확인서", LINKS.hertz, "ticket"]] }
   ];
