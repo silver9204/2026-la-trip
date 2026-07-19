@@ -8,7 +8,7 @@ const LINKS = {
   getty: "https://drive.google.com/file/d/1zRCB5cFEWJu3z897usy7MG2uUhhb_kgb/view",
   dcaAdult: "https://drive.google.com/file/d/1Pd8tk-KyJ3P-w_2mV1KPJcnA822WSdL5/view",
   dcaChild: "https://drive.google.com/file/d/1Bk9hOInXEMFvfmMSt-yhn9b5zPVTQukf/view",
-  knottsTicketDrive: "https://drive.google.com/drive/folders/1RlQ4wR9Fs9uh7LpPCYKykpfTYhP9RZLN",
+  knottsTicket: "https://drive.google.com/file/d/1kzB_iRg-y1IuZxrA1SwldwnfZ2-CjwqA/view?usp=drivesdk",
   garlandVoucher: "https://drive.google.com/file/d/1Ns5me4KjwAJ79fyC4aAgY3r8aKyr2jSB/view",
   jwVoucher: "https://drive.google.com/file/d/1GWdQgHtiDaIwToTWPZFugliDR0kplaY2/view",
   terraneaVoucher: "https://drive.google.com/file/d/1PSAntwTzj-9QdCg-CYTRrxEvG_V7jq4Z/view",
@@ -201,8 +201,8 @@ const days = [
       ["19:00", "호텔 복귀", "수영장과 휴식"]
     ],
     move: ["호텔에서 약 10km · 20분", "파크 공식 주차장 약 $35"],
-    tips: ["티켓 예약 완료 · 총 $276", "이메일 티켓 수신 완료 · QR은 아직 Drive 미저장", "당일 개장·폐장시간 재확인", "Mrs. Knott’s Chicken Dinner는 대기시간 고려", "다음 날 DCA를 위해 무리하지 않기"],
-    actions: [["Knott’s 티켓 저장 폴더", LINKS.knottsTicketDrive, "ticket"], ["지도", LINKS.map]]
+    tips: ["티켓 예약 완료 · 총 $276", "티켓 PDF·QR Drive 저장 완료", "당일 개장·폐장시간 재확인", "Mrs. Knott’s Chicken Dinner는 대기시간 고려", "다음 날 DCA를 위해 무리하지 않기"],
+    actions: [["Knott’s 티켓 PDF", LINKS.knottsTicket, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 7, date: "7/30 목", title: "Disney California Adventure", theme: "DCA 전일 · World of Color", hotel: "JW Marriott Anaheim",
@@ -704,7 +704,7 @@ const checklistItems = [
   "아이들 유니폼 영문 이름 · 등번호 · 사이즈 메모",
   "보조배터리 · 충전기 · 미국용 어댑터",
   "여행자보험 · 상비약 · 선크림",
-  "Knott’s 티켓 $276 결제 완료 · 이메일 QR을 Drive에 저장",
+  "Knott’s 티켓 PDF·QR Drive 저장 완료 · 여행 전 오프라인 저장 확인",
   "미국용 유심/eSIM 설치 · 개통 확인",
   "콜밴 기사 연락처 · 귀국편 픽업 위치 저장"
 ];
@@ -1025,7 +1025,7 @@ function renderReservations() {
     { title: "LAFC vs. Sporting Kansas City", meta: "Day 2 · 7/25 19:30 · BMO Stadium", details: ["결제 완료 · $837.72", "모바일 티켓"], links: [["LAFC 모바일 티켓", LINKS.lafc, "ticket"]] },
     { title: "Universal Studios Hollywood", meta: "Day 4 · 7/27", details: ["결제 완료 · 783,600원", "1-Day + 추가 1일 무료 티켓"], links: [["Universal 티켓", LINKS.universal, "ticket"]] },
     { title: "Getty Center", meta: "Day 5 · 7/28 10:00 · 4명", details: ["Center Admission 예약 완료", "예약 번호 3361550"], links: [["Getty 예약 티켓", LINKS.getty, "ticket"]] },
-    { title: "Knott’s Berry Farm", status: "QR 저장 필요", pending: true, meta: "Day 6 · 7/29", details: ["결제 완료 · $276", "이메일 티켓 수신 완료", "QR은 아직 Drive 미저장"], links: [["티켓 저장 폴더", LINKS.knottsTicketDrive, "ticket"]] },
+    { title: "Knott’s Berry Farm", meta: "Day 6 · 7/29", details: ["결제 완료 · $276", "티켓 PDF·QR Drive 저장 완료"], links: [["티켓 PDF", LINKS.knottsTicket, "ticket"]] },
     { title: "Disney California Adventure", meta: "Day 7 · 7/30", details: ["결제 완료 · 1,083,700원", "성인 3명 · 어린이 1명"], links: [["성인 바우처", LINKS.dcaAdult, "ticket"], ["어린이 바우처", LINKS.dcaChild, "ticket"]] }
   ];
   return `<div class="page reservations-page">
