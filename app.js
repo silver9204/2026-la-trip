@@ -8,6 +8,7 @@ const LINKS = {
   getty: "https://drive.google.com/file/d/1zRCB5cFEWJu3z897usy7MG2uUhhb_kgb/view",
   dcaAdult: "https://drive.google.com/file/d/1Pd8tk-KyJ3P-w_2mV1KPJcnA822WSdL5/view",
   dcaChild: "https://drive.google.com/file/d/1Bk9hOInXEMFvfmMSt-yhn9b5zPVTQukf/view",
+  knottsTicketDrive: "https://drive.google.com/drive/folders/1RlQ4wR9Fs9uh7LpPCYKykpfTYhP9RZLN",
   garlandVoucher: "https://drive.google.com/file/d/1Ns5me4KjwAJ79fyC4aAgY3r8aKyr2jSB/view",
   jwVoucher: "https://drive.google.com/file/d/1GWdQgHtiDaIwToTWPZFugliDR0kplaY2/view",
   terraneaVoucher: "https://drive.google.com/file/d/1PSAntwTzj-9QdCg-CYTRrxEvG_V7jq4Z/view",
@@ -200,8 +201,8 @@ const days = [
       ["19:00", "호텔 복귀", "수영장과 휴식"]
     ],
     move: ["호텔에서 약 10km · 20분", "파크 공식 주차장 약 $35"],
-    tips: ["당일 개장·폐장시간 재확인", "Mrs. Knott’s Chicken Dinner는 대기시간 고려", "다음 날 DCA를 위해 무리하지 않기"],
-    actions: [["지도", LINKS.map]]
+    tips: ["티켓 예약 완료 · 총 $276", "이메일 티켓 수신 완료 · QR은 아직 Drive 미저장", "당일 개장·폐장시간 재확인", "Mrs. Knott’s Chicken Dinner는 대기시간 고려", "다음 날 DCA를 위해 무리하지 않기"],
+    actions: [["Knott’s 티켓 저장 폴더", LINKS.knottsTicketDrive, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 7, date: "7/30 목", title: "Disney California Adventure", theme: "DCA 전일 · World of Color", hotel: "JW Marriott Anaheim",
@@ -703,7 +704,7 @@ const checklistItems = [
   "아이들 유니폼 영문 이름 · 등번호 · 사이즈 메모",
   "보조배터리 · 충전기 · 미국용 어댑터",
   "여행자보험 · 상비약 · 선크림",
-  "너츠베리 팜 티켓 예약 · 오프라인 저장",
+  "Knott’s 티켓 $276 결제 완료 · 이메일 QR을 Drive에 저장",
   "미국용 유심/eSIM 설치 · 개통 확인",
   "콜밴 기사 연락처 · 귀국편 픽업 위치 저장"
 ];
@@ -909,16 +910,6 @@ function renderHome() {
           </article>
         </div>
         <a class="airline-app-link" href="${koreanAirAppUrl()}"><span>✈️ 대한항공 My 앱</span><small>설치된 앱에서 열기 ↗</small></a>
-      </section>
-
-      <section class="section">
-        <div class="section-heading"><h2>예약 내역</h2></div>
-        <article class="info-card reservation-card">
-          <span class="tag">왕복 예약 완료</span>
-          <h3>동탄 자택 ↔ 인천공항 T2 콜밴</h3>
-          <div class="hotel-times"><span><b>출국</b>7/24 금 · 14:00</span><span><b>귀국</b>8/4 화 · KE018 도착 후</span></div>
-          <ul class="info-list"><li>왕복 총액 220,000원</li><li>출국 전날 기사 연락처와 귀국편 픽업 위치·대기 방식 재확인</li></ul>
-        </article>
       </section>
 
       <section class="section">

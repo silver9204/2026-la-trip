@@ -140,8 +140,6 @@ button { font: inherit; }
 }
 .info-card h3, .route-card h3, .restaurant-card h3 { margin: 0; font-size: 16px; letter-spacing: -.025em; }
 .info-card p, .route-card p, .restaurant-card p { margin: 7px 0 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
-.reservation-card .tag { display: inline-block; margin-bottom: 7px; color: var(--orange); font-size: 11px; font-weight: 900; }
-.reservation-card .info-list { margin-bottom: 0; }
 
 .flight-section { margin-top: 20px; }
 .flight-timeline { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
