@@ -116,13 +116,16 @@ const days = [
   {
     day: 1, date: "7/24 금", title: "LA 도착", theme: "공항 · 렌터카 · 호텔 체크인", hotel: "The Garland",
     timeline: [
-      ["15:20", "LAX 도착", "입국심사 · 수하물 · 세관"],
+      ["14:00 KST", "동탄 자택 출발 · 예약 콜밴", "인천공항 T2 이동 · 왕복 220,000원"],
+      ["16:00 KST", "인천공항 T2 도착 목표", "프레스티지 체크인 · 수하물 위탁 · 출국심사"],
+      ["19:40 KST", "KE011 출발", "LAX 직항"],
+      ["15:20 PDT", "LAX 도착", "입국심사 · 수하물 · 세관"],
       ["17:00", "Hertz 렌터카 픽업", "5251 W 98th St · 터미널에서 렌터카 셔틀 이동"],
       ["19:00", "The Garland 체크인", "셀프주차 후 짐 정리"],
       ["19:30", "In-N-Out Burger", "3640 Cahuenga Blvd"]
     ],
-    move: ["LAX → Hertz → The Garland", "공항에서 호텔까지 약 45–70분", "호텔 셀프주차 $50+세금"],
-    tips: ["렌터카 외관·연료·트렁크 적재 상태 확인", "국제면허증과 예약 확인서 준비", "피곤하면 저녁은 호텔 The Front Yard로 대체"],
+    move: ["동탄 자택 → ICN T2: 콜밴 약 90–150분 예상", "LAX → Hertz → The Garland", "공항에서 호텔까지 약 45–70분", "호텔 셀프주차 $50+세금"],
+    tips: ["13:50까지 차량 도착 확인 · 14:15 실제 출발 마지노선", "콜밴 기사 연락처와 귀국편 픽업 위치·대기 방식 재확인", "렌터카 외관·연료·트렁크 적재 상태 확인", "국제면허증과 예약 확인서 준비", "피곤하면 저녁은 호텔 The Front Yard로 대체"],
     actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
@@ -269,10 +272,12 @@ const days = [
       ["08:40", "공항 인근 주유", "Century Blvd 일대"],
       ["09:00", "Hertz 반납", "셔틀로 터미널 이동"],
       ["09:30", "대한항공 체크인", "프레스티지 라운지 안내 확인"],
-      ["12:30", "KE018 출발", "8/4 17:20 ICN 도착"]
+      ["12:30", "KE018 출발", "8/4 17:20 ICN 도착"],
+      ["8/4 17:20 KST", "인천공항 T2 도착", "입국심사 · 수하물 수령 후 예약 콜밴 연락"],
+      ["입국 후", "콜밴 탑승 · 동탄 자택 귀가", "기사 지정 승차 위치 확인"]
     ],
-    move: ["Terranea → LAX 약 40–60분", "Hertz 반납 후 셔틀 이동", "국제선 출발 3시간 전 공항 도착 목표"],
-    tips: ["주유 영수증 보관", "차량과 트렁크에 짐이 남지 않았는지 확인", "라운지 위치·운영 여부는 체크인 카운터에서 최종 확인"],
+    move: ["Terranea → LAX 약 40–60분", "Hertz 반납 후 셔틀 이동", "국제선 출발 3시간 전 공항 도착 목표", "ICN T2 → 동탄 자택: 왕복 콜밴 귀국편"],
+    tips: ["주유 영수증 보관", "차량과 트렁크에 짐이 남지 않았는지 확인", "라운지 위치·운영 여부는 체크인 카운터에서 최종 확인", "출국 전 귀국편 픽업 위치·기사 연락 방식 저장"],
     actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["지도", LINKS.map]]
   }
 ];
@@ -699,7 +704,8 @@ const checklistItems = [
   "보조배터리 · 충전기 · 미국용 어댑터",
   "여행자보험 · 상비약 · 선크림",
   "너츠베리 팜 티켓 예약 · 오프라인 저장",
-  "미국용 유심/eSIM 설치 · 개통 확인"
+  "미국용 유심/eSIM 설치 · 개통 확인",
+  "콜밴 기사 연락처 · 귀국편 픽업 위치 저장"
 ];
 
 const app = document.querySelector("#app");
@@ -903,6 +909,16 @@ function renderHome() {
           </article>
         </div>
         <a class="airline-app-link" href="${koreanAirAppUrl()}"><span>✈️ 대한항공 My 앱</span><small>설치된 앱에서 열기 ↗</small></a>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><h2>예약 내역</h2></div>
+        <article class="info-card reservation-card">
+          <span class="tag">왕복 예약 완료</span>
+          <h3>동탄 자택 ↔ 인천공항 T2 콜밴</h3>
+          <div class="hotel-times"><span><b>출국</b>7/24 금 · 14:00</span><span><b>귀국</b>8/4 화 · KE018 도착 후</span></div>
+          <ul class="info-list"><li>왕복 총액 220,000원</li><li>출국 전날 기사 연락처와 귀국편 픽업 위치·대기 방식 재확인</li></ul>
+        </article>
       </section>
 
       <section class="section">
