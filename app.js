@@ -3,6 +3,8 @@ const LINKS = {
   map: "https://www.google.com/maps/d/viewer?mid=1HDBAhbqSJALyHLK1yXfpzf2gUGklVGo",
   folder: "https://drive.google.com/drive/folders/10d8-uJmbaPHdm5j_aLDck_LpcMknNUJU",
   hertz: "https://drive.google.com/file/d/1KXdWKl6wguy5PDWikt5g1JoBBqh0NO1J/view?usp=drivesdk",
+  hertzLaxInfo: "https://www.hertz.com/us/en/location/unitedstates/california/losangeles/laxt15",
+  laxRentalCarGuide: "https://www.flylax.com/lax-traffic-and-ground-transportation",
   lafc: "https://www.ticketmaster.com/user/order/kjwQYLe8ZrogvC7z6K325EKcJjCspBMlTuJTitQIdTRiWWO5NAV-UrzqxKGALik%3D/0A006373F370941A/view",
   universal: "https://drive.google.com/file/d/1mu5aKltSfMGIJHqJNVyjdx9pPxzojKAv/view",
   getty: "https://drive.google.com/file/d/1zRCB5cFEWJu3z897usy7MG2uUhhb_kgb/view",
@@ -125,13 +127,15 @@ const days = [
       ["16:20 KST", "대한항공 체크인", "수하물 위탁 · 출국심사"],
       ["19:40 KST", "KE011 출발", "LAX 직항"],
       ["15:20 PDT", "LAX 도착", "입국심사 · 수하물 · 세관"],
-      ["17:00", "Hertz 렌터카 픽업", "5251 W 98th St · 터미널에서 렌터카 셔틀 이동"],
+      ["입국 완료 후", "Hertz 셔틀 정류장 이동", "Terminal B Level 1 출구 → 횡단보도 → 중앙 교통섬의 보라색 Rental Cars 표지"],
+      ["+30–45분 여유", "Hertz courtesy shuttle", "무료·상시 운행 · 공식 고정 배차표 없음 · 공항 정체에 따라 대기·이동시간 변동"],
+      ["17:00–17:45", "Hertz 렌터카 픽업", "LAX Rental Car Center · 5251 W 98th St · 24시간 운영"],
       ["19:00", "The Garland 체크인", "셀프주차 후 짐 정리"],
       ["19:30", "In-N-Out Burger", "3640 Cahuenga Blvd"]
     ],
     move: ["동탄 자택 → ICN T2: 콜밴 약 90–150분 예상", "LAX → Hertz → The Garland", "공항에서 호텔까지 약 45–70분", "호텔 셀프주차 $50+세금"],
-    tips: ["13:50까지 차량 도착 확인 · 14:15 실제 출발 마지노선", "콜밴 기사 연락처와 귀국편 픽업 위치·대기 방식 재확인", "렌터카 외관·연료·트렁크 적재 상태 확인", "국제면허증과 예약 확인서 준비", "피곤하면 저녁은 호텔 The Front Yard로 대체"],
-    actions: [["콜밴 예약 확인", LINKS.callvan, "ticket"], ["Hertz 영문 예약 확인서", LINKS.hertz, "ticket"], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["지도", LINKS.map]]
+    tips: ["13:50까지 차량 도착 확인 · 14:15 실제 출발 마지노선", "콜밴 기사 연락처와 귀국편 픽업 위치·대기 방식 재확인", "셔틀은 분홍색 LAX Shuttle이나 초록색 LAX-it이 아니라 보라색 Rental Cars 정류장", "렌터카 외관·연료·트렁크 적재 상태 확인", "국제면허증과 예약 확인서 준비", "피곤하면 저녁은 호텔 The Front Yard로 대체"],
+    actions: [["콜밴 예약 확인", LINKS.callvan, "ticket"], ["Hertz 영문 예약 확인서", LINKS.hertz, "ticket"], ["LAX 셔틀 공식 안내", LINKS.laxRentalCarGuide], ["Hertz LAX 지점 안내", LINKS.hertzLaxInfo], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 2, date: "7/25 토", title: "Exposition Park + LAFC", theme: "과학관 · 자연사박물관 · 축구 직관", hotel: "The Garland",
@@ -294,8 +298,8 @@ const dayHighlights = {
       title: "Hertz LAX",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg/960px-Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg",
       alt: "LAX 도착 후 렌터카를 픽업하는 날",
-      summary: "공항 셔틀로 Hertz 지점까지 이동해 예약 차량과 캐리어 4개 적재 상태를 직접 확인합니다.",
-      points: ["주소: 5251 West 98th Street, Los Angeles, CA 90045", "24시간 운영 · 전화 (310) 568-5100", "픽업 7/24 17:00 · 외관·연료·트렁크 적재 상태 촬영"],
+      summary: "Terminal B 세관을 통과한 뒤 Level 1 도착층 밖 중앙 교통섬의 보라색 Rental Cars 표지에서 무료 셔틀을 타고 Hertz가 있는 LAX Rental Car Center로 이동합니다.",
+      points: ["동선: 입국심사 → 수하물 → 세관 → Level 1 출구 → 횡단보도 → 중앙 교통섬", "보라색 Rental Cars 표지에서 Hertz/Rental Car Center행 차량 확인", "무료·상시 운행, 공식 고정 배차표 없음 · 정류장 도착부터 RCC까지 30–45분 여유 권장", "주소: 5251 West 98th Street · 24시간 운영 · (310) 568-5100", "픽업 예약 17:00 · 외관·연료·트렁크와 캐리어 4개 적재 상태 촬영"],
       source: "https://commons.wikimedia.org/wiki/File:Tom_Bradley_International_Terminal_taken_from_departing_flight_March_2016.jpg",
       sourceLabel: "LAX Tom Bradley 터미널 사진"
     }
@@ -616,8 +620,10 @@ const practicalGuides = {
     lead: "장거리 비행 뒤에는 선택지를 늘리지 말고 입국, 차량, 호텔, 저녁 네 단계만 순서대로 끝냅니다.",
     type: "route",
     items: [
-      ["15:20–17:00", "입국 · 수하물", "LAX 도착 절차", "가족이 한 지점에서 다시 모인 뒤 렌터카 셔틀 승차장으로 이동"],
-      ["17:00", "Hertz 차량 인수", "셔틀 → 계약 확인", "운전자 등록·연료 방식·기존 손상·캐리어 4개 적재 상태를 확인하고 사진 촬영"],
+      ["15:20–입국 완료", "입국 · 수하물 · 세관", "Terminal B Level 1", "가족과 캐리어가 모두 모인 뒤 도착층 밖으로 이동"],
+      ["입국 완료 후", "Hertz 셔틀 정류장", "횡단보도 → 중앙 교통섬", "보라색 Rental Cars 표지를 찾고 Hertz/Rental Car Center행 차량인지 확인"],
+      ["+30–45분 여유", "Hertz courtesy shuttle", "무료 · 상시 운행", "고정 배차표는 없으므로 대기와 공항 순환도로 정체를 포함해 여유 있게 계산"],
+      ["17:00–17:45", "Hertz 차량 인수", "5251 W 98th St", "운전자 등록·연료 방식·기존 손상·캐리어 4개 적재 상태를 확인하고 사진 촬영"],
       ["19:00", "The Garland 체크인", "주차 → 프런트", "차량에 짐을 남기지 말고 보증금·주차 방식·Universal 셔틀 시간을 확인"],
       ["19:30", "첫 저녁", "In-N-Out 또는 호텔", "피로가 크면 운전을 추가하지 않고 The Front Yard로 바로 대체"]
     ]
