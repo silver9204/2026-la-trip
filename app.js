@@ -2,7 +2,7 @@ const LINKS = {
   source: "https://docs.google.com/document/d/18_CN5PKEOzxEM2C20XvUiABuTWzk2Xhnpyu9H3GLzXk/edit",
   map: "https://www.google.com/maps/d/viewer?mid=1HDBAhbqSJALyHLK1yXfpzf2gUGklVGo",
   folder: "https://drive.google.com/drive/folders/10d8-uJmbaPHdm5j_aLDck_LpcMknNUJU",
-  hertz: "https://drive.google.com/file/d/1n4RbqTsmLqsF6W36lnjnECPBhD9DXsqJ/view",
+  hertz: "https://drive.google.com/file/d/1KXdWKl6wguy5PDWikt5g1JoBBqh0NO1J/view?usp=drivesdk",
   lafc: "https://www.ticketmaster.com/user/order/kjwQYLe8ZrogvC7z6K325EKcJjCspBMlTuJTitQIdTRiWWO5NAV-UrzqxKGALik%3D/0A006373F370941A/view",
   universal: "https://drive.google.com/file/d/1mu5aKltSfMGIJHqJNVyjdx9pPxzojKAv/view",
   getty: "https://drive.google.com/file/d/1zRCB5cFEWJu3z897usy7MG2uUhhb_kgb/view",
@@ -127,7 +127,7 @@ const days = [
     ],
     move: ["동탄 자택 → ICN T2: 콜밴 약 90–150분 예상", "LAX → Hertz → The Garland", "공항에서 호텔까지 약 45–70분", "호텔 셀프주차 $50+세금"],
     tips: ["13:50까지 차량 도착 확인 · 14:15 실제 출발 마지노선", "콜밴 기사 연락처와 귀국편 픽업 위치·대기 방식 재확인", "렌터카 외관·연료·트렁크 적재 상태 확인", "국제면허증과 예약 확인서 준비", "피곤하면 저녁은 호텔 The Front Yard로 대체"],
-    actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["지도", LINKS.map]]
+    actions: [["Hertz 영문 예약 확인서", LINKS.hertz, "ticket"], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
     day: 2, date: "7/25 토", title: "Exposition Park + LAFC", theme: "과학관 · 자연사박물관 · 축구 직관", hotel: "The Garland",
@@ -279,7 +279,7 @@ const days = [
     ],
     move: ["Terranea → LAX 약 40–60분", "Hertz 반납 후 셔틀 이동", "국제선 출발 3시간 전 공항 도착 목표", "ICN T2 → 동탄 자택: 왕복 콜밴 귀국편"],
     tips: ["주유 영수증 보관", "차량과 트렁크에 짐이 남지 않았는지 확인", "라운지 위치·운영 여부는 체크인 카운터에서 최종 확인", "출국 전 귀국편 픽업 위치·기사 연락 방식 저장"],
-    actions: [["Hertz 예약 확인서", LINKS.hertz, "ticket"], ["지도", LINKS.map]]
+    actions: [["Hertz 영문 예약 확인서", LINKS.hertz, "ticket"], ["지도", LINKS.map]]
   }
 ];
 
@@ -1019,7 +1019,7 @@ function renderReservations() {
   const transport = [
     { title: "대한항공 왕복", meta: "KE011 · 7/24 19:40 ICN T2 출발 / KE018 · 8/3 12:30 LAX 출발", details: ["귀국 8/4 17:20 ICN T2 도착", "프레스티지 클래스"], links: [["대한항공 My 앱", koreanAirAppUrl(), "primary"]] },
     { title: "인천공항 왕복 콜밴", meta: "동탄 자택 ↔ 인천공항 T2", details: ["출국 7/24 14:00 출발", "귀국 KE018 도착 후 픽업", "왕복 220,000원"] },
-    { title: "Hertz 렌터카", meta: "7/24 LAX 픽업 · 8/3 LAX 반납", details: ["예약 번호 L61140197D4", "현지 지불 예상 $822.62"], links: [["예약 확인서", LINKS.hertz, "ticket"]] }
+    { title: "Hertz 렌터카", meta: "7/24 LAX 픽업 · 8/3 LAX 반납", details: ["예약 번호 L61140197D4", "현지 지불 예상 $822.62"], links: [["영문 예약 확인서", LINKS.hertz, "ticket"]] }
   ];
   const tickets = [
     { title: "LAFC vs. Sporting Kansas City", meta: "Day 2 · 7/25 19:30 · BMO Stadium", details: ["결제 완료 · $837.72", "모바일 티켓"], links: [["LAFC 모바일 티켓", LINKS.lafc, "ticket"]] },
