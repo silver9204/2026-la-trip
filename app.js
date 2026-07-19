@@ -13,6 +13,7 @@ const LINKS = {
   jwVoucher: "https://drive.google.com/file/d/1GWdQgHtiDaIwToTWPZFugliDR0kplaY2/view",
   terraneaVoucher: "https://drive.google.com/file/d/1PSAntwTzj-9QdCg-CYTRrxEvG_V7jq4Z/view",
   callvan: "https://orders.pay.naver.com/order/status/2026071971501271",
+  airportValetCancel: "https://valet.amanopark.co.kr/booking-list",
   koreanAir: "https://www.koreanair.com/",
   hotels: "https://www.hotels.com/"
 };
@@ -707,7 +708,8 @@ const checklistItems = [
   "여행자보험 · 상비약 · 선크림",
   "Knott’s 티켓 PDF·QR Drive 저장 완료 · 여행 전 오프라인 저장 확인",
   "미국용 유심/eSIM 설치 · 개통 확인",
-  "콜밴 기사 연락처 · 귀국편 픽업 위치 저장"
+  "콜밴 기사 연락처 · 귀국편 픽업 위치 저장",
+  "콜밴 예약 확정 후 인천공항 주차대행 예약 취소"
 ];
 
 const app = document.querySelector("#app");
@@ -919,6 +921,7 @@ function renderHome() {
         <div class="section-heading"><h2>출발 전 Checklist</h2><span class="check-progress">${done} / ${checklistItems.length} 완료</span></div>
         <article class="home-checklist">
           <div class="home-checklist-scroll">${checklistItems.map((item, index) => `<label class="check-item"><input type="checkbox" data-check="${index}" ${saved[index] ? "checked" : ""}><span>${item}</span></label>`).join("")}</div>
+          <div class="booking-links">${extLink("인천공항 주차대행 취소", LINKS.airportValetCancel, "ticket")}</div>
         </article>
       </section>
 
@@ -1021,7 +1024,7 @@ function reservationCard({ title, status = "예약 완료", pending = false, met
 function renderReservations() {
   const transport = [
     { title: "대한항공 왕복", meta: "KE011 · 7/24 19:40 ICN T2 출발 / KE018 · 8/3 12:30 LAX 출발", details: ["귀국 8/4 17:20 ICN T2 도착", "프레스티지 클래스"], links: [["대한항공 My 앱 열기", koreanAirAppUrl(), "primary", true]] },
-    { title: "인천공항 왕복 콜밴", meta: "동탄 자택 ↔ 인천공항 T2", details: ["출국 7/24 14:00 출발", "귀국 KE018 도착 후 픽업", "왕복 220,000원"], links: [["네이버페이 주문내역", LINKS.callvan, "ticket"]] },
+    { title: "인천공항 왕복 콜밴", meta: "동탄 자택 ↔ 인천공항 T2", details: ["출국 7/24 14:00 출발", "귀국 KE018 도착 후 픽업", "왕복 220,000원", "콜밴 예약 확정 후 인천공항 주차대행 취소"], links: [["네이버페이 주문내역", LINKS.callvan, "ticket"], ["주차대행 예약 취소", LINKS.airportValetCancel, "ticket"]] },
     { title: "Hertz 렌터카", meta: "7/24 LAX 픽업 · 8/3 LAX 반납", details: ["예약 번호 L61140197D4", "현지 지불 예상 $822.62"], links: [["영문 예약 확인서", LINKS.hertz, "ticket"]] }
   ];
   const tickets = [
@@ -1031,12 +1034,16 @@ function renderReservations() {
     { title: "Knott’s Berry Farm", meta: "Day 6 · 7/29", details: ["결제 완료 · $276", "티켓 PDF·QR Drive 저장 완료"], links: [["티켓 PDF", LINKS.knottsTicket, "ticket"]] },
     { title: "Disney California Adventure", meta: "Day 7 · 7/30", details: ["결제 완료 · 1,083,700원", "성인 3명 · 어린이 1명"], links: [["성인 바우처", LINKS.dcaAdult, "ticket"], ["어린이 바우처", LINKS.dcaChild, "ticket"]] }
   ];
+  const connectivity = [
+    { title: "유심사 미국 eSIM × 2", status: "설치 완료", meta: "미국 · 데이터 용량 완전 무제한", details: ["30,400원 × 2개 · 총 60,800원", "두 기기 eSIM 설치 완료", "현지 도착 후 데이터 회선 활성화 확인"] }
+  ];
   return `<div class="page reservations-page">
-    <p class="eyebrow">Tickets · Transport</p>
+    <p class="eyebrow">Tickets · Transport · Connectivity</p>
     <h1 class="page-title">예약 내역</h1>
-    <p class="page-lead">항공·이동·입장권을 한곳에서 확인하고 필요한 티켓을 바로 엽니다.</p>
+    <p class="page-lead">항공·이동·입장권·통신 예약을 한곳에서 확인하고 필요한 티켓을 바로 엽니다.</p>
     <section class="section"><div class="section-heading"><h2>이동</h2></div><div class="reservation-grid">${transport.map(reservationCard).join("")}</div></section>
     <section class="section"><div class="section-heading"><h2>티켓 · 입장권</h2></div><div class="reservation-grid">${tickets.map(reservationCard).join("")}</div></section>
+    <section class="section"><div class="section-heading"><h2>통신</h2></div><div class="reservation-grid">${connectivity.map(reservationCard).join("")}</div></section>
     <section class="section quick-actions">${extLink("전체 Drive 폴더", LINKS.folder)}${extLink("원본 일정", LINKS.source)}</section>
   </div>`;
 }
@@ -1073,7 +1080,7 @@ function renderChecklist() {
       <p class="page-lead">체크한 항목은 이 기기에 저장됩니다. 출국 전날과 공항 출발 직전에 한 번씩 확인하세요.</p>
       <div class="checklist-grid">${checklistItems.map((item, index) => `<label class="check-item"><input type="checkbox" data-check="${index}" ${saved[index] ? "checked" : ""}><span>${item}</span></label>`).join("")}</div>
       <p class="check-progress"><strong>${done} / ${checklistItems.length}</strong> 완료</p>
-      <section class="section quick-actions"><a class="action-link" href="${koreanAirAppUrl()}">대한항공 My 앱 열기 ↗</a>${extLink("Drive 폴더", LINKS.folder)}${extLink("여행 시작 · Day 1", "#day-1", "primary").replace('target="_blank" rel="noopener"', '')}</section>
+      <section class="section quick-actions">${extLink("인천공항 주차대행 취소", LINKS.airportValetCancel, "ticket")}<a class="action-link" href="${koreanAirAppUrl()}">대한항공 My 앱 열기 ↗</a>${extLink("Drive 폴더", LINKS.folder)}${extLink("여행 시작 · Day 1", "#day-1", "primary").replace('target="_blank" rel="noopener"', '')}</section>
     </div>`;
 }
 
