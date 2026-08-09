@@ -1,9 +1,9 @@
 {
-  "name": "2026 LA 가족여행",
+  "name": "2026 LA 여행 정산",
   "short_name": "LA Trip",
-  "description": "2026 LA 가족여행 모바일 일정 가이드",
+  "description": "2026 LA 가족여행 정산 대시보드와 모바일 일정 가이드",
   "lang": "ko",
-  "start_url": "./#home",
+  "start_url": "./#settlement",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f6f2e9",

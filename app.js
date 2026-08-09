@@ -121,7 +121,7 @@ const days = [
   {
     day: 1, date: "7/24 금", title: "LA 도착", theme: "공항 · 렌터카 · 호텔 체크인", hotel: "The Garland",
     timeline: [
-      ["14:00 KST", "동탄 자택 출발 · 예약 콜밴", "인천공항 T2 이동 · 왕복 220,000원"],
+      ["15:00 KST", "동탄 자택 출발 · 예약 콜밴", "인천공항 T2 이동 · 왕복 220,000원"],
       ["16:00 KST", "인천공항 T2 도착 목표", "출발층 3층 우리은행 환전소로 이동"],
       ["16:10 KST", "우리은행 환전 수령", "A 체크인카운터 또는 Gate 8–9 사이 · US$500 · 신분증과 환전 신청내역 준비"],
       ["16:20 KST", "대한항공 체크인", "수하물 위탁 · 출국심사"],
@@ -134,7 +134,7 @@ const days = [
       ["19:30", "In-N-Out Burger", "3640 Cahuenga Blvd"]
     ],
     move: ["동탄 자택 → ICN T2: 콜밴 약 90–150분 예상", "LAX → Hertz → The Garland", "공항에서 호텔까지 약 45–70분", "호텔 셀프주차 $50+세금"],
-    tips: ["13:50까지 차량 도착 확인 · 14:15 실제 출발 마지노선", "콜밴 기사 연락처와 귀국편 픽업 위치·대기 방식 재확인", "셔틀은 분홍색 LAX Shuttle이나 초록색 LAX-it이 아니라 보라색 Rental Cars 정류장", "렌터카 외관·연료·트렁크 적재 상태 확인", "국제면허증과 예약 확인서 준비", "피곤하면 저녁은 호텔 The Front Yard로 대체"],
+    tips: ["14:50까지 차량 도착 확인 · 15:15 실제 출발 마지노선", "콜밴 기사 연락처와 귀국편 픽업 위치·대기 방식 재확인", "셔틀은 분홍색 LAX Shuttle이나 초록색 LAX-it이 아니라 보라색 Rental Cars 정류장", "렌터카 외관·연료·트렁크 적재 상태 확인", "국제면허증과 예약 확인서 준비", "피곤하면 저녁은 호텔 The Front Yard로 대체"],
     actions: [["콜밴 예약 확인", LINKS.callvan, "ticket"], ["Hertz 영문 예약 확인서", LINKS.hertz, "ticket"], ["LAX 셔틀 공식 안내", LINKS.laxRentalCarGuide], ["Hertz LAX 지점 안내", LINKS.hertzLaxInfo], ["The Garland 바우처", LINKS.garlandVoucher, "ticket"], ["지도", LINKS.map]]
   },
   {
@@ -1040,7 +1040,7 @@ function reservationCard({ title, status = "예약 완료", pending = false, met
 function renderReservations() {
   const transport = [
     { title: "대한항공 왕복", meta: "KE011 · 7/24 19:40 ICN T2 출발 / KE018 · 8/3 12:30 LAX 출발", details: ["귀국 8/4 17:20 ICN T2 도착", "귀국편 KE018 프레스티지 클래스"], links: [["대한항공 My 앱 열기", koreanAirAppUrl(), "primary", true]] },
-    { title: "인천공항 왕복 콜밴", meta: "동탄 자택 ↔ 인천공항 T2", details: ["출국 7/24 14:00 출발", "귀국 KE018 도착 후 픽업", "왕복 220,000원", "콜밴 예약 확정 후 인천공항 주차대행 취소"], links: [["네이버페이 주문내역", LINKS.callvan, "ticket"], ["주차대행 예약 취소", LINKS.airportValetCancel, "ticket"]] },
+    { title: "인천공항 왕복 콜밴", meta: "동탄 자택 ↔ 인천공항 T2", details: ["출국 7/24 15:00 출발", "귀국 KE018 도착 후 픽업", "왕복 220,000원", "콜밴 예약 확정 후 인천공항 주차대행 취소"], links: [["네이버페이 주문내역", LINKS.callvan, "ticket"], ["주차대행 예약 취소", LINKS.airportValetCancel, "ticket"]] },
     { title: "Hertz 렌터카", meta: "7/24 LAX 픽업 · 8/3 LAX 반납", details: ["예약 번호 L61140197D4", "현지 지불 예상 $822.62"], links: [["영문 예약 확인서", LINKS.hertz, "ticket"]] }
   ];
   const tickets = [
@@ -1110,14 +1110,245 @@ function renderChecklist() {
     </div>`;
 }
 
+const settlementSource = window.SETTLEMENT_DATA;
+const settlementPeriods = ["사전결제 완료", "8월 명세서 반영", "9월 명세서 예상", "청구시점 미정"];
+const settlementPalette = {
+  "항공": "#214a72", "숙박": "#315c4c", "렌터카": "#557d6f", "콜밴": "#74a3a0",
+  "외식·카페": "#e77945", "관광·입장": "#f2c355", "식료품": "#88a85e", "주차": "#5b7ea6",
+  "쇼핑·기념품": "#9a6fa8", "의약·편의": "#d49c55", "확인필요": "#ba655d", "비여행": "#8c9691"
+};
+const settlementStorageKey = `la-trip-public-settlement:${settlementSource?.version || "unknown"}`;
+let settlementBasis = "krw";
+let settlementItems = loadSettlementItems();
+
+function escapeText(value) {
+  return String(value ?? "").replace(/[&<>"']/g, character => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[character]);
+}
+
+function loadSettlementItems() {
+  if (!settlementSource?.items) return [];
+  const originals = settlementSource.items.map(item => ({ ...item }));
+  try {
+    const saved = JSON.parse(localStorage.getItem(settlementStorageKey));
+    if (!Array.isArray(saved?.items)) return originals;
+    const edits = new Map(saved.items.map(item => [item.id, item]));
+    return originals.map(item => {
+      const edit = edits.get(item.id);
+      if (!edit) return item;
+      return {
+        ...item,
+        category: settlementSource.categories.includes(edit.category) ? edit.category : item.category,
+        billingPeriod: settlementPeriods.includes(edit.billingPeriod) ? edit.billingPeriod : item.billingPeriod,
+        included: Boolean(edit.included)
+      };
+    });
+  } catch {
+    return originals;
+  }
+}
+
+function saveSettlementItems() {
+  localStorage.setItem(settlementStorageKey, JSON.stringify({
+    version: settlementSource.version,
+    savedAt: new Date().toISOString(),
+    items: settlementItems.map(({ id, category, billingPeriod, included }) => ({ id, category, billingPeriod, included }))
+  }));
+  const state = document.querySelector("#settlementSaveState");
+  if (state) state.textContent = "이 기기에 자동 저장됨";
+}
+
+function formatKrw(value) {
+  return `${Math.round(value).toLocaleString("ko-KR")}원`;
+}
+
+function formatUsd(value) {
+  return Number(value).toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2 });
+}
+
+function formatShare(value) {
+  return `${value.toLocaleString("ko-KR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%`;
+}
+
+function settlementTotals() {
+  return settlementItems.filter(item => item.included).reduce((totals, item) => {
+    totals.usd += item.usd;
+    totals.krw += item.krw;
+    totals.periods[item.billingPeriod] = (totals.periods[item.billingPeriod] || 0) + item.krw;
+    const category = totals.categories.get(item.category) || { usd: 0, krw: 0, count: 0 };
+    category.usd += item.usd;
+    category.krw += item.krw;
+    category.count += 1;
+    totals.categories.set(item.category, category);
+    totals.count += 1;
+    return totals;
+  }, { usd: 0, krw: 0, count: 0, periods: {}, categories: new Map() });
+}
+
+function settlementCategoryRows(totals) {
+  const total = totals[settlementBasis];
+  return settlementSource.categories
+    .map(category => ({ category, ...(totals.categories.get(category) || { usd: 0, krw: 0, count: 0 }) }))
+    .filter(row => row.usd || row.krw)
+    .sort((left, right) => right[settlementBasis] - left[settlementBasis])
+    .map(row => ({ ...row, share: total ? row[settlementBasis] / total * 100 : 0 }));
+}
+
+function settlementOptions(values, selected) {
+  return values.map(value => `<option value="${escapeText(value)}" ${value === selected ? "selected" : ""}>${escapeText(value)}</option>`).join("");
+}
+
+function renderSettlement() {
+  if (!settlementSource?.items?.length) return `<div class="page"><section class="section"><h1 class="page-title">정산 데이터를 불러오지 못했습니다.</h1></section></div>`;
+  return `<div class="page settlement-page">
+    <section class="settlement-hero" aria-labelledby="settlementTitle">
+      <div class="settlement-hero__copy">
+        <p class="eyebrow">2026 LOS ANGELES · SETTLEMENT</p>
+        <h1 id="settlementTitle">여행 정산 대시보드</h1>
+        <p>분류와 포함 여부를 바꾸면 총액, 비중, 차트가 바로 갱신됩니다.</p>
+        <span class="settlement-save-state" id="settlementSaveState">이 기기에 자동 저장됨</span>
+      </div>
+      <div class="settlement-total"><span>현재 포함된 총액</span><strong id="settlementTotalKrw">0원</strong><b id="settlementTotalUsd">$0.00</b></div>
+    </section>
+
+    <section class="settlement-periods" aria-label="청구시점별 총액">
+      <article><span>사전결제 완료</span><strong id="settlementPrepaid">0원</strong><small id="settlementPrepaidShare">0%</small></article>
+      <article><span>8월 명세서 반영</span><strong id="settlementAugust">0원</strong><small id="settlementAugustShare">0%</small></article>
+      <article><span>9월 명세서 예상</span><strong id="settlementSeptember">0원</strong><small id="settlementSeptemberShare">0%</small></article>
+      <article><span>포함 항목</span><strong id="settlementCount">0건</strong><small id="settlementExcluded">제외 0건</small></article>
+    </section>
+
+    <section class="section settlement-signature" aria-labelledby="settlementSignatureTitle">
+      <div class="settlement-section-head">
+        <div><p class="eyebrow">SIGNATURE VIEW</p><h2 id="settlementSignatureTitle">정산분류별 총액과 비중</h2></div>
+        <div class="settlement-basis" role="group" aria-label="비중 계산 기준"><button type="button" data-settlement-basis="krw">원화</button><button type="button" data-settlement-basis="usd">달러</button></div>
+      </div>
+      <div class="settlement-chart-grid">
+        <div class="settlement-donut-panel"><div class="settlement-donut" id="settlementDonut" role="img"><div><span>포함 총액</span><strong id="settlementDonutTotal">0원</strong></div></div><div id="settlementLegend" class="settlement-legend"></div></div>
+        <div><div class="settlement-category-head"><span>정산분류</span><span>달러</span><span>원화</span><span>비중</span></div><div id="settlementCategories"></div></div>
+      </div>
+    </section>
+
+    <section class="section settlement-editor" aria-labelledby="settlementEditorTitle">
+      <div class="settlement-section-head settlement-editor-head"><div><p class="eyebrow">LIVE EDITOR</p><h2 id="settlementEditorTitle">항목별 분류 편집</h2><p>카테고리, 청구시점, 포함 여부만 공개 화면에서 편집합니다. 원본 영수증과 카드 자료는 포함하지 않습니다.</p></div><button type="button" class="settlement-reset" id="settlementReset">수정 초기화</button></div>
+      <div class="settlement-filters">
+        <label class="settlement-search"><span>검색</span><input id="settlementSearch" type="search" placeholder="가맹점 또는 항목 검색"></label>
+        <label><span>청구시점</span><select id="settlementPeriodFilter"><option value="all">전체 시점</option>${settlementOptions(settlementPeriods)}</select></label>
+        <label><span>정산분류</span><select id="settlementCategoryFilter"><option value="all">전체 분류</option>${settlementOptions(settlementSource.categories)}</select></label>
+        <label><span>포함 여부</span><select id="settlementIncludeFilter"><option value="all">전체</option><option value="included">포함만</option><option value="excluded">제외만</option></select></label>
+        <strong id="settlementFilterSummary">0건 표시</strong>
+      </div>
+      <div class="settlement-table-wrap"><table class="settlement-table"><thead><tr><th>포함</th><th>일자</th><th>가맹점 / 항목</th><th>정산분류</th><th>청구시점</th><th>달러</th><th>원화</th></tr></thead><tbody id="settlementRows"></tbody></table></div>
+      <p id="settlementEmpty" class="settlement-empty" hidden>조건에 맞는 항목이 없습니다.</p>
+    </section>
+    <footer class="settlement-footer">표시된 수정 내용은 현재 브라우저에만 저장됩니다. 데이터 기준 ${escapeText(settlementSource.version)}</footer>
+  </div>`;
+}
+
+function refreshSettlementSummary() {
+  const totals = settlementTotals();
+  const totalKrw = totals.krw || 0;
+  const prepaid = totals.periods["사전결제 완료"] || 0;
+  const august = totals.periods["8월 명세서 반영"] || 0;
+  const september = (totals.periods["9월 명세서 예상"] || 0) + (totals.periods["청구시점 미정"] || 0);
+  document.querySelector("#settlementTotalKrw").textContent = formatKrw(totalKrw);
+  document.querySelector("#settlementTotalUsd").textContent = formatUsd(totals.usd);
+  document.querySelector("#settlementPrepaid").textContent = formatKrw(prepaid);
+  document.querySelector("#settlementAugust").textContent = formatKrw(august);
+  document.querySelector("#settlementSeptember").textContent = formatKrw(september);
+  document.querySelector("#settlementPrepaidShare").textContent = formatShare(totalKrw ? prepaid / totalKrw * 100 : 0);
+  document.querySelector("#settlementAugustShare").textContent = formatShare(totalKrw ? august / totalKrw * 100 : 0);
+  document.querySelector("#settlementSeptemberShare").textContent = formatShare(totalKrw ? september / totalKrw * 100 : 0);
+  document.querySelector("#settlementCount").textContent = `${totals.count.toLocaleString("ko-KR")}건`;
+  document.querySelector("#settlementExcluded").textContent = `제외 ${(settlementItems.length - totals.count).toLocaleString("ko-KR")}건`;
+
+  const rows = settlementCategoryRows(totals);
+  let cursor = 0;
+  const stops = rows.map(row => {
+    const start = cursor;
+    cursor += row.share;
+    return `${settlementPalette[row.category] || "#8c9691"} ${start}% ${cursor}%`;
+  });
+  const donut = document.querySelector("#settlementDonut");
+  donut.style.background = stops.length ? `conic-gradient(${stops.join(",")})` : "#e3e8e5";
+  donut.setAttribute("aria-label", rows.map(row => `${row.category} ${formatShare(row.share)}`).join(", "));
+  document.querySelector("#settlementDonutTotal").textContent = settlementBasis === "krw" ? formatKrw(totals.krw) : formatUsd(totals.usd);
+  document.querySelector("#settlementLegend").innerHTML = rows.map(row => `<span><i style="background:${settlementPalette[row.category] || "#8c9691"}"></i>${escapeText(row.category)}<b>${formatShare(row.share)}</b></span>`).join("");
+  document.querySelector("#settlementCategories").innerHTML = rows.map(row => `<div class="settlement-category-row"><span><i style="background:${settlementPalette[row.category] || "#8c9691"}"></i>${escapeText(row.category)}</span><b>${formatUsd(row.usd)}</b><b>${formatKrw(row.krw)}</b><strong>${formatShare(row.share)}</strong><em style="width:${row.share}%;background:${settlementPalette[row.category] || "#8c9691"}"></em></div>`).join("");
+  document.querySelectorAll("[data-settlement-basis]").forEach(button => button.classList.toggle("is-active", button.dataset.settlementBasis === settlementBasis));
+}
+
+function renderSettlementRows() {
+  const search = document.querySelector("#settlementSearch").value.trim().toLocaleLowerCase("ko");
+  const period = document.querySelector("#settlementPeriodFilter").value;
+  const category = document.querySelector("#settlementCategoryFilter").value;
+  const inclusion = document.querySelector("#settlementIncludeFilter").value;
+  const filtered = settlementItems.filter(item => {
+    if (search && !`${item.merchant} ${item.description}`.toLocaleLowerCase("ko").includes(search)) return false;
+    if (period !== "all" && item.billingPeriod !== period) return false;
+    if (category !== "all" && item.category !== category) return false;
+    if (inclusion === "included" && !item.included) return false;
+    if (inclusion === "excluded" && item.included) return false;
+    return true;
+  });
+  document.querySelector("#settlementRows").innerHTML = filtered.map(item => `<tr class="${item.included ? "" : "is-excluded"}" data-settlement-id="${escapeText(item.id)}">
+    <td data-label="포함"><label class="settlement-check"><input type="checkbox" data-settlement-field="included" ${item.included ? "checked" : ""} aria-label="${escapeText(item.merchant)} 정산 포함"><span></span></label></td>
+    <td data-label="일자"><span class="settlement-date">${escapeText(item.date || "미확정")}</span></td>
+    <td data-label="가맹점"><strong class="settlement-merchant">${escapeText(item.merchant)}</strong><small>${escapeText(item.description)}</small></td>
+    <td data-label="정산분류"><select data-settlement-field="category" aria-label="${escapeText(item.merchant)} 정산분류">${settlementOptions(settlementSource.categories, item.category)}</select></td>
+    <td data-label="청구시점"><select data-settlement-field="billingPeriod" aria-label="${escapeText(item.merchant)} 청구시점">${settlementOptions(settlementPeriods, item.billingPeriod)}</select></td>
+    <td data-label="달러"><b>${formatUsd(item.usd)}</b></td><td data-label="원화"><b>${formatKrw(item.krw)}</b></td>
+  </tr>`).join("");
+  document.querySelector("#settlementFilterSummary").textContent = `${filtered.length.toLocaleString("ko-KR")}건 표시 · 전체 ${settlementItems.length.toLocaleString("ko-KR")}건`;
+  document.querySelector("#settlementEmpty").hidden = filtered.length !== 0;
+}
+
+function initSettlementView() {
+  refreshSettlementSummary();
+  renderSettlementRows();
+  document.querySelectorAll("#settlementSearch, #settlementPeriodFilter, #settlementCategoryFilter, #settlementIncludeFilter").forEach(control => {
+    control.addEventListener(control.type === "search" ? "input" : "change", renderSettlementRows);
+  });
+  document.querySelector("#settlementRows").addEventListener("change", event => {
+    const field = event.target.dataset.settlementField;
+    const row = event.target.closest("[data-settlement-id]");
+    if (!field || !row) return;
+    const item = settlementItems.find(candidate => candidate.id === row.dataset.settlementId);
+    if (!item) return;
+    item[field] = field === "included" ? event.target.checked : event.target.value;
+    if (field === "category" && item.category === "비여행") item.included = false;
+    saveSettlementItems();
+    refreshSettlementSummary();
+    renderSettlementRows();
+  });
+  document.querySelector(".settlement-basis").addEventListener("click", event => {
+    const nextBasis = event.target.dataset.settlementBasis;
+    if (!nextBasis) return;
+    settlementBasis = nextBasis;
+    refreshSettlementSummary();
+  });
+  document.querySelector("#settlementReset").addEventListener("click", () => {
+    if (!window.confirm("이 브라우저에서 수정한 정산 분류와 포함 여부를 모두 초기화할까요?")) return;
+    localStorage.removeItem(settlementStorageKey);
+    settlementItems = loadSettlementItems();
+    refreshSettlementSummary();
+    renderSettlementRows();
+  });
+}
+
 function currentRoute() {
-  return (location.hash || "#home").slice(1);
+  return (location.hash || "#settlement").slice(1);
 }
 
 function render() {
   const route = currentRoute();
   const dayMatch = route.match(/^day-(\d+)$/);
-  if (dayMatch) {
+  const isSettlement = route === "settlement";
+  if (isSettlement) {
+    app.innerHTML = renderSettlement();
+    initSettlementView();
+  } else if (dayMatch) {
     const day = days.find(d => d.day === Number(dayMatch[1]));
     app.innerHTML = day ? renderDay(day) : renderDays();
   } else if (route === "days") {
@@ -1131,6 +1362,11 @@ function render() {
   } else {
     app.innerHTML = renderHome();
   }
+  document.body.classList.toggle("settlement-view", isSettlement);
+  document.querySelector("#dayPickerButton").hidden = isSettlement;
+  document.querySelector(".bottom-nav").hidden = isSettlement;
+  document.querySelectorAll("[data-view]").forEach(link => link.classList.toggle("active", link.dataset.view === (isSettlement ? "settlement" : "travel")));
+  document.title = isSettlement ? "2026 LA 여행 · 정산" : "2026 LA 가족여행";
   document.querySelectorAll("[data-nav]").forEach(link => {
     const nav = link.dataset.nav;
     const active = nav === route || (nav === "days" && dayMatch);
