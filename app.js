@@ -1338,13 +1338,14 @@ function initSettlementView() {
 }
 
 function currentRoute() {
-  return (location.hash || "#settlement").slice(1);
+  const defaultRoute = settlementSource?.items?.length ? "#settlement" : "#home";
+  return (location.hash || defaultRoute).slice(1);
 }
 
 function render() {
   const route = currentRoute();
   const dayMatch = route.match(/^day-(\d+)$/);
-  const isSettlement = route === "settlement";
+  const isSettlement = route === "settlement" && Boolean(settlementSource?.items?.length);
   if (isSettlement) {
     app.innerHTML = renderSettlement();
     initSettlementView();
