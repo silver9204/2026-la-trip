@@ -1111,7 +1111,7 @@ function renderChecklist() {
 }
 
 const settlementSource = window.SETTLEMENT_DATA;
-const settlementPeriods = ["사전결제 완료", "8월 명세서 반영", "9월 명세서 예상", "청구시점 미정"];
+const settlementPeriods = ["사전결제 완료", "8월 명세서 반영", "9월 명세서 반영", "청구시점 미정"];
 const settlementPalette = {
   "항공": "#214a72", "숙박": "#315c4c", "렌터카": "#557d6f", "콜밴": "#74a3a0",
   "외식·카페": "#e77945", "관광·입장": "#f2c355", "식료품": "#88a85e", "주차": "#5b7ea6",
@@ -1215,7 +1215,7 @@ function renderSettlement() {
     <section class="settlement-periods" aria-label="청구시점별 총액">
       <article><span>사전결제 완료</span><strong id="settlementPrepaid">0원</strong><small id="settlementPrepaidShare">0%</small></article>
       <article><span>8월 명세서 반영</span><strong id="settlementAugust">0원</strong><small id="settlementAugustShare">0%</small></article>
-      <article><span>9월 명세서 예상</span><strong id="settlementSeptember">0원</strong><small id="settlementSeptemberShare">0%</small></article>
+      <article><span>9월 명세서 반영</span><strong id="settlementSeptember">0원</strong><small id="settlementSeptemberShare">0%</small></article>
       <article><span>포함 항목</span><strong id="settlementCount">0건</strong><small id="settlementExcluded">제외 0건</small></article>
     </section>
 
@@ -1251,7 +1251,7 @@ function refreshSettlementSummary() {
   const totalKrw = totals.krw || 0;
   const prepaid = totals.periods["사전결제 완료"] || 0;
   const august = totals.periods["8월 명세서 반영"] || 0;
-  const september = (totals.periods["9월 명세서 예상"] || 0) + (totals.periods["청구시점 미정"] || 0);
+  const september = (totals.periods["9월 명세서 반영"] || 0) + (totals.periods["청구시점 미정"] || 0);
   document.querySelector("#settlementTotalKrw").textContent = formatKrw(totalKrw);
   document.querySelector("#settlementTotalUsd").textContent = formatUsd(totals.usd);
   document.querySelector("#settlementPrepaid").textContent = formatKrw(prepaid);

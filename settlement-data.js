@@ -1,6 +1,6 @@
 window.SETTLEMENT_DATA = {
-  "version": "2026-08-07-v5-public-1",
-  "generatedAt": "2026-08-07T13:44:01.326Z",
+  "version": "2026-09-27-v1-public-1",
+  "generatedAt": "2026-09-27T00:50:22.956Z",
   "categories": [
     "항공",
     "숙박",
@@ -655,15 +655,48 @@ window.SETTLEMENT_DATA = {
       "krw": 158334
     },
     {
+      "id": "item-071",
+      "date": "2026-08-01",
+      "merchant": "City of Santa Ana Parking",
+      "description": "City of Santa Ana 주차",
+      "category": "주차",
+      "billingPeriod": "9월 명세서 반영",
+      "included": true,
+      "usd": 2,
+      "krw": 2923
+    },
+    {
+      "id": "item-066",
+      "date": "2026-08-01",
+      "merchant": "Crocs",
+      "description": "Crocs Irvine CA",
+      "category": "쇼핑·기념품",
+      "billingPeriod": "9월 명세서 반영",
+      "included": true,
+      "usd": 141.4,
+      "krw": 208102
+    },
+    {
+      "id": "item-068",
+      "date": "2026-08-01",
+      "merchant": "In-N-Out",
+      "description": "In-N-Out LA Mirada",
+      "category": "외식·카페",
+      "billingPeriod": "9월 명세서 반영",
+      "included": true,
+      "usd": 34.24,
+      "krw": 50155
+    },
+    {
       "id": "item-054",
       "date": "2026-08-01",
       "merchant": "JW Marriott Anaheim",
       "description": "객실요금",
       "category": "숙박",
-      "billingPeriod": "9월 명세서 예상",
+      "billingPeriod": "9월 명세서 반영",
       "included": true,
       "usd": 1855.88,
-      "krw": 2741632
+      "krw": 2719046
     },
     {
       "id": "item-055",
@@ -671,10 +704,10 @@ window.SETTLEMENT_DATA = {
       "merchant": "JW Marriott Anaheim",
       "description": "객실 관련 세금·부담금",
       "category": "숙박",
-      "billingPeriod": "9월 명세서 예상",
+      "billingPeriod": "9월 명세서 반영",
       "included": true,
       "usd": 318.93,
-      "krw": 471145
+      "krw": 467264
     },
     {
       "id": "item-056",
@@ -682,10 +715,10 @@ window.SETTLEMENT_DATA = {
       "merchant": "JW Marriott Anaheim",
       "description": "Destination fee 및 세금",
       "category": "숙박",
-      "billingPeriod": "9월 명세서 예상",
+      "billingPeriod": "9월 명세서 반영",
       "included": true,
       "usd": 187.2,
-      "krw": 276545
+      "krw": 274266
     },
     {
       "id": "item-057",
@@ -693,10 +726,10 @@ window.SETTLEMENT_DATA = {
       "merchant": "JW Marriott Anaheim",
       "description": "주차 및 주차세·부담금",
       "category": "주차",
-      "billingPeriod": "9월 명세서 예상",
+      "billingPeriod": "9월 명세서 반영",
       "included": true,
       "usd": 322.92,
-      "krw": 477039
+      "krw": 473109
     },
     {
       "id": "item-058",
@@ -704,10 +737,65 @@ window.SETTLEMENT_DATA = {
       "merchant": "JW Marriott Anaheim",
       "description": "In-Room Dining",
       "category": "외식·카페",
-      "billingPeriod": "9월 명세서 예상",
+      "billingPeriod": "9월 명세서 반영",
       "included": true,
       "usd": 232.09,
-      "krw": 342859
+      "krw": 340035
+    },
+    {
+      "id": "item-070",
+      "date": "2026-08-01",
+      "merchant": "Starbucks",
+      "description": "Starbucks Store 06897",
+      "category": "외식·카페",
+      "billingPeriod": "9월 명세서 반영",
+      "included": true,
+      "usd": 10.399999999999999,
+      "krw": 15230
+    },
+    {
+      "id": "item-064",
+      "date": "2026-08-01",
+      "merchant": "Stussy",
+      "description": "Stussy Archive",
+      "category": "쇼핑·기념품",
+      "billingPeriod": "9월 명세서 반영",
+      "included": true,
+      "usd": 442.49,
+      "krw": 651239
+    },
+    {
+      "id": "item-065",
+      "date": "2026-08-01",
+      "merchant": "Trader Joe's",
+      "description": "Trader Joe's #233",
+      "category": "식료품",
+      "billingPeriod": "9월 명세서 반영",
+      "included": true,
+      "usd": 164.7,
+      "krw": 241299
+    },
+    {
+      "id": "item-069",
+      "date": "2026-08-01",
+      "merchant": "Wetzel's Pretzels",
+      "description": "Wetzel's Pretzels",
+      "category": "외식·카페",
+      "billingPeriod": "9월 명세서 반영",
+      "included": true,
+      "usd": 13.66,
+      "krw": 20103
+    },
+    {
+      "id": "item-067",
+      "date": "2026-08-02",
+      "merchant": "Ralphs",
+      "description": "Ralphs #0720",
+      "category": "식료품",
+      "billingPeriod": "9월 명세서 반영",
+      "included": true,
+      "usd": 75.34,
+      "krw": 110367
     },
     {
       "id": "item-059",
@@ -715,10 +803,10 @@ window.SETTLEMENT_DATA = {
       "merchant": "Terranea Resort",
       "description": "Expedia 숙박 패키지",
       "category": "숙박",
-      "billingPeriod": "9월 명세서 예상",
+      "billingPeriod": "9월 명세서 반영",
       "included": true,
       "usd": 943.2600000000002,
-      "krw": 1393448
+      "krw": 1370886
     },
     {
       "id": "item-060",
@@ -726,10 +814,10 @@ window.SETTLEMENT_DATA = {
       "merchant": "Terranea Resort",
       "description": "In-Room Dining",
       "category": "외식·카페",
-      "billingPeriod": "9월 명세서 예상",
+      "billingPeriod": "9월 명세서 반영",
       "included": true,
       "usd": 384.16,
-      "krw": 567507
+      "krw": 558318
     },
     {
       "id": "item-061",
@@ -737,10 +825,10 @@ window.SETTLEMENT_DATA = {
       "merchant": "Terranea Resort",
       "description": "Cielo Point",
       "category": "외식·카페",
-      "billingPeriod": "9월 명세서 예상",
+      "billingPeriod": "9월 명세서 반영",
       "included": true,
       "usd": 22.76,
-      "krw": 33623
+      "krw": 33078
     },
     {
       "id": "item-062",
@@ -748,10 +836,21 @@ window.SETTLEMENT_DATA = {
       "merchant": "Terranea Resort",
       "description": "주차",
       "category": "주차",
-      "billingPeriod": "9월 명세서 예상",
+      "billingPeriod": "9월 명세서 반영",
       "included": true,
       "usd": 150,
-      "krw": 221590
+      "krw": 218002
+    },
+    {
+      "id": "item-063",
+      "date": "2026-08-04",
+      "merchant": "Hertz",
+      "description": "Hertz Car Rental",
+      "category": "렌터카",
+      "billingPeriod": "9월 명세서 반영",
+      "included": true,
+      "usd": 1547.76,
+      "krw": 2249430
     },
     {
       "id": "item-077",
@@ -765,83 +864,6 @@ window.SETTLEMENT_DATA = {
       "krw": 60800
     },
     {
-      "id": "item-071",
-      "date": "",
-      "merchant": "City of Santa Ana Parking",
-      "description": "명세서 미반영",
-      "category": "주차",
-      "billingPeriod": "9월 명세서 예상",
-      "included": true,
-      "usd": 2,
-      "krw": 2954
-    },
-    {
-      "id": "item-066",
-      "date": "",
-      "merchant": "Crocs",
-      "description": "$141.40 승인 상태 확인",
-      "category": "쇼핑·기념품",
-      "billingPeriod": "9월 명세서 예상",
-      "included": true,
-      "usd": 141.4,
-      "krw": 208886
-    },
-    {
-      "id": "item-063",
-      "date": "",
-      "merchant": "Hertz",
-      "description": "부분취소 반영 후 순승인",
-      "category": "렌터카",
-      "billingPeriod": "9월 명세서 예상",
-      "included": true,
-      "usd": 1547.76,
-      "krw": 2286456
-    },
-    {
-      "id": "item-068",
-      "date": "",
-      "merchant": "In-N-Out",
-      "description": "LA Mirada 구매분 미반영",
-      "category": "외식·카페",
-      "billingPeriod": "9월 명세서 예상",
-      "included": true,
-      "usd": 34.24,
-      "krw": 50582
-    },
-    {
-      "id": "item-067",
-      "date": "",
-      "merchant": "Ralphs",
-      "description": "명세서 미반영",
-      "category": "식료품",
-      "billingPeriod": "9월 명세서 예상",
-      "included": true,
-      "usd": 75.34,
-      "krw": 111297
-    },
-    {
-      "id": "item-070",
-      "date": "",
-      "merchant": "Starbucks",
-      "description": "Store 06897 구매분 미반영",
-      "category": "외식·카페",
-      "billingPeriod": "9월 명세서 예상",
-      "included": true,
-      "usd": 10.399999999999999,
-      "krw": 15364
-    },
-    {
-      "id": "item-064",
-      "date": "",
-      "merchant": "Stussy",
-      "description": "Archive 구매분 미반영",
-      "category": "쇼핑·기념품",
-      "billingPeriod": "9월 명세서 예상",
-      "included": true,
-      "usd": 442.49,
-      "krw": 653676
-    },
-    {
       "id": "item-079",
       "date": "",
       "merchant": "Terranea Resort",
@@ -851,28 +873,6 @@ window.SETTLEMENT_DATA = {
       "included": true,
       "usd": 1152.37,
       "krw": 1702359
-    },
-    {
-      "id": "item-065",
-      "date": "",
-      "merchant": "Trader Joe's",
-      "description": "#233 구매분 미반영",
-      "category": "식료품",
-      "billingPeriod": "9월 명세서 예상",
-      "included": true,
-      "usd": 164.7,
-      "krw": 243306
-    },
-    {
-      "id": "item-069",
-      "date": "",
-      "merchant": "Wetzel's Pretzels",
-      "description": "명세서 미반영",
-      "category": "외식·카페",
-      "billingPeriod": "9월 명세서 예상",
-      "included": true,
-      "usd": 13.66,
-      "krw": 20179
     }
   ]
 };

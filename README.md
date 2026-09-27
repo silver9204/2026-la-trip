@@ -10,4 +10,6 @@ Google Docs 원본 일정을 모바일에서 빠르게 확인하기 위한 정�
 
 ## GitHub Pages
 
+[2026 LA 여행 · 정산 페이지 열기](https://silver9204.github.io/2026-la-trip/)
+
 저장소의 `Settings → Pages`에서 `Deploy from a branch`를 선택하고 `main / (root)`를 게시 소스로 지정합니다.
